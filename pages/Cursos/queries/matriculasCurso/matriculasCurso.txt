@@ -1,0 +1,18 @@
+SELECT
+  COUNT(*) AS total_matriculas,
+  SUM(CASE WHEN m.Tripartita = 1 THEN 1 ELSE 0 END) AS n_tripartita,
+  SUM(CASE WHEN m.Becado = 1 THEN 1 ELSE 0 END) AS n_becados,
+  SUM(CASE WHEN m.FacturaEmpresa = 1 THEN 1 ELSE 0 END) AS n_factura_empresa,
+  SUM(CASE WHEN COALESCE(m.Colegio, '') <> '' THEN 1 ELSE 0 END) AS n_colegiados,
+  SUM(CASE WHEN COALESCE(m.Colegio, '') = '' THEN 1 ELSE 0 END) AS n_no_colegiados,
+  ROUND(100 * SUM(CASE WHEN m.Tripartita = 1 THEN 1 ELSE 0 END) / COUNT(*), 1) AS pct_tripartita,
+  ROUND(100 * SUM(CASE WHEN m.Becado = 1 THEN 1 ELSE 0 END) / COUNT(*), 1) AS pct_becados,
+  ROUND(100 * SUM(CASE WHEN m.FacturaEmpresa = 1 THEN 1 ELSE 0 END) / COUNT(*), 1) AS pct_factura_empresa,
+  ROUND(100 * SUM(CASE WHEN COALESCE(m.Colegio, '') <> '' THEN 1 ELSE 0 END) / COUNT(*), 1) AS pct_colegiados,
+  ROUND(100 * SUM(CASE WHEN COALESCE(m.Colegio, '') = '' THEN 1 ELSE 0 END) / COUNT(*), 1) AS pct_no_colegiados,
+	ROUND(COUNT(*) / COUNT(DISTINCT m.IdConvocatoria), 1) AS media_matriculas_convocatoria
+FROM cogiti001.matriculas m
+JOIN cogiti001.convocatorias c ON c.IdConvocatoria = m.IdConvocatoria
+WHERE c.IdCurso = '{{buscador.text}}'
+  AND c.Activo = 1
+  AND m.Baja = 0;

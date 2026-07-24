@@ -1,0 +1,10 @@
+SELECT DATE_FORMAT(c.FechaInicioCurso, '%Y-%m') AS periodo,
+       COUNT(m.IdMatricula) AS matriculas,
+       COUNT(DISTINCT c.IdConvocatoria) AS convocatorias
+FROM cogiti001.convocatorias c
+LEFT JOIN cogiti001.matriculas m
+       ON m.IdConvocatoria = c.IdConvocatoria AND m.Baja = 0
+WHERE c.IdCurso = '{{buscador.text}}'
+  AND c.Activo = 1
+GROUP BY periodo
+ORDER BY periodo;

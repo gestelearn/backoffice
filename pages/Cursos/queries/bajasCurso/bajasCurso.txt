@@ -1,0 +1,14 @@
+SELECT
+  COUNT(*) AS total_inscripciones,
+  SUM(CASE WHEN m.Baja = 1 THEN 1 ELSE 0 END) AS n_bajas_total,
+  SUM(CASE WHEN m.Baja = 1 AND m.Estado = 'Pendiente' THEN 1 ELSE 0 END) AS n_bajas_previas,
+  SUM(CASE WHEN m.Baja = 1 AND m.Estado = 'Pagado' THEN 1 ELSE 0 END) AS n_abandonos,
+  SUM(CASE WHEN m.Baja = 0 THEN 1 ELSE 0 END) AS n_activas,
+  ROUND(100 * SUM(CASE WHEN m.Baja = 1 THEN 1 ELSE 0 END) / COUNT(*), 1) AS pct_bajas_total,
+  ROUND(100 * SUM(CASE WHEN m.Baja = 1 AND m.Estado = 'Pendiente' THEN 1 ELSE 0 END) / COUNT(*), 1) AS pct_bajas_previas,
+  ROUND(100 * SUM(CASE WHEN m.Baja = 1 AND m.Estado = 'Pagado' THEN 1 ELSE 0 END)
+        / NULLIF(SUM(CASE WHEN m.Estado = 'Pagado' THEN 1 ELSE 0 END), 0), 1) AS pct_abandono
+FROM cogiti001.matriculas m
+JOIN cogiti001.convocatorias c ON c.IdConvocatoria = m.IdConvocatoria
+WHERE c.IdCurso = '{{buscador.text}}'
+  AND c.Activo = 1;
