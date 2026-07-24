@@ -1,0 +1,110 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "allowScroll": false,
+  "animateLoading": true,
+  "borderRadius": "0.375rem",
+  "bottomRow": 57,
+  "boxShadow": "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)",
+  "chartData": {
+    "exwcrw8t9o": {
+      "color": "#3f3f46",
+      "data": "{{[\n  { x: \"Profesores\", y: datosCurso.data[0].nota_profesor },\n  { x: \"Contenidos\", y: datosCurso.data[0].nota_contenidos },\n  { x: \"Calidad/Precio\", y: datosCurso.data[0].nota_calidad_precio },\n  { x: \"Valoración global\", y: datosCurso.data[0].valoracion_media }\n]}}",
+      "seriesName": ""
+    }
+  },
+  "chartName": "Media Encuestas",
+  "chartType": "CUSTOM_ECHART",
+  "customEChartConfig": "{{ ((chartType) => ( \n{\n  \"tooltip\": {\n    \"trigger\": \"axis\",\n    \"axisPointer\": { \"type\": \"shadow\" }\n  },\n  \"title\": {\n    \"text\": \"Valoraciones de encuestas\",\n    \"left\": \"center\",\n    \"textStyle\": { \"width\": 300, \"overflow\": \"truncate\" }\n  },\n  \"grid\": {\n    \"left\": 15,\n    \"right\": 15,\n    \"bottom\": 30,\n    \"top\": 60,\n    \"containLabel\": true\n  },\n  \"xAxis\": [\n    {\n      \"type\": \"category\",\n      \"data\": [ \"Contenidos\", \"Calidad/Precio\", \"Valoración global\"]\n    }\n  ],\n  \"yAxis\": [\n    {\n      \"type\": \"value\",\n      \"min\": 0,\n      \"max\": 10,\n      \"interval\": 1\n    }\n  ],\n  \"series\": [\n    {\n      \"type\": \"bar\",\n      \"barWidth\": \"50%\",\n      \"label\": {\n        \"show\": true,\n        \"position\": \"top\",\n        \"formatter\": \"{c}\"\n      },\n      \"itemStyle\": { \"color\": \"#3b82f6\" },\n      \"data\": [\n        datosCurso.data[0].nota_contenidos,\n        datosCurso.data[0].nota_calidad_precio,\n        datosCurso.data[0].valoracion_media\n      ]\n    }\n  ]\n}\n))(chartEncuestas.chartType) }}",
+  "customFusionChartConfig": {
+    "dataSource": {
+      "chart": {
+        "alignCaptionWithCanvas": 1,
+        "canvasPadding": "0",
+        "caption": "Sales Report",
+        "captionAlignment": "center",
+        "captionFontColor": "#231F20",
+        "captionFontSize": "24",
+        "captionPadding": "20",
+        "chartBottomMargin": "10",
+        "chartLeftMargin": "20",
+        "chartRightMargin": "40",
+        "chartTopMargin": "10",
+        "labelFontColor": "#716e6e",
+        "labelFontSize": "12",
+        "legendIconAlpha": "100",
+        "legendIconBgAlpha": "100",
+        "legendIconSides": "4",
+        "legendPosition": "top",
+        "theme": "fusion",
+        "xAxisName": "Product Line",
+        "xAxisNameFontColor": "#716e6e",
+        "xAxisNameFontSize": "14",
+        "yAxisName": "Revenue($)",
+        "yAxisNameFontColor": "#716e6e",
+        "yAxisNameFontSize": "14",
+        "yAxisValueFontColor": "#716e6e",
+        "yAxisValueFontSize": "12"
+      },
+      "data": [
+        {
+          "label": "Product1",
+          "value": 20000
+        },
+        {
+          "label": "Product2",
+          "value": 22000
+        },
+        {
+          "label": "Product3",
+          "value": 32000
+        }
+      ]
+    },
+    "type": "column2d"
+  },
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "fontFamily"
+    },
+    {
+      "key": "chartData.exwcrw8t9o.data"
+    },
+    {
+      "key": "customEChartConfig"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "flexVerticalAlignment": "start",
+  "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "qic2u2y6mk",
+  "labelOrientation": "slant",
+  "leftColumn": 6,
+  "minWidth": 450,
+  "mobileBottomRow": 56,
+  "mobileLeftColumn": 1,
+  "mobileRightColumn": 25,
+  "mobileTopRow": 24,
+  "needsErrorInfo": true,
+  "originalBottomRow": 58,
+  "originalTopRow": 23,
+  "parentColumnSpace": 20.25,
+  "parentId": "0",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 34,
+  "setAdaptiveYMin": false,
+  "showDataPointLabel": false,
+  "topRow": 22,
+  "type": "CHART_WIDGET",
+  "version": 1,
+  "widgetId": "t2nsmhgyec",
+  "widgetName": "chartEncuestas",
+  "xAxisName": "",
+  "yAxisName": ""
+}

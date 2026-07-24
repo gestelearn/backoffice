@@ -1,0 +1,11 @@
+INSERT INTO appsmith.obs_objetivo_semanal
+  (IdConvocatoria, FechaInicioCurso, semana, cumplido, actualizado_por)
+VALUES
+  ('{{Table1.triggeredRow.IdConvocatoria}}',
+   '{{moment(Table1.triggeredRow.FechaInicioCurso).format("YYYY-MM-DD")}}',
+   {{Table1.triggeredRow.semana_actual}},
+   {{Table1.triggeredRow.cumplido_esta_semana == 1 ? 0 : 1}},
+   '{{appsmith.user.email}}')
+ON DUPLICATE KEY UPDATE
+  cumplido = VALUES(cumplido),
+  actualizado_por = VALUES(actualizado_por);
