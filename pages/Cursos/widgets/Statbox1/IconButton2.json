@@ -25,7 +25,7 @@
     }
   ],
   "dynamicTriggerPathList": [],
-  "iconName": "{{datosCurso.data[0]?.Activo == 1 || datosCurso.data[0]?.Activo == \"1\" ? \"tick\" : \"circle\"}}",
+  "iconName": "{{datosCurso.data[0]?.Activo == 1 || datosCurso.data[0]?.Activo == \"1\" ? \"tick\" : \"cross\"}}",
   "isDisabled": false,
   "isLoading": false,
   "isVisible": true,

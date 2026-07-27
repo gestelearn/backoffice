@@ -4,7 +4,7 @@
   "borderColor": "#E0DEDE",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
   "borderWidth": "1",
-  "bottomRow": 143,
+  "bottomRow": 146,
   "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
   "cachedTableData": {},
   "canFreezeColumn": true,
@@ -36,11 +36,13 @@
     "fecha",
     "tipo",
     "descripcion",
+    "customColumn1",
     "creado_por"
   ],
-  "columnUpdatedAt": 1785139788271,
+  "columnUpdatedAt": 1785155618709,
   "columnWidthMap": {
-    "descripcion": 628,
+    "customColumn1": 111,
+    "descripcion": 512,
     "fecha": 129,
     "id": 60
   },
@@ -79,14 +81,36 @@
     },
     {
       "key": "primaryColumns.creado_por.computedValue"
+    },
+    {
+      "key": "primaryColumns.customColumn1.buttonColor"
+    },
+    {
+      "key": "primaryColumns.customColumn1.borderRadius"
+    },
+    {
+      "key": "primaryColumns.customColumn1.boxShadow"
     }
   ],
   "dynamicPropertyPathList": [
     {
       "key": "tableData"
+    },
+    {
+      "key": "primaryColumns.descripcion.onClick"
+    },
+    {
+      "key": "primaryColumns.customColumn1.onClick"
     }
   ],
-  "dynamicTriggerPathList": [],
+  "dynamicTriggerPathList": [
+    {
+      "key": "primaryColumns.descripcion.onClick"
+    },
+    {
+      "key": "primaryColumns.customColumn1.onClick"
+    }
+  ],
   "enableClientSideSearch": true,
   "endOfData": false,
   "flexVerticalAlignment": "start",
@@ -108,7 +132,7 @@
   "mobileRightColumn": 40,
   "mobileTopRow": 96,
   "needsErrorInfo": false,
-  "originalBottomRow": 143,
+  "originalBottomRow": 146,
   "originalTopRow": 95,
   "parentColumnSpace": 20.25,
   "parentId": "0",
@@ -119,7 +143,7 @@
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
       "columnType": "text",
-      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"creado_por\"])) : creado_por })()}}",
+      "computedValue": "{{(() => { const tableData = TablaActualizaciones.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"creado_por\"])) : creado_por })()}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,
@@ -145,13 +169,54 @@
       "verticalAlignment": "CENTER",
       "width": 150
     },
+    "customColumn1": {
+      "alias": "ver",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "borderRadius": "{{TablaActualizaciones.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.borderRadius.appBorderRadius)))}}",
+      "boxShadow": "{{TablaActualizaciones.processedTableData.map((currentRow, currentIndex) => ( \"none\"))}}",
+      "buttonColor": "{{TablaActualizaciones.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.colors.primaryColor)))}}",
+      "buttonLabel": "Ver",
+      "buttonStyle": "rgb(3, 179, 101)",
+      "columnType": "button",
+      "computedValue": "",
+      "currencyCode": "USD",
+      "customAlias": "",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "horizontalAlignment": "LEFT",
+      "id": "customColumn1",
+      "index": 5,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": true,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "ver",
+      "labelColor": "#FFFFFF",
+      "notation": "standard",
+      "onClick": "{{showModal(\"ModalDescripcion\")}}",
+      "originalId": "customColumn1",
+      "sticky": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
     "descripcion": {
       "alias": "descripcion",
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
+      "buttonLabel": "Ver descripción",
       "columnType": "text",
-      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"descripcion\"])) : descripcion })()}}",
+      "computedValue": "{{(() => { const tableData = TablaActualizaciones.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"descripcion\"])) : descripcion })()}}",
       "currencyCode": "USD",
+      "customAlias": "",
       "decimals": 0,
       "enableFilter": true,
       "enableSort": true,
@@ -168,6 +233,7 @@
       "isVisible": true,
       "label": "descripcion",
       "notation": "standard",
+      "onClick": "{{showModal(\"ModalDescripcion\")}}",
       "originalId": "descripcion",
       "sticky": "",
       "textSize": "0.875rem",
@@ -181,7 +247,7 @@
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
       "columnType": "date",
-      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"fecha\"])) : fecha })()}}",
+      "computedValue": "{{(() => { const tableData = TablaActualizaciones.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"fecha\"])) : fecha })()}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,
@@ -214,7 +280,7 @@
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
       "columnType": "number",
-      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"id\"])) : id })()}}",
+      "computedValue": "{{(() => { const tableData = TablaActualizaciones.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"id\"])) : id })()}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,
@@ -245,7 +311,7 @@
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
       "columnType": "text",
-      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"tipo\"])) : tipo })()}}",
+      "computedValue": "{{(() => { const tableData = TablaActualizaciones.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"tipo\"])) : tipo })()}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,
@@ -284,5 +350,5 @@
   "version": 2,
   "verticalAlignment": "CENTER",
   "widgetId": "490jgl1qup",
-  "widgetName": "Table1"
+  "widgetName": "TablaActualizaciones"
 }
