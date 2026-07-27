@@ -1,7 +1,7 @@
 {
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 8,
+  "bottomRow": 9,
   "dynamicBindingPathList": [
     {
       "key": "truncateButtonColor"
@@ -19,7 +19,7 @@
   "dynamicHeight": "AUTO_HEIGHT",
   "dynamicTriggerPathList": [],
   "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
-  "fontSize": "1.25rem",
+  "fontSize": "1.875rem",
   "fontStyle": "BOLD",
   "isLoading": false,
   "isVisible": true,
@@ -33,7 +33,7 @@
   "mobileRightColumn": 37,
   "mobileTopRow": 4,
   "needsErrorInfo": false,
-  "originalBottomRow": 10,
+  "originalBottomRow": 9,
   "originalTopRow": 4,
   "overflow": "NONE",
   "parentId": "y7uyptqgzw",
@@ -41,7 +41,7 @@
   "responsiveBehavior": "fill",
   "rightColumn": 64,
   "shouldTruncate": false,
-  "text": "{{bajasCurso.data[0]?.pct_bajas_previas ?? 0}}%",
+  "text": "{{matriculasCurso.data[0]?.matriculacion_media ?? 0}}",
   "textAlign": "CENTER",
   "textColor": "#231F20",
   "topRow": 4,

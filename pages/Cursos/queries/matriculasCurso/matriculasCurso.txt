@@ -1,6 +1,9 @@
 SELECT
   COUNT(*) AS total_matriculas,
   SUM(CASE WHEN m.Tripartita = 1 THEN 1 ELSE 0 END) AS n_tripartita,
+	SUM(m.Precio)AS facturacion,
+	ROUND(SUM(m.Precio) / COUNT(DISTINCT m.IdConvocatoria), 2) AS facturacion_media,
+	ROUND(COUNT(*) / COUNT(DISTINCT m.IdConvocatoria), 2) AS matriculacion_media,
   SUM(CASE WHEN m.Becado = 1 THEN 1 ELSE 0 END) AS n_becados,
   SUM(CASE WHEN m.FacturaEmpresa = 1 THEN 1 ELSE 0 END) AS n_factura_empresa,
   SUM(CASE WHEN COALESCE(m.Colegio, '') <> '' THEN 1 ELSE 0 END) AS n_colegiados,

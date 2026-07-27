@@ -1,0 +1,60 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 150,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{!datosCurso.data[0]}}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "vdwf9iw401",
+  "leftColumn": 6,
+  "minWidth": 120,
+  "mobileBottomRow": 128,
+  "mobileLeftColumn": 25,
+  "mobileRightColumn": 41,
+  "mobileTopRow": 124,
+  "needsErrorInfo": false,
+  "onClick": "{{resetWidget(\"DatePickerAct\", true);\nresetWidget(\"SelectTipoAct\", true);\nresetWidget(\"TextAreaAct\", true);\nshowModal(Modal1.name);}}",
+  "originalBottomRow": 150,
+  "originalTopRow": 146,
+  "parentColumnSpace": 20.25,
+  "parentId": "0",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 22,
+  "text": "Añadir Actualización",
+  "topRow": 146,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "re4svjczwc",
+  "widgetName": "Actualizacion"
+}

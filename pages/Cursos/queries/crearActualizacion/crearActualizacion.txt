@@ -1,0 +1,7 @@
+-- crearActualizacion
+INSERT INTO appsmith.obs_actualizaciones (IdCurso, fecha, tipo, descripcion, creado_por)
+VALUES ('{{buscador.text}}',
+        '{{moment(DatePickerAct.selectedDate).format("YYYY-MM-DD")}}',
+        '{{SelectTipoAct.selectedOptionValue}}',
+        '{{TextAreaAct.text}}',
+        '{{appsmith.user.email}}');
