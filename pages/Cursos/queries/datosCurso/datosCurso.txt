@@ -1,6 +1,7 @@
 SELECT
   cur.IdCurso,
   cur.Nombre AS nombre_curso,
+	cur.Activo,
   COUNT(DISTINCT c.IdConvocatoria) AS total_convocatorias,
   ROUND(AVG(e._MediaProfesores), 2) AS nota_profesor,
   ROUND(AVG(e._MediaContenidos), 2) AS nota_contenidos,
