@@ -1,7 +1,7 @@
 {
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 9,
+  "bottomRow": 4,
   "dynamicBindingPathList": [
     {
       "key": "truncateButtonColor"
@@ -16,16 +16,16 @@
       "key": "text"
     }
   ],
-  "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicHeight": "FIXED",
   "dynamicTriggerPathList": [],
   "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
-  "fontSize": "1.875rem",
+  "fontSize": "1rem",
   "fontStyle": "BOLD",
   "isLoading": false,
   "isVisible": true,
-  "key": "iy0jixgnj0",
-  "leftColumn": 1,
-  "maxDynamicHeight": 9000,
+  "key": "qkaxss58yg",
+  "leftColumn": 9,
+  "maxDynamicHeight": 6,
   "minDynamicHeight": 4,
   "minWidth": 450,
   "mobileBottomRow": 8,
@@ -33,21 +33,20 @@
   "mobileRightColumn": 37,
   "mobileTopRow": 4,
   "needsErrorInfo": false,
-  "originalBottomRow": 9,
-  "originalTopRow": 4,
   "overflow": "NONE",
-  "parentId": "sig8mm0yn6",
+  "parentId": "jhwiolo9bg",
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
-  "rightColumn": 64,
+  "rightColumn": 50,
+  "shouldScrollContents": true,
   "shouldTruncate": false,
-  "text": "{{matriculasCurso.data[0]?.facturacion_media ?? 0}}€",
+  "text": "{{datosCurso.data[0]?.ultima_fecha_inicio ?? \"—\"}}",
   "textAlign": "CENTER",
   "textColor": "#231F20",
-  "topRow": 4,
+  "topRow": 0,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
   "version": 1,
-  "widgetId": "vi132p4gd2",
-  "widgetName": "Text4Copy"
+  "widgetId": "tatdxs07h4",
+  "widgetName": "Text3CopyCopy1Copy1Copy1"
 }

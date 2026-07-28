@@ -1,7 +1,7 @@
 {
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 4,
+  "bottomRow": 9,
   "dynamicBindingPathList": [
     {
       "key": "truncateButtonColor"
@@ -11,12 +11,15 @@
     },
     {
       "key": "borderRadius"
+    },
+    {
+      "key": "text"
     }
   ],
   "dynamicHeight": "AUTO_HEIGHT",
   "dynamicTriggerPathList": [],
   "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
-  "fontSize": "0.875rem",
+  "fontSize": "1.875rem",
   "fontStyle": "BOLD",
   "isLoading": false,
   "isVisible": true,
@@ -25,26 +28,26 @@
   "maxDynamicHeight": 9000,
   "minDynamicHeight": 4,
   "minWidth": 450,
-  "mobileBottomRow": 4,
+  "mobileBottomRow": 8,
   "mobileLeftColumn": 1,
   "mobileRightColumn": 37,
-  "mobileTopRow": 0,
+  "mobileTopRow": 4,
   "needsErrorInfo": false,
-  "originalBottomRow": 4,
-  "originalTopRow": 0,
+  "originalBottomRow": 9,
+  "originalTopRow": 4,
   "overflow": "NONE",
-  "parentId": "sig8mm0yn6",
+  "parentId": "7ow8g9uvh8",
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
-  "rightColumn": 62,
+  "rightColumn": 64,
   "shouldTruncate": false,
-  "text": "Facturación Media",
+  "text": "{{matriculasCurso.data[0]?.facturacion_media ?? 0}}€",
   "textAlign": "CENTER",
-  "textColor": "#999999",
-  "topRow": 0,
+  "textColor": "#231F20",
+  "topRow": 4,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
   "version": 1,
-  "widgetId": "74pe03lde4",
-  "widgetName": "Text3Copy"
+  "widgetId": "b1ex8x5a3f",
+  "widgetName": "Text4Copy2"
 }

@@ -1,0 +1,15 @@
+SELECT
+  CASE
+    WHEN d.Calificacion = 'APTO' THEN 'Apto'
+    WHEN d.Calificacion = 'NO_APTO_CON' THEN 'No apto'
+    WHEN d.Calificacion = 'NO_APTO_SIN' THEN 'No presentado'
+    ELSE 'Sin calificar'
+  END AS resultado,
+  COUNT(*) AS total
+FROM cogiti001.matriculas m
+JOIN cogiti001.convocatorias c ON c.IdConvocatoria = m.IdConvocatoria
+JOIN cogiti001.diplomas d ON d.IdMatricula = m.IdMatricula
+WHERE c.IdCurso = '{{buscador.text}}'
+  AND c.Activo = 1
+  AND m.Baja = 0
+GROUP BY resultado;

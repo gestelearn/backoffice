@@ -1,7 +1,7 @@
 {
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 4,
+  "bottomRow": 6,
   "dynamicBindingPathList": [
     {
       "key": "truncateButtonColor"
@@ -24,7 +24,7 @@
   "isLoading": false,
   "isVisible": true,
   "key": "qkaxss58yg",
-  "leftColumn": 25,
+  "leftColumn": 22,
   "maxDynamicHeight": 9000,
   "minDynamicHeight": 4,
   "minWidth": 450,
@@ -33,15 +33,15 @@
   "mobileRightColumn": 37,
   "mobileTopRow": 4,
   "needsErrorInfo": false,
-  "originalBottomRow": 4,
+  "originalBottomRow": 6,
   "originalTopRow": 0,
   "overflow": "NONE",
-  "parentId": "jhwiolo9bg",
+  "parentId": "oy7g8a8m1e",
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
-  "rightColumn": 37,
+  "rightColumn": 40,
   "shouldTruncate": false,
-  "text": "{{datosCurso.data[0]?.convocatorias_impartidas ?? \"-\"}}",
+  "text": "{{datosCurso.data[0]?.convocatorias_impartidas ?? \"-\"}}/{{datosCurso.data[0]?.total_convocatorias ?? \"-\"}}",
   "textAlign": "LEFT",
   "textColor": "#231F20",
   "topRow": 0,

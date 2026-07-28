@@ -3,10 +3,10 @@
   "allowScroll": false,
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 100,
+  "bottomRow": 65,
   "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
   "chartData": {
-    "fseikvq1w8": {
+    "4bmkf7hude": {
       "data": [
         {
           "x": "Product1",
@@ -26,7 +26,7 @@
   },
   "chartName": "Sales Report",
   "chartType": "CUSTOM_ECHART",
-  "customEChartConfig": "{{ ((chartType) => ( \n{\n  \"tooltip\": {\n    \"trigger\": \"axis\",\n    \"formatter\": function(params) {\n      const i = params[0].dataIndex;\n      const d = evolucionMatriculas.data[i];\n      return d.periodo + \"<br/>Matrículas: <b>\" + d.matriculas + \"</b><br/>Convocatorias: \" + d.convocatorias;\n    }\n  },\n  \"title\": {\n    \"text\": \"Evolución de matrículas\",\n    \"left\": \"center\",\n    \"textStyle\": { \"width\": 300, \"overflow\": \"truncate\" }\n  },\n  \"grid\": { \"left\": 15, \"right\": 15, \"bottom\": 60, \"top\": 60, \"containLabel\": true },\n  \"xAxis\": [{\n    \"type\": \"category\",\n    \"data\": evolucionMatriculas.data?.map(r => r.periodo) ?? [],\n    \"axisLabel\": { \"rotate\": 45 }\n  }],\n  \"yAxis\": [{ \"type\": \"value\", \"minInterval\": 1 }],\n  \"series\": [{\n    \"type\": \"line\",\n    \"smooth\": true,\n    \"data\": evolucionMatriculas.data?.map(r => r.matriculas) ?? [],\n    \"itemStyle\": { \"color\": \"#3b82f6\" },\n    \"areaStyle\": { \"opacity\": 0.15 },\n    \"markLine\": { \"data\": [{ \"type\": \"average\", \"name\": \"Media\" }] }\n  }]\n}\n))(Chart1.chartType) }}",
+  "customEChartConfig": "{{ ((chartType) => ( \n{\n  \"tooltip\": { \"trigger\": \"item\", \"formatter\": \"{b}: {c} ({d}%)\" },\n  \"title\": { \"text\": \"Calificaciones\", \"left\": \"center\",\n             \"textStyle\": { \"width\": 300, \"overflow\": \"truncate\" } },\n  \"legend\": { \"bottom\": 0, \"left\": \"center\" },\n  \"series\": [{\n    \"type\": \"pie\",\n    \"radius\": [\"40%\", \"70%\"],\n    \"center\": [\"50%\", \"50%\"],\n    \"avoidLabelOverlap\": true,\n    \"label\": { \"show\": true, \"formatter\": \"{b}\\n{d}%\" },\n    \"data\": (calificaciones.data ?? []).map(r => ({\n      \"name\": r.resultado,\n      \"value\": r.total,\n      \"itemStyle\": {\n        \"color\": r.resultado === \"Apto\" ? \"#22c55e\"\n               : r.resultado === \"No apto\" ? \"#ef4444\"\n               : r.resultado === \"No presentado\" ? \"#f59e0b\"\n               : \"#9ca3af\"\n      }\n    }))\n  }]\n}\n))(Chart2.chartType) }}",
   "customFusionChartConfig": {
     "dataSource": {
       "chart": {
@@ -76,9 +76,6 @@
   },
   "dynamicBindingPathList": [
     {
-      "key": "customEChartConfig"
-    },
-    {
       "key": "borderRadius"
     },
     {
@@ -89,6 +86,9 @@
     },
     {
       "key": "fontFamily"
+    },
+    {
+      "key": "customEChartConfig"
     }
   ],
   "dynamicTriggerPathList": [],
@@ -96,17 +96,17 @@
   "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
   "isLoading": false,
   "isVisible": true,
-  "key": "8dyi91p06v",
+  "key": "oz5enwnqja",
   "labelOrientation": "auto",
-  "leftColumn": 6,
+  "leftColumn": 32,
   "minWidth": 450,
-  "mobileBottomRow": 93,
-  "mobileLeftColumn": 6,
-  "mobileRightColumn": 30,
-  "mobileTopRow": 61,
+  "mobileBottomRow": 124,
+  "mobileLeftColumn": 7,
+  "mobileRightColumn": 31,
+  "mobileTopRow": 92,
   "needsErrorInfo": true,
-  "originalBottomRow": 100,
-  "originalTopRow": 68,
+  "originalBottomRow": 67,
+  "originalTopRow": 30,
   "parentColumnSpace": 20.25,
   "parentId": "0",
   "parentRowSpace": 10,
@@ -114,11 +114,11 @@
   "responsiveBehavior": "fill",
   "rightColumn": 54,
   "showDataPointLabel": false,
-  "topRow": 68,
+  "topRow": 30,
   "type": "CHART_WIDGET",
   "version": 1,
-  "widgetId": "d1uww46owi",
-  "widgetName": "Chart1",
+  "widgetId": "0sx504o4v5",
+  "widgetName": "Chart2",
   "xAxisName": "Product Line",
   "yAxisName": "Revenue($)"
 }
