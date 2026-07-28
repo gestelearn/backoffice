@@ -3,16 +3,47 @@ SELECT c.IdConvocatoria, cur.nombre AS Curso, c.FechaInicioCurso, c.FechaFinCurs
        FLOOR(DATEDIFF(CURDATE(), c.FechaInicioCurso) / 7) + 1 AS semana_actual,
        COALESCE(SUM(o.cumplido), 0) AS semanas_cumplidas,
        MAX(CASE WHEN o.semana = FLOOR(DATEDIFF(CURDATE(), c.FechaInicioCurso) / 7) + 1
-                THEN o.cumplido END) AS cumplido_esta_semana
+                THEN o.cumplido END) AS cumplido_esta_semana,
+       acc.horas_sin_acceder_max,
+       prof.profesores
 FROM cogiti001.convocatorias c
 JOIN cogiti001.cursos cur
   ON cur.IdCurso = c.IdCurso
 LEFT JOIN appsmith.obs_objetivo_semanal o
        ON o.IdConvocatoria = c.IdConvocatoria
       AND o.FechaInicioCurso = c.FechaInicioCurso
+LEFT JOIN (
+       SELECT pc.IdConvocatoria,
+              MAX(TIMESTAMPDIFF(HOUR, FROM_UNIXTIME(NULLIF(la.timeaccess, 0)), NOW()))
+                AS horas_sin_acceder_max
+       FROM cogiti001.profesoresconvocatoria pc
+       JOIN cogiti001.convocatorias cc
+         ON cc.IdConvocatoria = pc.IdConvocatoria
+       LEFT JOIN cogiti001.mdl_user_lastaccess la
+              ON la.userid = (SELECT u.UserIdMoodle
+                              FROM cogiti001.usuarios u
+                              WHERE u.IdUsuario = pc.IdUsuario)
+             AND la.courseid = cc._IdMoodle
+       WHERE pc.EsPrincipal = 1
+       GROUP BY pc.IdConvocatoria
+     ) acc
+       ON acc.IdConvocatoria = c.IdConvocatoria
+LEFT JOIN (
+       SELECT pc.IdConvocatoria,
+              GROUP_CONCAT(
+                TRIM(CONCAT(u.Nombre, ' ', u.Apellido1, ' ', COALESCE(u.Apellido2, '')))
+                ORDER BY u.Apellido1 SEPARATOR ', '
+              ) AS profesores
+       FROM cogiti001.profesoresconvocatoria pc
+       JOIN cogiti001.usuarios u
+         ON u.IdUsuario = pc.IdUsuario
+       WHERE pc.EsPrincipal = 1
+       GROUP BY pc.IdConvocatoria
+     ) prof
+       ON prof.IdConvocatoria = c.IdConvocatoria
 WHERE CURDATE() BETWEEN c.FechaInicioCurso AND c.FechaFinCurso
-AND c.IdConvocatoria NOT LIKE 'DEM%'
-AND c.IdConvocatoria NOT LIKE '2819%'
-AND c.Activo = 1
+  AND c.IdConvocatoria NOT LIKE 'DEM%'
+  AND c.IdConvocatoria NOT LIKE '2819%'
+  AND c.Activo = 1
 GROUP BY c.IdConvocatoria, c.FechaInicioCurso
 ORDER BY c.FechaInicioCurso DESC;

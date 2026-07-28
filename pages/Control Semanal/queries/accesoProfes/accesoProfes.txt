@@ -1,0 +1,27 @@
+SELECT
+  pc.IdConvocatoria,
+  cur.Nombre AS curso,
+  c.FechaInicioCurso,
+  c.FechaFinCurso,
+  CONCAT(u.Nombre, ' ', u.Apellido1, ' ', COALESCE(u.Apellido2, '')) AS profesor,
+  u.Email,
+  FROM_UNIXTIME(la.timeaccess) AS ultimo_acceso_curso,
+  TIMESTAMPDIFF(HOUR, FROM_UNIXTIME(la.timeaccess), NOW()) AS horas_sin_acceder
+FROM cogiti001.convocatorias c
+JOIN cogiti001.cursos cur
+  ON cur.IdCurso = c.IdCurso
+JOIN cogiti001.profesoresconvocatoria pc
+  ON pc.IdConvocatoria = c.IdConvocatoria
+JOIN cogiti001.usuarios u
+  ON u.IdUsuario = pc.IdUsuario
+LEFT JOIN cogiti001.mdl_user_lastaccess la
+  ON la.userid = u.UserIdMoodle
+ AND la.courseid = c._IdMoodle
+WHERE CURDATE() BETWEEN c.FechaInicioCurso AND c.FechaFinCurso
+  AND c.Activo = 1
+  AND pc.EsPrincipal = 1
+  AND (
+        COALESCE(la.timeaccess, 0) = 0
+        OR TIMESTAMPDIFF(HOUR, FROM_UNIXTIME(la.timeaccess), NOW()) >= 48
+      )
+ORDER BY horas_sin_acceder DESC;
