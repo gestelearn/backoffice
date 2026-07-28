@@ -54,7 +54,7 @@
     "Semanas": 107,
     "SepeEmailTutor": 302.5,
     "customColumn1": 114,
-    "horas_sin_acceder_max": 126,
+    "horas_sin_acceder_max": 73,
     "semana_actual": 85,
     "semanas_cumplidas": 111
   },
@@ -135,6 +135,9 @@
     },
     {
       "key": "primaryColumns.profesores.computedValue"
+    },
+    {
+      "key": "primaryColumns.horas_sin_acceder_max.textColor"
     }
   ],
   "dynamicPropertyPathList": [
@@ -149,6 +152,9 @@
     },
     {
       "key": "primaryColumns.customColumn1.buttonColor"
+    },
+    {
+      "key": "primaryColumns.horas_sin_acceder_max.textColor"
     }
   ],
   "dynamicTriggerPathList": [
@@ -464,7 +470,7 @@
       "allowSameOptionsInNewRow": true,
       "cellBackground": "",
       "columnType": "text",
-      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"horas_sin_acceder_max\"])) : horas_sin_acceder_max })()}}",
+      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"horas_sin_acceder_max\"]\n)) : currentRow[\"horas_sin_acceder_max\"]\n })()}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,
@@ -481,11 +487,11 @@
       "isEditable": false,
       "isSaveVisible": true,
       "isVisible": true,
-      "label": "horas_sin",
+      "label": "Días",
       "notation": "standard",
       "originalId": "horas_sin_acceder_max",
       "sticky": "",
-      "textColor": "",
+      "textColor": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (\n  currentRow.horas_sin_acceder_max >= 3 ? \"#ef4444\"\n  : currentRow.horas_sin_acceder_max >= 2 ? \"#f59e0b\"\n  : \"#22c55e\"\n)) : \n  currentRow.horas_sin_acceder_max >= 3 ? \"#ef4444\"\n  : currentRow.horas_sin_acceder_max >= 2 ? \"#f59e0b\"\n  : \"#22c55e\"\n })()}}",
       "textSize": "0.875rem",
       "thousandSeparator": true,
       "validation": {},
@@ -582,6 +588,7 @@
       "notation": "standard",
       "originalId": "semanas_cumplidas",
       "sticky": "",
+      "textColor": "#231F20",
       "textSize": "0.875rem",
       "thousandSeparator": true,
       "validation": {},

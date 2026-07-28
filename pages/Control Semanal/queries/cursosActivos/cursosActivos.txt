@@ -14,7 +14,7 @@ LEFT JOIN appsmith.obs_objetivo_semanal o
       AND o.FechaInicioCurso = c.FechaInicioCurso
 LEFT JOIN (
        SELECT pc.IdConvocatoria,
-              MAX(TIMESTAMPDIFF(HOUR, FROM_UNIXTIME(NULLIF(la.timeaccess, 0)), NOW()))
+              ROUND(MAX(TIMESTAMPDIFF(HOUR, FROM_UNIXTIME(NULLIF(la.timeaccess, 0)), NOW())/24))
                 AS horas_sin_acceder_max
        FROM cogiti001.profesoresconvocatoria pc
        JOIN cogiti001.convocatorias cc
