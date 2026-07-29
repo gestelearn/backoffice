@@ -32,12 +32,8 @@
   "icon": "workflows",
   "pages": [
     {
-      "id": "Landing",
-      "isDefault": true
-    },
-    {
       "id": "Control Semanal",
-      "isDefault": false
+      "isDefault": true
     },
     {
       "id": "Cursos",
