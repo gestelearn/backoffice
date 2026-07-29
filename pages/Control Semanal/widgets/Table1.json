@@ -138,6 +138,9 @@
     },
     {
       "key": "primaryColumns.horas_sin_acceder_max.textColor"
+    },
+    {
+      "key": "primaryColumns.semanas_cumplidas.textColor"
     }
   ],
   "dynamicPropertyPathList": [
@@ -155,6 +158,9 @@
     },
     {
       "key": "primaryColumns.horas_sin_acceder_max.textColor"
+    },
+    {
+      "key": "primaryColumns.semanas_cumplidas.textColor"
     }
   ],
   "dynamicTriggerPathList": [
@@ -588,7 +594,7 @@
       "notation": "standard",
       "originalId": "semanas_cumplidas",
       "sticky": "",
-      "textColor": "#231F20",
+      "textColor": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (\n  (() => {\n    const cumplidas = currentRow.semanas_cumplidas;\n    const actual = currentRow.semana_actual;\n    const diff = actual - cumplidas;\n    return diff <= 0 ? \"#22c55e\"\n         : diff === 1 ? \"#f59e0b\"\n         : \"#ef4444\";\n  })()\n)) : \n  (() => {\n    const cumplidas = currentRow.semanas_cumplidas;\n    const actual = currentRow.semana_actual;\n    const diff = actual - cumplidas;\n    return diff <= 0 ? \"#22c55e\"\n         : diff === 1 ? \"#f59e0b\"\n         : \"#ef4444\";\n  })()\n })()}}",
       "textSize": "0.875rem",
       "thousandSeparator": true,
       "validation": {},
