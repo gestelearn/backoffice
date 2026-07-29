@@ -1,7 +1,7 @@
 {
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 9,
+  "bottomRow": 10,
   "dynamicBindingPathList": [
     {
       "key": "truncateButtonColor"
@@ -44,7 +44,7 @@
   "text": "{{matriculasCurso.data[0]?.pct_tripartita ?? 0}}%",
   "textAlign": "CENTER",
   "textColor": "#231F20",
-  "topRow": 4,
+  "topRow": 5,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
   "version": 1,

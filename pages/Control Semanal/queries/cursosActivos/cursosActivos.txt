@@ -5,7 +5,8 @@ SELECT c.IdConvocatoria, cur.nombre AS Curso, c.FechaInicioCurso, c.FechaFinCurs
        MAX(CASE WHEN o.semana = FLOOR(DATEDIFF(CURDATE(), c.FechaInicioCurso) / 7) + 1
                 THEN o.cumplido END) AS cumplido_esta_semana,
        acc.horas_sin_acceder_max,
-       prof.profesores
+       prof.profesores,
+			 prof.emails_profesores
 FROM cogiti001.convocatorias c
 JOIN cogiti001.cursos cur
   ON cur.IdCurso = c.IdCurso
@@ -33,7 +34,11 @@ LEFT JOIN (
               GROUP_CONCAT(
                 TRIM(CONCAT(u.Nombre, ' ', u.Apellido1, ' ', COALESCE(u.Apellido2, '')))
                 ORDER BY u.Apellido1 SEPARATOR ', '
-              ) AS profesores
+              ) AS profesores,
+              GROUP_CONCAT(
+                u.Email
+                ORDER BY u.Apellido1 SEPARATOR ', '
+              ) AS emails_profesores
        FROM cogiti001.profesoresconvocatoria pc
        JOIN cogiti001.usuarios u
          ON u.IdUsuario = pc.IdUsuario

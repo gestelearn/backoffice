@@ -2,7 +2,7 @@
   "animateLoading": true,
   "backgroundColor": "#18181b",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 27,
+  "bottomRow": 29,
   "dynamicBindingPathList": [
     {
       "key": "truncateButtonColor"
@@ -25,7 +25,7 @@
   "isLoading": false,
   "isVisible": true,
   "key": "uwsbviifnr",
-  "leftColumn": 23,
+  "leftColumn": 16,
   "maxDynamicHeight": 9000,
   "minDynamicHeight": 4,
   "minWidth": 450,
@@ -48,7 +48,7 @@
   "text": "{{datosCurso.data[0]?.total_encuestados ?? \"0\"}} encuestados",
   "textAlign": "CENTER",
   "textColor": "white",
-  "topRow": 23,
+  "topRow": 25,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
   "version": 1,

@@ -37,7 +37,7 @@
   "parentId": "jhwiolo9bg",
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
-  "rightColumn": 50,
+  "rightColumn": 59,
   "shouldScrollContents": true,
   "shouldTruncate": false,
   "text": "{{datosCurso.data[0]?.ultima_fecha_inicio ?? \"—\"}}",
