@@ -1,0 +1,52 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 68,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "ic8rzjze3e",
+  "leftColumn": 31,
+  "minWidth": 120,
+  "mobileBottomRow": 66,
+  "mobileLeftColumn": 28,
+  "mobileRightColumn": 44,
+  "mobileTopRow": 62,
+  "needsErrorInfo": false,
+  "onClick": "{{crearApunteCurso.run();\nlistarApuntesCurso.run();\nJSObject1.Button3onClick();}}",
+  "originalBottomRow": 78,
+  "originalTopRow": 74,
+  "parentColumnSpace": 13.84375,
+  "parentId": "y03ardspkm",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 47,
+  "text": "Guardar apunte",
+  "topRow": 64,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "9vid6w46v3",
+  "widgetName": "crearApunte"
+}

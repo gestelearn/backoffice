@@ -1,0 +1,64 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 68,
+  "boxShadow": "none",
+  "defaultOptionValue": "GREEN",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "sourceData"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "sourceData"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "isDisabled": false,
+  "isFilterable": true,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "z0zshk4lvo",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelText": "Tipo",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 2,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 67,
+  "mobileLeftColumn": 2,
+  "mobileRightColumn": 22,
+  "mobileTopRow": 60,
+  "needsErrorInfo": false,
+  "optionLabel": "value",
+  "optionValue": "value",
+  "originalBottomRow": 68,
+  "originalTopRow": 61,
+  "parentColumnSpace": 13.84375,
+  "parentId": "y03ardspkm",
+  "parentRowSpace": 10,
+  "placeholderText": "Selecciona",
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 14,
+  "serverSideFiltering": false,
+  "sourceData": "{{[\n  { \"label\": \"Actualización\", \"value\": \"Actualizacion\" },\n  { \"label\": \"Incidencia\", \"value\": \"Incidencia\" },\n  { \"label\": \"Programación\", \"value\": \"Programacion\" }\n]}}",
+  "topRow": 61,
+  "type": "SELECT_WIDGET",
+  "version": 1,
+  "widgetId": "ttdo3he2ms",
+  "widgetName": "SelectTipoApunte"
+}
