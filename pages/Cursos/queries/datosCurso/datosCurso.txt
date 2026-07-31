@@ -11,7 +11,7 @@ SELECT
   COUNT(DISTINCT e.IdEncuesta) AS convocatorias_valoradas,
   SUM(CASE WHEN c.Activo = 1 THEN 1 ELSE 0 END) AS convocatorias_impartidas,
   SUM(CASE WHEN c.Activo = 0 THEN 1 ELSE 0 END) AS convocatorias_canceladas,
-  ROUND(100 * SUM(CASE WHEN c.Activo = 1 THEN 1 ELSE 0 END) / COUNT(*), 1) AS ratio_apertura,
+ ROUND(100 * SUM(CASE WHEN c.Activo = 1 THEN 1 ELSE 0 END) / NULLIF(COUNT(c.IdConvocatoria), 0), 1) AS ratio_apertura,
   (SELECT CONCAT(u.Nombre, ' ', u.Apellido1, ' ', COALESCE(u.Apellido2, ''))
      FROM cogiti001.convocatorias c2
      JOIN cogiti001.profesoresconvocatoria pc ON pc.IdConvocatoria = c2.IdConvocatoria
@@ -35,5 +35,4 @@ FROM cogiti001.cursos cur
 JOIN cogiti001.convocatorias c ON c.IdCurso = cur.IdCurso
 LEFT JOIN cogiti001.encuestas e ON e.IdConvocatoria = c.IdConvocatoria
 WHERE cur.IdCurso = '{{buscador.text}}'
-  AND c.FechaInicioCurso > '2013-12-31'
 GROUP BY cur.IdCurso, cur.Nombre;

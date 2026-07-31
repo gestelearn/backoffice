@@ -1,23 +1,23 @@
 {
-  "gitSyncId": "6a5e1a206dac43a3d69e0339_76220004-e41b-4ec2-aa42-ed574267c277",
+  "gitSyncId": "6a5e1a206dac43a3d69e0339_14a984c9-222b-4068-aaf6-46af5ab03c65",
   "unpublishedPage": {
     "isHidden": false,
     "layouts": [
       {
         "dsl": {
           "backgroundColor": "none",
-          "bottomRow": 1660,
+          "bottomRow": 930,
           "canExtend": true,
           "containerStyle": "none",
           "detachFromLayout": true,
           "dynamicBindingPathList": [],
           "leftColumn": 0,
-          "minHeight": 760,
+          "minHeight": 800,
           "parentColumnSpace": 1,
           "parentRowSpace": 1,
           "rightColumn": 1224,
           "snapColumns": 64,
-          "snapRows": 74,
+          "snapRows": 78,
           "topRow": 0,
           "type": "CANVAS_WIDGET",
           "version": 94,
@@ -26,7 +26,7 @@
         }
       }
     ],
-    "name": "Cursos",
-    "slug": "cursos"
+    "name": "Top Courses",
+    "slug": "top-courses"
   }
 }

@@ -38,6 +38,10 @@
     {
       "id": "Cursos",
       "isDefault": false
+    },
+    {
+      "id": "Top Courses",
+      "isDefault": false
     }
   ],
   "unpublishedAppLayout": {

@@ -1,7 +1,7 @@
 {
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 13,
+  "bottomRow": 9,
   "dynamicBindingPathList": [
     {
       "key": "truncateButtonColor"
@@ -33,8 +33,8 @@
   "mobileRightColumn": 37,
   "mobileTopRow": 4,
   "needsErrorInfo": false,
-  "originalBottomRow": 9,
-  "originalTopRow": 4,
+  "originalBottomRow": 13,
+  "originalTopRow": 5,
   "overflow": "NONE",
   "parentId": "7ow8g9uvh8",
   "renderMode": "CANVAS",
@@ -44,7 +44,7 @@
   "text": "{{matriculasCurso.data[0]?.facturacion_media ?? 0}}€",
   "textAlign": "CENTER",
   "textColor": "#231F20",
-  "topRow": 5,
+  "topRow": 4,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
   "version": 1,

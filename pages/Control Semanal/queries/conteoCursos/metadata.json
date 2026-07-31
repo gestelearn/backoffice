@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT Count(c.IdConvocatoria) AS conteo\nFROM cogiti001.convocatorias c\nJOIN cogiti001.cursos cur\n  ON cur.IdCurso = c.IdCurso\nLEFT JOIN appsmith.obs_objetivo_semanal o\n       ON o.IdConvocatoria = c.IdConvocatoria\n      AND o.FechaInicioCurso = c.FechaInicioCurso\nWHERE CURDATE() BETWEEN c.FechaInicioCurso AND c.FechaFinCurso\nAND c.IdConvocatoria NOT LIKE 'DEM%'\nAND c.IdConvocatoria NOT LIKE '2819%'\nAND c.Activo = 1;",
+      "body": "SELECT COUNT(*) AS conteo\nFROM cogiti001.convocatorias c\nJOIN cogiti001.cursos cur\n  ON cur.IdCurso = c.IdCurso\nWHERE CURDATE() BETWEEN c.FechaInicioCurso AND c.FechaFinCurso\n  AND c.IdConvocatoria NOT LIKE 'DEM%'\n  AND c.IdConvocatoria NOT LIKE '2819%'\n  AND c.Activo = 1;",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [

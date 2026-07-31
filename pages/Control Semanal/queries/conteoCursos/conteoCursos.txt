@@ -1,11 +1,8 @@
-SELECT Count(c.IdConvocatoria) AS conteo
+SELECT COUNT(*) AS conteo
 FROM cogiti001.convocatorias c
 JOIN cogiti001.cursos cur
   ON cur.IdCurso = c.IdCurso
-LEFT JOIN appsmith.obs_objetivo_semanal o
-       ON o.IdConvocatoria = c.IdConvocatoria
-      AND o.FechaInicioCurso = c.FechaInicioCurso
 WHERE CURDATE() BETWEEN c.FechaInicioCurso AND c.FechaFinCurso
-AND c.IdConvocatoria NOT LIKE 'DEM%'
-AND c.IdConvocatoria NOT LIKE '2819%'
-AND c.Activo = 1;
+  AND c.IdConvocatoria NOT LIKE 'DEM%'
+  AND c.IdConvocatoria NOT LIKE '2819%'
+  AND c.Activo = 1;

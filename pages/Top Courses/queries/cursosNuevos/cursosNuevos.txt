@@ -1,0 +1,58 @@
+SELECT
+  cur.IdCurso,
+  cur.Nombre AS curso,
+  COALESCE(inte.total_interesados, 0) AS interesados,
+  act.ultima_actualizacion,
+  prof.profesores AS profe,
+  prof.emails_profesores AS email
+FROM cogiti001.cursos cur
+JOIN (
+     SELECT IdCurso, COUNT(*) AS n_convocatorias
+     FROM cogiti001.convocatorias
+     GROUP BY IdCurso
+     HAVING COUNT(*) <= 1
+   ) conv
+  ON conv.IdCurso = cur.IdCurso
+LEFT JOIN (
+     SELECT Interes AS IdCurso, COUNT(*) AS total_interesados
+     FROM cogiti001.interesados
+     WHERE COALESCE(UltimoEnviado, '') = ''
+     GROUP BY Interes
+   ) inte
+  ON inte.IdCurso = cur.IdCurso 
+LEFT JOIN (
+     SELECT c.IdCurso,
+            GROUP_CONCAT(
+              TRIM(CONCAT(u.Nombre, ' ', u.Apellido1, ' ', COALESCE(u.Apellido2, '')))
+              ORDER BY u.Apellido1 SEPARATOR ', '
+            ) AS profesores,
+            GROUP_CONCAT(u.Email ORDER BY u.Apellido1 SEPARATOR ', ') AS emails_profesores
+     FROM cogiti001.convocatorias c
+     JOIN cogiti001.profesoresconvocatoria pc
+       ON pc.IdConvocatoria = c.IdConvocatoria
+     JOIN cogiti001.usuarios u
+       ON u.IdUsuario = pc.IdUsuario
+     WHERE pc.EsPrincipal = 1
+     GROUP BY c.IdCurso
+   ) prof
+  ON prof.IdCurso = cur.IdCurso
+LEFT JOIN (
+     SELECT IdCurso, MAX(fecha) AS ultima_actualizacion
+     FROM appsmith.obs_actualizaciones
+     GROUP BY IdCurso
+   ) act
+  ON act.IdCurso = cur.IdCurso COLLATE utf8_unicode_ci
+WHERE cur.idcurso NOT LIKE 'E0%'
+ AND cur.idcurso NOT LIKE 'DIPL'
+ AND cur.idcurso NOT LIKE '50%'
+ AND cur.idcurso NOT LIKE '12%'
+ AND cur.idcurso NOT LIKE 'MC%'
+ AND cur.idcurso NOT LIKE 'AU%'
+ AND cur.idcurso NOT LIKE '28%'
+ AND cur.idcurso NOT LIKE 'PRO%'
+ AND cur.idcurso NOT LIKE '00%'
+ AND cur.idcurso NOT LIKE 'Z0%'
+ AND cur.idcurso NOT LIKE '90%'
+ AND cur.idcurso NOT LIKE '13%%'
+ AND cur.activo = 1
+ORDER BY interesados DESC;
