@@ -1,11 +1,11 @@
 {
-  "gitSyncId": "6a5e1a206dac43a3d69e0339_fa484803-6323-423d-bc7a-2dcb648f86eb",
-  "id": "Top Courses_crearApunteCurso",
+  "gitSyncId": "6a5e1a206dac43a3d69e0339_7b8652e3-a87a-4d38-a7ac-d8412d7296d0",
+  "id": "Nuevos Cursos_listarApuntesCurso",
   "pluginId": "mysql-plugin",
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "INSERT INTO appsmith.obs_actualizaciones\n  (IdCurso, fecha, tipo, descripcion, creado_por, creado_en)\nVALUES (\n  {{appsmith.store.cursoSeleccionado}},\n  {{ moment(DatePickerApunte.selectedDate).format(\"YYYY-MM-DD\") }},\n  {{SelectTipoApunte.selectedOptionValue}},\n  {{TextAreaApunte.text}},\n  {{appsmith.user.email}},\n  NOW()\n);",
+      "body": "SELECT id, fecha, tipo, descripcion, creado_por, creado_en\nFROM appsmith.obs_actualizaciones\nWHERE IdCurso = {{appsmith.store.cursoSeleccionado}}\nORDER BY fecha DESC, creado_en DESC;",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [
@@ -27,9 +27,9 @@
         "key": "body"
       }
     ],
-    "name": "crearApunteCurso",
-    "pageId": "Top Courses",
-    "runBehaviour": "MANUAL",
+    "name": "listarApuntesCurso",
+    "pageId": "Nuevos Cursos",
+    "runBehaviour": "AUTOMATIC",
     "userSetOnLoad": false
   }
 }

@@ -1,6 +1,6 @@
 {
   "gitSyncId": "6a5e1a206dac43a3d69e0339_27e14aa6-5e8a-4534-b8da-2ff8a4d9f497",
-  "id": "Top Courses_cursosNuevos",
+  "id": "Nuevos Cursos_cursosNuevos",
   "pluginId": "mysql-plugin",
   "pluginType": "DB",
   "unpublishedAction": {
@@ -24,7 +24,7 @@
     },
     "dynamicBindingPathList": [],
     "name": "cursosNuevos",
-    "pageId": "Top Courses",
+    "pageId": "Nuevos Cursos",
     "runBehaviour": "ON_PAGE_LOAD",
     "userSetOnLoad": true
   }
