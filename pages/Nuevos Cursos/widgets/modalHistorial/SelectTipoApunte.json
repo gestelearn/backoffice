@@ -2,7 +2,7 @@
   "accentColor": "{{appsmith.theme.colors.primaryColor}}",
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 68,
+  "bottomRow": 71,
   "boxShadow": "none",
   "defaultOptionValue": "GREEN",
   "dynamicBindingPathList": [
@@ -56,7 +56,7 @@
   "rightColumn": 14,
   "serverSideFiltering": false,
   "sourceData": "{{[\n  { \"label\": \"Actualización\", \"value\": \"Actualizacion\" },\n  { \"label\": \"Incidencia\", \"value\": \"Incidencia\" },\n  { \"label\": \"Programación\", \"value\": \"Programacion\" }\n]}}",
-  "topRow": 61,
+  "topRow": 64,
   "type": "SELECT_WIDGET",
   "version": 1,
   "widgetId": "ttdo3he2ms",

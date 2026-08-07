@@ -2,12 +2,12 @@
   "accentColor": "{{appsmith.theme.colors.primaryColor}}",
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 68,
+  "bottomRow": 71,
   "boxShadow": "none",
   "closeOnSelection": true,
   "dateFormat": "DD/MM/YYYY",
   "datePickerType": "DATE_PICKER",
-  "defaultDate": "2026-07-31T13:58:19.329Z",
+  "defaultDate": "2026-08-07T11:07:26.2626+02:00",
   "dynamicBindingPathList": [
     {
       "key": "accentColor"
@@ -50,7 +50,7 @@
   "rightColumn": 26,
   "shortcuts": false,
   "timePrecision": "minute",
-  "topRow": 61,
+  "topRow": 64,
   "type": "DATE_PICKER_WIDGET2",
   "version": 2,
   "widgetId": "31w28mi761",

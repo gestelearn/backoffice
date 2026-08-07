@@ -40,12 +40,14 @@
     "email",
     "customColumn1"
   ],
-  "columnUpdatedAt": 1785488687517,
+  "columnUpdatedAt": 1786093668157,
   "columnWidthMap": {
     "IdCurso": 114,
-    "curso": 390,
+    "curso": 597,
+    "email": 322,
     "interesados": 136,
     "n_convocatorias": 327,
+    "profe": 234,
     "total_interesados": 166
   },
   "customIsLoading": false,
@@ -350,6 +352,7 @@
       "horizontalAlignment": "LEFT",
       "id": "ultima_actualizacion",
       "index": 3,
+      "inputFormat": "Do MMM YYYY",
       "isCellEditable": false,
       "isCellVisible": true,
       "isDerived": false,
@@ -361,6 +364,7 @@
       "label": "ultima_actualizacion",
       "notation": "standard",
       "originalId": "ultima_actualizacion",
+      "outputFormat": "DD-MM-YYYY",
       "sticky": "",
       "textColor": "",
       "textSize": "0.875rem",
