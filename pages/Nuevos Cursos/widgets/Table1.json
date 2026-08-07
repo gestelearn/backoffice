@@ -36,19 +36,20 @@
     "curso",
     "interesados",
     "ultima_actualizacion",
-    "profe",
     "email",
+    "profe",
     "customColumn1"
   ],
-  "columnUpdatedAt": 1786093668157,
+  "columnUpdatedAt": 1786102169272,
   "columnWidthMap": {
     "IdCurso": 114,
-    "curso": 597,
-    "email": 322,
-    "interesados": 136,
+    "curso": 418,
+    "email": 206,
+    "interesados": 119,
     "n_convocatorias": 327,
-    "profe": 234,
-    "total_interesados": 166
+    "profe": 219,
+    "total_interesados": 166,
+    "ultima_actualizacion": 171
   },
   "customIsLoading": false,
   "customIsLoadingValue": "",
