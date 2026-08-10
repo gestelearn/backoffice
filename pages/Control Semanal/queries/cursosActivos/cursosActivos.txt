@@ -2,7 +2,7 @@ SELECT c.IdConvocatoria, cur.nombre AS Curso, c.FechaInicioCurso, c.FechaFinCurs
        c.Semanas,
        FLOOR(DATEDIFF(DATE(NOW() - INTERVAL 10 HOUR), c.FechaInicioCurso) / 7) + 1 AS semana_actual,
        COALESCE(SUM(o.cumplido), 0) AS semanas_cumplidas,
-       MAX(CASE WHEN o.semana = FLOOR(DATEDIFF(DATE(NOW() - INTERVAL 12 HOUR), c.FechaInicioCurso) / 7) + 1
+       MAX(CASE WHEN o.semana = FLOOR(DATEDIFF(DATE(NOW() - INTERVAL 10 HOUR), c.FechaInicioCurso) / 7) + 1
                 THEN o.cumplido END) AS cumplido_esta_semana,
        acc.horas_sin_acceder_max,
        prof.profesores,
