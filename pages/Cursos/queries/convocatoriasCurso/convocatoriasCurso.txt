@@ -1,0 +1,36 @@
+SELECT 
+  c.IdConvocatoria,
+  c.FechaInicioCurso,
+  c.FechaFinCurso,
+  CASE 
+    WHEN c.SuspendidaPorMinimos = 1 THEN 'Cancelada'
+    WHEN c.FechaInicioCurso > CURDATE() THEN 'Proxima'
+    WHEN CURDATE() BETWEEN c.FechaInicioCurso AND c.FechaFinCurso THEN 'Impartiendose'
+    WHEN c.FechaFinCurso < CURDATE() THEN 'Finalizada'
+    ELSE 'Sin estado'
+  END AS estado,
+  COALESCE(fact.facturacion, 0) AS facturacion,
+  COALESCE(mat.matriculados, 0) AS matriculados,
+  COALESCE(fin.finalizados, 0) AS finalizados
+FROM cogiti001.convocatorias c
+LEFT JOIN (
+     SELECT IdConvocatoria, SUM(Precio) AS facturacion
+     FROM cogiti001.matriculas
+     WHERE Baja = 0
+     GROUP BY IdConvocatoria
+   ) fact ON fact.IdConvocatoria = c.IdConvocatoria
+LEFT JOIN (
+     SELECT IdConvocatoria, COUNT(*) AS matriculados
+     FROM cogiti001.matriculas
+     WHERE Baja = 0
+     GROUP BY IdConvocatoria
+   ) mat ON mat.IdConvocatoria = c.IdConvocatoria
+LEFT JOIN (
+     SELECT m.IdConvocatoria, COUNT(*) AS finalizados
+     FROM cogiti001.matriculas m
+     JOIN cogiti001.diplomas d ON d.IdMatricula = m.IdMatricula
+     WHERE d.Calificacion = 'APTO'
+     GROUP BY m.IdConvocatoria
+   ) fin ON fin.IdConvocatoria = c.IdConvocatoria
+WHERE c.IdCurso = {{ SelectCurso.selectedOptionValue }}
+ORDER BY c.FechaInicioCurso DESC;
