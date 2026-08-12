@@ -1,7 +1,26 @@
-SELECT cur.IdCurso, cur.Nombre AS nombre_curso
+SELECT cur.IdCurso,
+       CASE WHEN COALESCE(prox.proxima_fecha, '') <> ''
+            THEN CONCAT(
+                   CONVERT(' ' USING utf8) COLLATE utf8_unicode_ci,
+                   cur.Nombre,
+                   CONVERT('  (proxima: ' USING utf8) COLLATE utf8_unicode_ci,
+                   DATE_FORMAT(prox.proxima_fecha, '%d/%m/%Y'),
+                   CONVERT(')' USING utf8) COLLATE utf8_unicode_ci
+                 )
+            ELSE cur.Nombre
+       END AS nombre_curso,
+       CASE WHEN COALESCE(prox.proxima_fecha, '') <> '' THEN 1 ELSE 0 END AS tiene_proxima
 FROM cogiti001.cursos cur
+LEFT JOIN (
+       SELECT IdCurso, MIN(FechaInicioCurso) AS proxima_fecha
+       FROM cogiti001.convocatorias
+       WHERE FechaInicioCurso > CURDATE()
+         AND Activo = 1
+       GROUP BY IdCurso
+     ) prox
+  ON prox.IdCurso = cur.IdCurso
 WHERE cur.Activo = 1
   AND (cur.Nombre LIKE {{ "%" + SelectCurso.filterText + "%" }}
        OR cur.IdCurso LIKE {{ "%" + SelectCurso.filterText + "%" }})
-ORDER BY cur.Nombre
+ORDER BY tiene_proxima DESC, cur.Nombre
 LIMIT 25;

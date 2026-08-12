@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT cur.IdCurso, cur.Nombre AS nombre_curso\nFROM cogiti001.cursos cur\nWHERE cur.Activo = 1\n  AND (cur.Nombre LIKE {{ \"%\" + SelectCurso.filterText + \"%\" }}\n       OR cur.IdCurso LIKE {{ \"%\" + SelectCurso.filterText + \"%\" }})\nORDER BY cur.Nombre\nLIMIT 25;",
+      "body": "SELECT cur.IdCurso,\n       CASE WHEN COALESCE(prox.proxima_fecha, '') <> ''\n            THEN CONCAT(\n                   CONVERT(' ' USING utf8) COLLATE utf8_unicode_ci,\n                   cur.Nombre,\n                   CONVERT('  (proxima: ' USING utf8) COLLATE utf8_unicode_ci,\n                   DATE_FORMAT(prox.proxima_fecha, '%d/%m/%Y'),\n                   CONVERT(')' USING utf8) COLLATE utf8_unicode_ci\n                 )\n            ELSE cur.Nombre\n       END AS nombre_curso,\n       CASE WHEN COALESCE(prox.proxima_fecha, '') <> '' THEN 1 ELSE 0 END AS tiene_proxima\nFROM cogiti001.cursos cur\nLEFT JOIN (\n       SELECT IdCurso, MIN(FechaInicioCurso) AS proxima_fecha\n       FROM cogiti001.convocatorias\n       WHERE FechaInicioCurso > CURDATE()\n         AND Activo = 1\n       GROUP BY IdCurso\n     ) prox\n  ON prox.IdCurso = cur.IdCurso\nWHERE cur.Activo = 1\n  AND (cur.Nombre LIKE {{ \"%\" + SelectCurso.filterText + \"%\" }}\n       OR cur.IdCurso LIKE {{ \"%\" + SelectCurso.filterText + \"%\" }})\nORDER BY tiene_proxima DESC, cur.Nombre\nLIMIT 25;",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [
