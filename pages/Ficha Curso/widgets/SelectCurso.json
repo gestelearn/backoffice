@@ -1,0 +1,78 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 18,
+  "boxShadow": "none",
+  "defaultOptionValue": "GREEN",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "sourceData"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "sourceData"
+    },
+    {
+      "key": "onFilterUpdate"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onOptionChange"
+    },
+    {
+      "key": "onFilterUpdate"
+    }
+  ],
+  "isDisabled": false,
+  "isFilterable": true,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "782zuyeuod",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelStyle": "BOLD",
+  "labelText": "Busador de curso",
+  "labelTextColor": "#fef9c3",
+  "labelTextSize": "1rem",
+  "labelWidth": 5,
+  "leftColumn": 30,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 26,
+  "mobileLeftColumn": 46,
+  "mobileRightColumn": 58,
+  "mobileTopRow": 19,
+  "needsErrorInfo": false,
+  "onFilterUpdate": "{{ buscarCursos.run() }}\n{{ SelectCurso.filterText.length >= 3 ? buscarCursos.run() : null }}",
+  "onOptionChange": "{{datosCurso.run();\nmatriculasCurso.run();\nbajasCurso.run();\ncalificaciones.run();\nevolucionMatriculas.run()}}",
+  "optionLabel": "label",
+  "optionValue": "IdCurso",
+  "originalBottomRow": 18,
+  "originalTopRow": 11,
+  "parentColumnSpace": 20.25,
+  "parentId": "0",
+  "parentRowSpace": 10,
+  "placeholderText": "Select option",
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 54,
+  "serverSideFiltering": true,
+  "sourceData": "{{ buscarCursos.data.map(c => ({\n     ...c,\n     label: (c.tiene_proxima ? \"🟢 \" : \"\") + c.nombre_curso + (c.proxima_fecha ? \"  (próx: \" + moment(c.proxima_fecha).format(\"DD/MM/YYYY\") + \")\" : \"\")\n   }))\n}}",
+  "topRow": 11,
+  "type": "SELECT_WIDGET",
+  "version": 1,
+  "widgetId": "82zf7qnxtb",
+  "widgetName": "SelectCurso"
+}
