@@ -10,5 +10,5 @@ SELECT
         / NULLIF(SUM(CASE WHEN m.Estado = 'Pagado' THEN 1 ELSE 0 END), 0), 1) AS pct_abandono
 FROM cogiti001.matriculas m
 JOIN cogiti001.convocatorias c ON c.IdConvocatoria = m.IdConvocatoria
-WHERE c.IdCurso = '{{buscador.text}}'
+WHERE c.IdCurso = {{ SelectCurso.selectedOptionValue }}
   AND c.Activo = 1;

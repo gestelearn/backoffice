@@ -1,5 +1,5 @@
 -- listarActualizaciones
 SELECT id, fecha, tipo, descripcion, creado_por
 FROM appsmith.obs_actualizaciones
-WHERE IdCurso = '{{buscador.text}}'
+WHERE IdCurso = {{ SelectCurso.selectedOptionValue }}
 ORDER BY fecha DESC;

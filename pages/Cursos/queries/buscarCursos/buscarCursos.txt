@@ -1,0 +1,7 @@
+SELECT cur.IdCurso, cur.Nombre AS nombre_curso
+FROM cogiti001.cursos cur
+WHERE cur.Activo = 1
+  AND (cur.Nombre LIKE {{ "%" + SelectCurso.filterText + "%" }}
+       OR cur.IdCurso LIKE {{ "%" + SelectCurso.filterText + "%" }})
+ORDER BY cur.Nombre
+LIMIT 25;

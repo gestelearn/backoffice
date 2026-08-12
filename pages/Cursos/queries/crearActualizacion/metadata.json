@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "-- crearActualizacion\nINSERT INTO appsmith.obs_actualizaciones (IdCurso, fecha, tipo, descripcion, creado_por)\nVALUES ('{{buscador.text}}',\n        '{{moment(DatePickerAct.selectedDate).format(\"YYYY-MM-DD\")}}',\n        '{{SelectTipoAct.selectedOptionValue}}',\n        '{{TextAreaAct.text}}',\n        '{{appsmith.user.email}}');",
+      "body": "-- crearActualizacion\nINSERT INTO appsmith.obs_actualizaciones (IdCurso, fecha, tipo, descripcion, creado_por)\nVALUES ('{{ SelectCurso.selectedOptionValue }}',\n        '{{moment(DatePickerAct.selectedDate).format(\"YYYY-MM-DD\")}}',\n        '{{SelectTipoAct.selectedOptionValue}}',\n        '{{TextAreaAct.text}}',\n        '{{appsmith.user.email}}');",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [

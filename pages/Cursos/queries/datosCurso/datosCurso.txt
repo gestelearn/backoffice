@@ -34,5 +34,5 @@ SELECT
 FROM cogiti001.cursos cur
 JOIN cogiti001.convocatorias c ON c.IdCurso = cur.IdCurso
 LEFT JOIN cogiti001.encuestas e ON e.IdConvocatoria = c.IdConvocatoria
-WHERE cur.IdCurso = '{{buscador.text}}'
+WHERE cur.IdCurso = {{ SelectCurso.selectedOptionValue }}
 GROUP BY cur.IdCurso, cur.Nombre;

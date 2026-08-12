@@ -16,6 +16,6 @@ SELECT
 	ROUND(COUNT(*) / COUNT(DISTINCT m.IdConvocatoria), 1) AS media_matriculas_convocatoria
 FROM cogiti001.matriculas m
 JOIN cogiti001.convocatorias c ON c.IdConvocatoria = m.IdConvocatoria
-WHERE c.IdCurso = '{{buscador.text}}'
+WHERE c.IdCurso = {{ SelectCurso.selectedOptionValue }}
   AND c.Activo = 1
   AND m.Baja = 0;

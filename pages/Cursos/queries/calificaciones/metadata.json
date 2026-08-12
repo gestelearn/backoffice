@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT\n  CASE\n    WHEN d.Calificacion = 'APTO' THEN 'Apto'\n    WHEN d.Calificacion = 'NO_APTO_CON' THEN 'No apto'\n    WHEN d.Calificacion = 'NO_APTO_SIN' THEN 'No presentado'\n    ELSE 'Sin calificar'\n  END AS resultado,\n  COUNT(*) AS total\nFROM cogiti001.matriculas m\nJOIN cogiti001.convocatorias c ON c.IdConvocatoria = m.IdConvocatoria\nJOIN cogiti001.diplomas d ON d.IdMatricula = m.IdMatricula\nWHERE c.IdCurso = '{{buscador.text}}'\n  AND c.Activo = 1\n  AND m.Baja = 0\nGROUP BY resultado;",
+      "body": "SELECT\n  CASE\n    WHEN d.Calificacion = 'APTO' THEN 'Apto'\n    WHEN d.Calificacion = 'NO_APTO_CON' THEN 'No apto'\n    WHEN d.Calificacion = 'NO_APTO_SIN' THEN 'No presentado'\n    ELSE 'Sin calificar'\n  END AS resultado,\n  COUNT(*) AS total\nFROM cogiti001.matriculas m\nJOIN cogiti001.convocatorias c ON c.IdConvocatoria = m.IdConvocatoria\nJOIN cogiti001.diplomas d ON d.IdMatricula = m.IdMatricula\nWHERE c.IdCurso = {{ SelectCurso.selectedOptionValue }}\n  AND c.Activo = 1\n  AND m.Baja = 0\nGROUP BY resultado;",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [

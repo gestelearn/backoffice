@@ -9,7 +9,7 @@ SELECT
 FROM cogiti001.matriculas m
 JOIN cogiti001.convocatorias c ON c.IdConvocatoria = m.IdConvocatoria
 JOIN cogiti001.diplomas d ON d.IdMatricula = m.IdMatricula
-WHERE c.IdCurso = '{{buscador.text}}'
+WHERE c.IdCurso = {{ SelectCurso.selectedOptionValue }}
   AND c.Activo = 1
   AND m.Baja = 0
 GROUP BY resultado;
