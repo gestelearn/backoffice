@@ -1,7 +1,7 @@
 {
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 189,
+  "bottomRow": 62,
   "boxShadow": "none",
   "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
   "buttonVariant": "PRIMARY",
@@ -12,14 +12,6 @@
     },
     {
       "key": "borderRadius"
-    },
-    {
-      "key": "isDisabled"
-    }
-  ],
-  "dynamicPropertyPathList": [
-    {
-      "key": "isDisabled"
     }
   ],
   "dynamicTriggerPathList": [
@@ -28,20 +20,20 @@
     }
   ],
   "isDefaultClickDisabled": true,
-  "isDisabled": "{{!datosCurso.data[0]}}",
+  "isDisabled": false,
   "isLoading": false,
   "isVisible": true,
-  "key": "vdwf9iw401",
-  "leftColumn": 6,
+  "key": "5c2vlsok6n",
+  "leftColumn": 14,
   "minWidth": 120,
-  "mobileBottomRow": 128,
-  "mobileLeftColumn": 25,
-  "mobileRightColumn": 41,
-  "mobileTopRow": 124,
+  "mobileBottomRow": 61,
+  "mobileLeftColumn": 14,
+  "mobileRightColumn": 30,
+  "mobileTopRow": 57,
   "needsErrorInfo": false,
-  "onClick": "{{resetWidget(\"DatePickerAct\", true);\nresetWidget(\"SelectTipoAct\", true);\nresetWidget(\"TextAreaAct\", true);\nshowModal(Modal1.name);}}",
-  "originalBottomRow": 189,
-  "originalTopRow": 185,
+  "onClick": "{{comentariosCurso.run();\nshowModal(modalComentarios.name);}}",
+  "originalBottomRow": 62,
+  "originalTopRow": 58,
   "parentColumnSpace": 20.25,
   "parentId": "0",
   "parentRowSpace": 10,
@@ -50,11 +42,11 @@
   "renderMode": "CANVAS",
   "resetFormOnClick": false,
   "responsiveBehavior": "hug",
-  "rightColumn": 22,
-  "text": "Añadir apunte",
-  "topRow": 185,
+  "rightColumn": 30,
+  "text": "Ver comentarios",
+  "topRow": 58,
   "type": "BUTTON_WIDGET",
   "version": 1,
-  "widgetId": "re4svjczwc",
-  "widgetName": "Actualizacion"
+  "widgetId": "e1up74yylu",
+  "widgetName": "Comentarios"
 }

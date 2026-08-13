@@ -1,0 +1,16 @@
+SELECT 
+	r.IdRespuesta,
+  r.Valor AS comentario,
+  p.Texto AS pregunta,
+  e.IdConvocatoria,
+  c.FechaInicioCurso
+FROM cogiti001.respuestas r
+JOIN cogiti001.preguntas p ON p.IdPregunta = r.IdPregunta
+JOIN cogiti001.solucionesencuesta se ON se.IdSolucion = r.IdSolucion
+JOIN cogiti001.encuestas e ON e.IdEncuesta = se.IdEncuesta
+JOIN cogiti001.convocatorias c ON c.IdConvocatoria = e.IdConvocatoria
+WHERE c.IdCurso = {{ SelectCurso.selectedOptionValue }}
+  AND p.Tipo = 0
+  AND COALESCE(r.Valor, '') <> ''
+  AND COALESCE(r.Valor, '') <> '<p></p>'
+ORDER BY c.FechaInicioCurso DESC;
