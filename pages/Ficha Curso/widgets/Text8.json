@@ -2,7 +2,7 @@
   "animateLoading": true,
   "backgroundColor": "#1e3a8a",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 53,
+  "bottomRow": 54,
   "dynamicBindingPathList": [
     {
       "key": "truncateButtonColor"
@@ -48,7 +48,7 @@
   "text": "{{datosCurso.data[0]?.total_encuestados ?? \"0\"}} encuestados de {{matriculasCurso.data[0].total_matriculas}} matriculados",
   "textAlign": "CENTER",
   "textColor": "white",
-  "topRow": 49,
+  "topRow": 50,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
   "version": 1,

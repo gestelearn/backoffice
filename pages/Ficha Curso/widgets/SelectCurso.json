@@ -2,7 +2,7 @@
   "accentColor": "{{appsmith.theme.colors.primaryColor}}",
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 17,
+  "bottomRow": 19,
   "boxShadow": "none",
   "defaultOptionValue": "GREEN",
   "dynamicBindingPathList": [
@@ -70,7 +70,7 @@
   "rightColumn": 54,
   "serverSideFiltering": true,
   "sourceData": "{{ buscarCursos.data.map(c => ({\n     ...c,\n     label: (c.tiene_proxima ? \"🟢 \" : \"\") + c.nombre_curso + (c.proxima_fecha ? \"  (próx: \" + moment(c.proxima_fecha).format(\"DD/MM/YYYY\") + \")\" : \"\")\n   }))\n}}",
-  "topRow": 10,
+  "topRow": 12,
   "type": "SELECT_WIDGET",
   "version": 1,
   "widgetId": "82zf7qnxtb",
