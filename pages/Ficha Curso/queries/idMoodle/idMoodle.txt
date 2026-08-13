@@ -1,0 +1,4 @@
+SELECT IdCurso, Nombre, IdMoodle
+FROM cogiti001.cursos
+WHERE COALESCE(IdMoodle, '') <> ''
+LIMIT 10;

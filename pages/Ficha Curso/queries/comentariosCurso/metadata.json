@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT \n\tr.IdRespuesta,\n  r.Valor AS comentario,\n  p.Texto AS pregunta,\n  e.IdConvocatoria,\n  c.FechaInicioCurso\nFROM cogiti001.respuestas r\nJOIN cogiti001.preguntas p ON p.IdPregunta = r.IdPregunta\nJOIN cogiti001.solucionesencuesta se ON se.IdSolucion = r.IdSolucion\nJOIN cogiti001.encuestas e ON e.IdEncuesta = se.IdEncuesta\nJOIN cogiti001.convocatorias c ON c.IdConvocatoria = e.IdConvocatoria\nWHERE c.IdCurso = {{ SelectCurso.selectedOptionValue }}\n  AND p.Tipo = 0\n  AND COALESCE(r.Valor, '') <> ''\n  AND COALESCE(r.Valor, '') <> '<p></p>'\nORDER BY c.FechaInicioCurso DESC;",
+      "body": "SELECT \n\tr.IdRespuesta,\n  r.Valor AS comentario,\n  p.Texto AS pregunta,\n  e.IdConvocatoria,\n  c.FechaInicioCurso\nFROM cogiti001.respuestas r\nJOIN cogiti001.preguntas p ON p.IdPregunta = r.IdPregunta\nJOIN cogiti001.solucionesencuesta se ON se.IdSolucion = r.IdSolucion\nJOIN cogiti001.encuestas e ON e.IdEncuesta = se.IdEncuesta\nJOIN cogiti001.convocatorias c ON c.IdConvocatoria = e.IdConvocatoria\nWHERE e.IdConvocatoria = {{ appsmith.store.convocatoriaSeleccionada }}\n  AND p.Tipo = 0\n  AND COALESCE(r.Valor, '') <> ''\n  AND COALESCE(r.Valor, '') <> '<p></p>'\nORDER BY c.FechaInicioCurso DESC;",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [

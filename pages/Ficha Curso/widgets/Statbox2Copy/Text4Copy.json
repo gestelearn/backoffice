@@ -1,7 +1,7 @@
 {
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 9,
+  "bottomRow": 8,
   "dynamicBindingPathList": [
     {
       "key": "truncateButtonColor"
@@ -19,7 +19,7 @@
   "dynamicHeight": "AUTO_HEIGHT",
   "dynamicTriggerPathList": [],
   "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
-  "fontSize": "1rem",
+  "fontSize": "1.25rem",
   "fontStyle": "BOLD",
   "isLoading": false,
   "isVisible": true,
@@ -36,18 +36,18 @@
   "originalBottomRow": 9,
   "originalTopRow": 5,
   "overflow": "NONE",
-  "parentId": "7ow8g9uvh8",
+  "parentId": "pl89bikgsg",
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
   "rightColumn": 64,
   "shouldTruncate": false,
-  "text": "{{matriculasCurso.data[0]?.facturacion_media ?? 0}}€",
+  "text": "{{matriculasCurso.data[0]?.pct_factura_empresa ?? 0}}%",
   "textAlign": "CENTER",
   "textColor": "#231F20",
-  "topRow": 5,
+  "topRow": 4,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
   "version": 1,
-  "widgetId": "b1ex8x5a3f",
-  "widgetName": "Text4Copy2"
+  "widgetId": "nq7g23bdpk",
+  "widgetName": "Text4Copy"
 }

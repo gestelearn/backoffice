@@ -1,0 +1,48 @@
+{
+  "animateLoading": true,
+  "borderRadius": "0.375rem",
+  "bottomRow": 7,
+  "boxShadow": "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)",
+  "buttonColor": "#1e3a8a",
+  "buttonVariant": "PRIMARY",
+  "dynamicBindingPathList": [
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "iconName": "share",
+  "isDisabled": "{{ !datosCurso.data[0] || !datosCurso.data[0].IdMoodle }}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "ahrhchdk2t",
+  "leftColumn": 59,
+  "minWidth": 50,
+  "mobileBottomRow": 6,
+  "mobileLeftColumn": 59,
+  "mobileRightColumn": 63,
+  "mobileTopRow": 2,
+  "needsErrorInfo": false,
+  "onClick": "{{navigateTo(\"https://www.ingenierosformacion.com/campus/course/view.php?id=\" + datosCurso.data[0].IdMoodle, {}, 'NEW_WINDOW');}}",
+  "parentColumnSpace": 14.875,
+  "parentId": "yr135nxkjd",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "hug",
+  "rightColumn": 63,
+  "tooltip": "Ir al campus virtual del curso",
+  "topRow": 1,
+  "type": "ICON_BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "qvkatseqkv",
+  "widgetName": "IconButton5"
+}

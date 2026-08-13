@@ -1,0 +1,52 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 9,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "iconName": "print",
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "8rjhrk95c8",
+  "leftColumn": 57,
+  "minWidth": 50,
+  "mobileBottomRow": 9,
+  "mobileLeftColumn": 57,
+  "mobileRightColumn": 61,
+  "mobileTopRow": 5,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  (() => {\n    const doc = new jspdf.jsPDF();\n    let y = 15;\n    doc.setFontSize(14);\n    doc.text(\"Comentarios - Convocatoria \" + appsmith.store.convocatoriaSeleccionada, 10, y);\n    y += 10;\n    doc.setFontSize(10);\n    \n    const preguntasExcluidas = [\n      \"Observaciones y comentarios sobre los aspectos t&eacute;cnicos de la Plataforma\",\n      \"Observaciones y Comentarios sobre el Coordinador\",\n\t\t\t\"Observaciones y Comentarios sobre la interacci&oacute;n entre alumnos\"\n    ];\n    \n    comentariosCurso.data.forEach((item) => {\n      const pregunta = item.pregunta.replace(/<[^>]*>/g, '').trim();\n      const comentario = item.comentario.replace(/<[^>]*>/g, '');\n      \n      if (preguntasExcluidas.includes(pregunta)) return;\n      \n      if (y > 270) { doc.addPage(); y = 15; }\n      \n      doc.setFont(undefined, 'bold');\n      const preguntaLines = doc.splitTextToSize(pregunta, 180);\n      doc.text(preguntaLines, 10, y);\n      y += preguntaLines.length * 5 + 2;\n      \n      doc.setFont(undefined, 'normal');\n      const comentarioLines = doc.splitTextToSize(comentario, 180);\n      doc.text(comentarioLines, 10, y);\n      y += comentarioLines.length * 5 + 8;\n    });\n    \n    const pdfDataUri = doc.output('datauristring');\n    download(pdfDataUri, \"comentarios_convocatoria_\" + appsmith.store.convocatoriaSeleccionada + \".pdf\", \"application/pdf\");\n  })()\n}}",
+  "originalBottomRow": 9,
+  "originalTopRow": 5,
+  "parentColumnSpace": 14.53125,
+  "parentId": "lz48pj0xk9",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "hug",
+  "rightColumn": 61,
+  "topRow": 5,
+  "type": "ICON_BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "jg17wxb687",
+  "widgetName": "jsPDF"
+}

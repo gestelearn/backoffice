@@ -14,40 +14,51 @@
     },
     {
       "key": "text"
+    },
+    {
+      "key": "isVisible"
     }
   ],
   "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicPropertyPathList": [
+    {
+      "key": "isVisible"
+    }
+  ],
   "dynamicTriggerPathList": [],
   "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
-  "fontSize": "1.25rem",
+  "fontSize": "1.875rem",
   "fontStyle": "BOLD",
   "isLoading": false,
-  "isVisible": true,
-  "key": "iy0jixgnj0",
-  "leftColumn": 0,
+  "isVisible": "{{ comentariosCurso.data.length === 0 }}",
+  "key": "84k08cv88r",
+  "leftColumn": 11,
   "maxDynamicHeight": 9000,
   "minDynamicHeight": 4,
   "minWidth": 450,
-  "mobileBottomRow": 8,
-  "mobileLeftColumn": 1,
-  "mobileRightColumn": 37,
-  "mobileTopRow": 4,
+  "mobileBottomRow": 6,
+  "mobileLeftColumn": 26,
+  "mobileRightColumn": 42,
+  "mobileTopRow": 2,
   "needsErrorInfo": false,
   "originalBottomRow": 9,
   "originalTopRow": 5,
   "overflow": "NONE",
-  "parentId": "nh8mslfxlg",
+  "parentColumnSpace": 14.53125,
+  "parentId": "lz48pj0xk9",
+  "parentRowSpace": 10,
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
-  "rightColumn": 60,
+  "rightColumn": 53,
+  "shouldScrollContents": true,
   "shouldTruncate": false,
-  "text": "{{matriculasCurso.data[0]?.matriculacion_media ?? 0}}",
-  "textAlign": "CENTER",
+  "text": "{{ comentariosCurso.data.length === 0 ? \"No hay comentarios para esta convocatoria\" : \"\" }}",
+  "textAlign": "LEFT",
   "textColor": "#231F20",
   "topRow": 5,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
   "version": 1,
-  "widgetId": "tkxh6mjhpx",
-  "widgetName": "Text4Copy1"
+  "widgetId": "6py567oly8",
+  "widgetName": "Text11"
 }

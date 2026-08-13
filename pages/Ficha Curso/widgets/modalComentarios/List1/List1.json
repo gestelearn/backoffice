@@ -9,12 +9,12 @@
   "animateLoading": true,
   "backgroundColor": "transparent",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 80,
+  "bottomRow": 67,
   "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
   "children": [
     {
       "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-      "bottomRow": 740,
+      "bottomRow": 580,
       "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
       "canExtend": false,
       "containerStyle": "none",
@@ -83,6 +83,14 @@
     },
     {
       "key": "listData"
+    },
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isVisible"
     }
   ],
   "dynamicTriggerPathList": [],
@@ -92,12 +100,12 @@
   "hasMetaWidgets": true,
   "isCanvas": true,
   "isLoading": false,
-  "isVisible": true,
+  "isVisible": "{{ comentariosCurso.data.length > 0 }}",
   "itemBackgroundColor": "#FFFFFF",
   "itemSpacing": 8,
   "key": "5y69e9vpff",
   "leftColumn": 2,
-  "listData": "{{ comentariosCurso.data }}",
+  "listData": "{{ comentariosCurso.data}}",
   "mainCanvasId": "tm8kfade83",
   "mainContainerId": "xyrkg9p3o3",
   "minWidth": 450,
@@ -106,9 +114,9 @@
   "mobileRightColumn": 22,
   "mobileTopRow": 6,
   "needsErrorInfo": false,
-  "originalBottomRow": 82,
-  "originalTopRow": 8,
-  "pageSize": 3,
+  "originalBottomRow": 67,
+  "originalTopRow": 9,
+  "pageSize": 2,
   "parentColumnSpace": 6.9375,
   "parentId": "lz48pj0xk9",
   "parentRowSpace": 10,
@@ -119,7 +127,7 @@
   "rightColumn": 62,
   "selectedItemView": "{{{}}}",
   "templateHeight": 160,
-  "topRow": 6,
+  "topRow": 9,
   "triggeredItemView": "{{{}}}",
   "type": "LIST_WIDGET_V2",
   "widgetId": "jz5x8etb1d",

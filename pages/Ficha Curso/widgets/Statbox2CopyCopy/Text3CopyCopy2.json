@@ -1,7 +1,7 @@
 {
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 5,
+  "bottomRow": 4,
   "dynamicBindingPathList": [
     {
       "key": "truncateButtonColor"
@@ -33,18 +33,18 @@
   "originalBottomRow": 5,
   "originalTopRow": 0,
   "overflow": "NONE",
-  "parentId": "nh8mslfxlg",
+  "parentId": "69hs4pq6cc",
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
   "rightColumn": 62,
   "shouldTruncate": false,
-  "text": "Matriculas Media",
+  "text": "Peso Becados",
   "textAlign": "CENTER",
   "textColor": "#999999",
   "topRow": 0,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
   "version": 1,
-  "widgetId": "h9wtlcrgfx",
-  "widgetName": "Text3Copy1"
+  "widgetId": "xuyzr9csk7",
+  "widgetName": "Text3CopyCopy2"
 }
