@@ -49,6 +49,7 @@
     "customColumn1": 104,
     "customColumn2": 121,
     "email": 229,
+    "estado_contacto": 171,
     "interesados": 119,
     "n_convocatorias": 327,
     "profe": 192,
@@ -125,9 +126,6 @@
       "key": "primaryColumns.estado_contacto.borderRadius"
     },
     {
-      "key": "primaryColumns.estado_contacto.boxShadow"
-    },
-    {
       "key": "primaryColumns.estado_contacto.menuButtonLabel"
     },
     {
@@ -146,6 +144,15 @@
     },
     {
       "key": "primaryColumns.estado_contacto.menuColor"
+    },
+    {
+      "key": "primaryColumns.estado_contacto.menuItems.menuItem1eq8mt26k3.onClick"
+    },
+    {
+      "key": "primaryColumns.estado_contacto.menuItems.menuItemaq3bybjxcw.onClick"
+    },
+    {
+      "key": "primaryColumns.estado_contacto.menuItems.menuItemd8jl21wme2.onClick"
     }
   ],
   "dynamicTriggerPathList": [
@@ -370,7 +377,7 @@
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
       "borderRadius": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.borderRadius.appBorderRadius)))}}",
-      "boxShadow": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( \"none\"))}}",
+      "boxShadow": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
       "cellBackground": "",
       "columnType": "menuButton",
       "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"estado_contacto\"])) : currentRow[\"estado_contacto\"] })()}}",
@@ -394,6 +401,7 @@
       "isVisible": true,
       "label": "estado_contacto",
       "menuButtonLabel": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (\n  currentRow.estado_contacto === \"rojo\" ? \"🔴 No responde\"\n  : currentRow.estado_contacto === \"naranja\" ? \"🟠 No resuelve\"\n  : currentRow.estado_contacto === \"verde\" ? \"🟢 Confirma\"\n  : \"⚪ Sin contactar\"\n)) : \n  currentRow.estado_contacto === \"rojo\" ? \"🔴 No responde\"\n  : currentRow.estado_contacto === \"naranja\" ? \"🟠 No resuelve\"\n  : currentRow.estado_contacto === \"verde\" ? \"🟢 Confirma\"\n  : \"⚪ Sin contactar\"\n })()}}",
+      "menuButtoniconName": "info-sign",
       "menuColor": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (\n  currentRow.estado_contacto === \"rojo\" ? \"#ef4444\"\n  : currentRow.estado_contacto === \"naranja\" ? \"#f59e0b\"\n  : currentRow.estado_contacto === \"verde\" ? \"#22c55e\"\n  : \"#e5e7eb\"\n)) : \n  currentRow.estado_contacto === \"rojo\" ? \"#ef4444\"\n  : currentRow.estado_contacto === \"naranja\" ? \"#f59e0b\"\n  : currentRow.estado_contacto === \"verde\" ? \"#22c55e\"\n  : \"#e5e7eb\"\n })()}}",
       "menuItems": {
         "menuItem1eq8mt26k3": {
@@ -402,7 +410,7 @@
           "isDisabled": false,
           "isVisible": true,
           "label": "🔴 No responde",
-          "onClick": "{{storeValue('cursoEstadoSeleccionado', currentRow.IdCurso);\nstoreValue('colorSeleccionado', 'rojo');\nactualizarEstadoContacto.run();\ncursosNuevos.run()}}",
+          "onClick": "{{\n  (async () => {\n    await storeValue(\"cursoEstadoSeleccionado\", currentRow.IdCurso);\n    await storeValue(\"colorSeleccionado\", \"rojo\");\n    await actualizarEstadoContacto.run();\n    await cursosNuevos.run();\n  })()\n}}",
           "widgetId": "9oitpbtv6k"
         },
         "menuItemaq3bybjxcw": {
@@ -411,7 +419,7 @@
           "isDisabled": false,
           "isVisible": true,
           "label": "🟠 No resuelve",
-          "onClick": "{{storeValue('cursoEstadoSeleccionado', currentRow.IdCurso);\nstoreValue('colorSeleccionado', 'naranja');\nactualizarEstadoContacto.run();\ncursosNuevos.run()}}",
+          "onClick": "{{\n  (async () => {\n    await storeValue(\"cursoEstadoSeleccionado\", currentRow.IdCurso);\n    await storeValue(\"colorSeleccionado\", \"naranja\");\n    await actualizarEstadoContacto.run();\n    await cursosNuevos.run();\n  })()\n}}",
           "widgetId": "f6whgge4rs"
         },
         "menuItemd8jl21wme2": {
@@ -420,7 +428,7 @@
           "isDisabled": false,
           "isVisible": true,
           "label": "🟢 Confirma",
-          "onClick": "{{storeValue('cursoEstadoSeleccionado', currentRow.IdCurso);\nstoreValue('colorSeleccionado', 'verde');\nactualizarEstadoContacto.run();\ncursosNuevos.run()}}",
+          "onClick": "{{\n  (async () => {\n    await storeValue(\"cursoEstadoSeleccionado\", currentRow.IdCurso);\n    await storeValue(\"colorSeleccionado\", \"verde\");\n    await actualizarEstadoContacto.run();\n    await cursosNuevos.run();\n  })()\n}}",
           "widgetId": "ro4fu0j9w1"
         }
       },
