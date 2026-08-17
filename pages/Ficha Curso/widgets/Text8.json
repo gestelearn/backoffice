@@ -2,7 +2,7 @@
   "animateLoading": true,
   "backgroundColor": "#1e3a8a",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 54,
+  "bottomRow": 60,
   "dynamicBindingPathList": [
     {
       "key": "truncateButtonColor"
@@ -34,8 +34,8 @@
   "mobileRightColumn": 30,
   "mobileTopRow": 60,
   "needsErrorInfo": false,
-  "originalBottomRow": 53,
-  "originalTopRow": 49,
+  "originalBottomRow": 58,
+  "originalTopRow": 54,
   "overflow": "NONE",
   "parentColumnSpace": 20.25,
   "parentId": "0",
@@ -48,7 +48,7 @@
   "text": "{{datosCurso.data[0]?.total_encuestados ?? \"0\"}} encuestados de {{matriculasCurso.data[0].total_matriculas}} matriculados",
   "textAlign": "CENTER",
   "textColor": "white",
-  "topRow": 50,
+  "topRow": 56,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
   "version": 1,

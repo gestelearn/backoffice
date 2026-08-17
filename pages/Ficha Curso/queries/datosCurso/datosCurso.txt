@@ -2,7 +2,17 @@ SELECT
   cur.IdCurso,
   cur.Nombre AS nombre_curso,
   cur.Activo,
-	cur.IdMoodle,
+  cur.IdMoodle,
+  precios.horas_num AS horas_lectivas,
+  precios.TVEducativa,
+  precios.precio_base,
+  CASE WHEN precios.TVEducativa = 1 THEN NULL 
+       ELSE ROUND(precios.precio_base + COALESCE(precios.horas_num,0), 2) 
+  END AS precio_fundae,
+  precios.precio_base AS precio_no_colegiado,
+  ROUND(precios.precio_base * 0.75, 2) AS precio_convenio,
+  ROUND(precios.precio_base * 0.50, 2) AS precio_colegiado,
+  ROUND(precios.precio_base * 0.25, 2) AS precio_becado,
   COUNT(DISTINCT c.IdConvocatoria) AS total_convocatorias,
   ROUND(AVG(e._MediaProfesores), 2) AS nota_profesor,
   ROUND(AVG(e._MediaContenidos), 2) AS nota_contenidos,
@@ -12,7 +22,7 @@ SELECT
   COUNT(DISTINCT e.IdEncuesta) AS convocatorias_valoradas,
   SUM(CASE WHEN c.Activo = 1 THEN 1 ELSE 0 END) AS convocatorias_impartidas,
   SUM(CASE WHEN c.Activo = 0 THEN 1 ELSE 0 END) AS convocatorias_canceladas,
- ROUND(100 * SUM(CASE WHEN c.Activo = 1 THEN 1 ELSE 0 END) / NULLIF(COUNT(c.IdConvocatoria), 0), 1) AS ratio_apertura,
+  ROUND(100 * SUM(CASE WHEN c.Activo = 1 THEN 1 ELSE 0 END) / NULLIF(COUNT(c.IdConvocatoria), 0), 1) AS ratio_apertura,
   (SELECT CONCAT(u.Nombre, ' ', u.Apellido1, ' ', COALESCE(u.Apellido2, ''))
      FROM cogiti001.convocatorias c2
      JOIN cogiti001.profesoresconvocatoria pc ON pc.IdConvocatoria = c2.IdConvocatoria
@@ -20,7 +30,7 @@ SELECT
     WHERE c2.IdCurso = cur.IdCurso AND c2.Activo = 1 AND pc.EsPrincipal = 1
       AND c2.FechaInicioCurso > '2013-12-31'
     ORDER BY c2.FechaInicioCurso DESC LIMIT 1) AS profesor_nombre,
-		(SELECT DATE_FORMAT(c2.FechaInicioCurso, '%d/%m/%Y')
+  (SELECT DATE_FORMAT(c2.FechaInicioCurso, '%d/%m/%Y')
      FROM cogiti001.convocatorias c2
     WHERE c2.IdCurso = cur.IdCurso AND c2.Activo = 1
       AND c2.FechaInicioCurso > '2013-12-31'
@@ -35,5 +45,12 @@ SELECT
 FROM cogiti001.cursos cur
 JOIN cogiti001.convocatorias c ON c.IdCurso = cur.IdCurso
 LEFT JOIN cogiti001.encuestas e ON e.IdConvocatoria = c.IdConvocatoria
+LEFT JOIN (
+     SELECT c2.IdCurso,
+            c2.TVEducativa,
+            CAST(NULLIF(REPLACE(c2.CargaLectiva, ',', '.'), '') AS DECIMAL(10,2)) AS horas_num,
+            ROUND(COALESCE(CAST(NULLIF(REPLACE(c2.CargaLectiva, ',', '.'), '') AS DECIMAL(10,2)),0) * COALESCE(c2.PrecioHora,0), 2) AS precio_base
+     FROM cogiti001.cursos c2
+   ) precios ON precios.IdCurso = cur.IdCurso
 WHERE cur.IdCurso = {{ SelectCurso.selectedOptionValue }}
 GROUP BY cur.IdCurso, cur.Nombre;
