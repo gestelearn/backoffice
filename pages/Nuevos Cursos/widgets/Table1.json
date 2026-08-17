@@ -32,22 +32,26 @@
     }
   },
   "columnOrder": [
+    "estado_contacto",
     "IdCurso",
     "curso",
     "interesados",
     "ultima_actualizacion",
     "email",
     "profe",
-    "customColumn1"
+    "customColumn1",
+    "EditActions1"
   ],
-  "columnUpdatedAt": 1786102169272,
+  "columnUpdatedAt": 1786967190177,
   "columnWidthMap": {
     "IdCurso": 114,
     "curso": 418,
-    "email": 206,
+    "customColumn1": 104,
+    "customColumn2": 121,
+    "email": 229,
     "interesados": 119,
     "n_convocatorias": 327,
-    "profe": 219,
+    "profe": 192,
     "total_interesados": 166,
     "ultima_actualizacion": 171
   },
@@ -98,16 +102,67 @@
     },
     {
       "key": "primaryColumns.customColumn1.boxShadow"
+    },
+    {
+      "key": "primaryColumns.estado_contacto.computedValue"
+    },
+    {
+      "key": "primaryColumns.EditActions1.saveButtonColor"
+    },
+    {
+      "key": "primaryColumns.EditActions1.saveBorderRadius"
+    },
+    {
+      "key": "primaryColumns.EditActions1.discardBorderRadius"
+    },
+    {
+      "key": "primaryColumns.EditActions1.isSaveDisabled"
+    },
+    {
+      "key": "primaryColumns.EditActions1.isDiscardDisabled"
+    },
+    {
+      "key": "primaryColumns.estado_contacto.borderRadius"
+    },
+    {
+      "key": "primaryColumns.estado_contacto.boxShadow"
+    },
+    {
+      "key": "primaryColumns.estado_contacto.menuButtonLabel"
+    },
+    {
+      "key": "primaryColumns.estado_contacto.menuColor"
     }
   ],
   "dynamicPropertyPathList": [
     {
       "key": "tableData"
+    },
+    {
+      "key": "primaryColumns.EditActions1.isSaveDisabled"
+    },
+    {
+      "key": "primaryColumns.EditActions1.isDiscardDisabled"
+    },
+    {
+      "key": "primaryColumns.estado_contacto.menuColor"
     }
   ],
   "dynamicTriggerPathList": [
     {
       "key": "primaryColumns.customColumn1.onClick"
+    },
+    {
+      "key": "primaryColumns.estado_contacto.onOptionChange"
+    },
+    {
+      "key": "primaryColumns.estado_contacto.menuItems.menuItem1eq8mt26k3.onClick"
+    },
+    {
+      "key": "primaryColumns.estado_contacto.menuItems.menuItemaq3bybjxcw.onClick"
+    },
+    {
+      "key": "primaryColumns.estado_contacto.menuItems.menuItemd8jl21wme2.onClick"
     }
   ],
   "enableClientSideSearch": true,
@@ -135,6 +190,46 @@
   "parentId": "0",
   "parentRowSpace": 10,
   "primaryColumns": {
+    "EditActions1": {
+      "alias": "EditActions1",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "buttonStyle": "rgb(3, 179, 101)",
+      "columnType": "editActions",
+      "computedValue": "",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "discardActionLabel": "Discard",
+      "discardBorderRadius": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.borderRadius.appBorderRadius)))}}",
+      "discardButtonColor": "#F22B2B",
+      "discardButtonVariant": "TERTIARY",
+      "discardIconAlign": "left",
+      "enableFilter": true,
+      "enableSort": true,
+      "id": "EditActions1",
+      "index": 7,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": true,
+      "isDisabled": false,
+      "isDiscardDisabled": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( !Table1.updatedRowIndices.includes(currentIndex)))}}",
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveDisabled": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( !Table1.updatedRowIndices.includes(currentIndex)))}}",
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "Save / Discard",
+      "notation": "standard",
+      "originalId": "EditActions1",
+      "saveActionLabel": "Save",
+      "saveBorderRadius": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.borderRadius.appBorderRadius)))}}",
+      "saveButtonColor": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.colors.primaryColor)))}}",
+      "saveIconAlign": "left",
+      "sticky": "right",
+      "thousandSeparator": true,
+      "validation": {},
+      "width": 150
+    },
     "IdCurso": {
       "alias": "IdCurso",
       "allowCellWrapping": false,
@@ -270,6 +365,78 @@
       "verticalAlignment": "CENTER",
       "width": 150
     },
+    "estado_contacto": {
+      "alias": "estado_contacto",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "borderRadius": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.borderRadius.appBorderRadius)))}}",
+      "boxShadow": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( \"none\"))}}",
+      "cellBackground": "",
+      "columnType": "menuButton",
+      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"estado_contacto\"])) : currentRow[\"estado_contacto\"] })()}}",
+      "currencyCode": "USD",
+      "customAlias": "",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "",
+      "horizontalAlignment": "LEFT",
+      "id": "estado_contacto",
+      "index": 6,
+      "isCellEditable": true,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": true,
+      "isFilterable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "estado_contacto",
+      "menuButtonLabel": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (\n  currentRow.estado_contacto === \"rojo\" ? \"🔴 No responde\"\n  : currentRow.estado_contacto === \"naranja\" ? \"🟠 No resuelve\"\n  : currentRow.estado_contacto === \"verde\" ? \"🟢 Confirma\"\n  : \"⚪ Sin contactar\"\n)) : \n  currentRow.estado_contacto === \"rojo\" ? \"🔴 No responde\"\n  : currentRow.estado_contacto === \"naranja\" ? \"🟠 No resuelve\"\n  : currentRow.estado_contacto === \"verde\" ? \"🟢 Confirma\"\n  : \"⚪ Sin contactar\"\n })()}}",
+      "menuColor": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (\n  currentRow.estado_contacto === \"rojo\" ? \"#ef4444\"\n  : currentRow.estado_contacto === \"naranja\" ? \"#f59e0b\"\n  : currentRow.estado_contacto === \"verde\" ? \"#22c55e\"\n  : \"#e5e7eb\"\n)) : \n  currentRow.estado_contacto === \"rojo\" ? \"#ef4444\"\n  : currentRow.estado_contacto === \"naranja\" ? \"#f59e0b\"\n  : currentRow.estado_contacto === \"verde\" ? \"#22c55e\"\n  : \"#e5e7eb\"\n })()}}",
+      "menuItems": {
+        "menuItem1eq8mt26k3": {
+          "id": "menuItem1eq8mt26k3",
+          "index": 0,
+          "isDisabled": false,
+          "isVisible": true,
+          "label": "🔴 No responde",
+          "onClick": "{{storeValue('cursoEstadoSeleccionado', currentRow.IdCurso);\nstoreValue('colorSeleccionado', 'rojo');\nactualizarEstadoContacto.run();\ncursosNuevos.run()}}",
+          "widgetId": "9oitpbtv6k"
+        },
+        "menuItemaq3bybjxcw": {
+          "id": "menuItemaq3bybjxcw",
+          "index": 1,
+          "isDisabled": false,
+          "isVisible": true,
+          "label": "🟠 No resuelve",
+          "onClick": "{{storeValue('cursoEstadoSeleccionado', currentRow.IdCurso);\nstoreValue('colorSeleccionado', 'naranja');\nactualizarEstadoContacto.run();\ncursosNuevos.run()}}",
+          "widgetId": "f6whgge4rs"
+        },
+        "menuItemd8jl21wme2": {
+          "id": "menuItemd8jl21wme2",
+          "index": 2,
+          "isDisabled": false,
+          "isVisible": true,
+          "label": "🟢 Confirma",
+          "onClick": "{{storeValue('cursoEstadoSeleccionado', currentRow.IdCurso);\nstoreValue('colorSeleccionado', 'verde');\nactualizarEstadoContacto.run();\ncursosNuevos.run()}}",
+          "widgetId": "ro4fu0j9w1"
+        }
+      },
+      "menuItemsSource": "STATIC",
+      "notation": "standard",
+      "onOptionChange": "{{storeValue('cursoEstadoSeleccionado', currentRow.IdCurso);\nactualizarEstadoContacto.run();\ncursosNuevos.run()}}",
+      "originalId": "estado_contacto",
+      "selectOptions": "[\n  { \"label\": \"🔴 No responde\", \"value\": \"rojo\" },\n  { \"label\": \"🟠 No aclara\", \"value\": \"naranja\" },\n  { \"label\": \"🟢 Confirma\", \"value\": \"verde\" }\n]",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
     "interesados": {
       "alias": "interesados",
       "allowCellWrapping": false,
@@ -343,7 +510,7 @@
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
       "cellBackground": "",
-      "columnType": "text",
+      "columnType": "date",
       "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"ultima_actualizacion\"])) : ultima_actualizacion })()}}",
       "currencyCode": "USD",
       "decimals": 0,
@@ -353,7 +520,7 @@
       "horizontalAlignment": "LEFT",
       "id": "ultima_actualizacion",
       "index": 3,
-      "inputFormat": "Do MMM YYYY",
+      "inputFormat": "YYYY-MM-DD",
       "isCellEditable": false,
       "isCellVisible": true,
       "isDerived": false,
@@ -379,6 +546,7 @@
   "responsiveBehavior": "fill",
   "rightColumn": 60,
   "searchKey": "",
+  "showInlineEditingOptionDropdown": true,
   "tableData": "{{cursosNuevos.data}}",
   "textSize": "0.875rem",
   "topRow": 4,

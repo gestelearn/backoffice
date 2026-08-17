@@ -4,7 +4,8 @@ SELECT
   COALESCE(inte.total_interesados, 0) AS interesados,
   act.ultima_actualizacion,
   prof.profesores AS profe,
-  prof.emails_profesores AS email
+  prof.emails_profesores AS email,
+	COALESCE(ec.estado, 'sin_contactar') AS estado_contacto
 FROM cogiti001.cursos cur
 JOIN (
      SELECT IdCurso, COUNT(*) AS n_convocatorias
@@ -42,6 +43,7 @@ LEFT JOIN (
      GROUP BY IdCurso
    ) act
   ON act.IdCurso = cur.IdCurso COLLATE utf8_unicode_ci
+LEFT JOIN appsmith.obs_estado_contacto ec ON ec.IdCurso COLLATE utf8_unicode_ci = cur.IdCurso
 WHERE cur.idcurso NOT LIKE 'E0%'
  AND cur.idcurso NOT LIKE 'DIPL'
  AND cur.idcurso NOT LIKE '50%'
