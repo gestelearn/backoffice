@@ -41,7 +41,14 @@ SELECT
      JOIN cogiti001.usuarios u ON u.IdUsuario = pc.IdUsuario
     WHERE c2.IdCurso = cur.IdCurso AND c2.Activo = 1 AND pc.EsPrincipal = 1
       AND c2.FechaInicioCurso > '2013-12-31'
-    ORDER BY c2.FechaInicioCurso DESC LIMIT 1) AS profesor_email
+    ORDER BY c2.FechaInicioCurso DESC LIMIT 1) AS profesor_email,
+		(SELECT u.Telefono
+     FROM cogiti001.convocatorias c2
+     JOIN cogiti001.profesoresconvocatoria pc ON pc.IdConvocatoria = c2.IdConvocatoria
+     JOIN cogiti001.usuarios u ON u.IdUsuario = pc.IdUsuario
+    WHERE c2.IdCurso = cur.IdCurso AND c2.Activo = 1 AND pc.EsPrincipal = 1
+      AND c2.FechaInicioCurso > '2013-12-31'
+    ORDER BY c2.FechaInicioCurso DESC LIMIT 1) AS profesor_telefono
 FROM cogiti001.cursos cur
 JOIN cogiti001.convocatorias c ON c.IdCurso = cur.IdCurso
 LEFT JOIN cogiti001.encuestas e ON e.IdConvocatoria = c.IdConvocatoria

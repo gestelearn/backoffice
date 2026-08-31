@@ -4,7 +4,7 @@
   "borderColor": "#E0DEDE",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
   "borderWidth": "1",
-  "bottomRow": 52,
+  "bottomRow": 55,
   "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
   "cachedTableData": {},
   "canFreezeColumn": false,
@@ -32,12 +32,11 @@
     }
   },
   "columnOrder": [
-    "modalidad",
-    "precio"
+    "modalidad"
   ],
-  "columnUpdatedAt": 1786963015651,
+  "columnUpdatedAt": 1788177387947,
   "columnWidthMap": {
-    "modalidad": 187
+    "modalidad": 177
   },
   "customIsLoading": false,
   "customIsLoadingValue": "",
@@ -62,9 +61,6 @@
     },
     {
       "key": "tableData"
-    },
-    {
-      "key": "primaryColumns.precio.computedValue"
     }
   ],
   "dynamicPropertyPathList": [
@@ -87,15 +83,15 @@
   "isVisibleSearch": false,
   "key": "fsi3exmaye",
   "label": "Data",
-  "leftColumn": 44,
+  "leftColumn": 43,
   "minWidth": 450,
   "mobileBottomRow": 37,
   "mobileLeftColumn": 0,
   "mobileRightColumn": 5,
   "mobileTopRow": 9,
   "needsErrorInfo": false,
-  "originalBottomRow": 50,
-  "originalTopRow": 25,
+  "originalBottomRow": 55,
+  "originalTopRow": 29,
   "parentColumnSpace": 23.53125,
   "parentId": "0",
   "parentRowSpace": 10,
@@ -130,40 +126,6 @@
       "validation": {},
       "verticalAlignment": "CENTER",
       "width": 150
-    },
-    "precio": {
-      "alias": "precio",
-      "allowCellWrapping": false,
-      "allowSameOptionsInNewRow": true,
-      "cellBackground": "",
-      "columnType": "number",
-      "computedValue": "{{(() => { const tableData = Table2.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"precio\"])) : precio })()}}",
-      "currencyCode": "USD",
-      "decimals": 0,
-      "enableFilter": true,
-      "enableSort": true,
-      "fontStyle": "",
-      "horizontalAlignment": "LEFT",
-      "id": "precio",
-      "index": 1,
-      "isCellEditable": false,
-      "isCellVisible": true,
-      "isDerived": false,
-      "isDisabled": false,
-      "isDiscardVisible": true,
-      "isEditable": false,
-      "isSaveVisible": true,
-      "isVisible": true,
-      "label": "precio",
-      "notation": "standard",
-      "originalId": "precio",
-      "sticky": "",
-      "textColor": "",
-      "textSize": "0.875rem",
-      "thousandSeparator": true,
-      "validation": {},
-      "verticalAlignment": "CENTER",
-      "width": 150
     }
   },
   "renderMode": "CANVAS",
@@ -172,7 +134,7 @@
   "searchKey": "",
   "tableData": "{{\n  [\n    ...(datosCurso.data[0]?.TVEducativa !== 1 ? [{ modalidad: \"Fundae\", precio: datosCurso.data[0]?.precio_fundae }] : []),\n    { modalidad: \"No colegiados\", precio: datosCurso.data[0]?.precio_no_colegiado },\n    { modalidad: \"Fundae y colegiado conveniado\", precio: datosCurso.data[0]?.precio_convenio },\n    { modalidad: \"Colegiados\", precio: datosCurso.data[0]?.precio_colegiado },\n    { modalidad: \"Becados\", precio: datosCurso.data[0]?.precio_becado }\n  ]\n}}",
   "textSize": "0.875rem",
-  "topRow": 27,
+  "topRow": 29,
   "totalRecordsCount": 0,
   "type": "TABLE_WIDGET_V2",
   "version": 2,

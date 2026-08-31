@@ -1,6 +1,8 @@
 SELECT
   cur.IdCurso,
   cur.Nombre AS curso,
+	cur.TvEducativa,
+	CASE WHEN cur.TVEducativa = 1 THEN 'Aula Virtual' ELSE 'Teleformación' END AS modalidad,
   COALESCE(inte.total_interesados, 0) AS interesados,
   act.ultima_actualizacion,
   prof.profesores AS profe,

@@ -34,15 +34,17 @@
   "columnOrder": [
     "estado_contacto",
     "IdCurso",
+    "modalidad",
     "curso",
     "interesados",
     "ultima_actualizacion",
     "email",
     "profe",
     "customColumn1",
+    "TvEducativa",
     "EditActions1"
   ],
-  "columnUpdatedAt": 1786967190177,
+  "columnUpdatedAt": 1788176626519,
   "columnWidthMap": {
     "IdCurso": 114,
     "curso": 418,
@@ -51,6 +53,7 @@
     "email": 229,
     "estado_contacto": 171,
     "interesados": 119,
+    "modalidad": 145,
     "n_convocatorias": 327,
     "profe": 192,
     "total_interesados": 166,
@@ -130,6 +133,15 @@
     },
     {
       "key": "primaryColumns.estado_contacto.menuColor"
+    },
+    {
+      "key": "primaryColumns.TvEducativa.computedValue"
+    },
+    {
+      "key": "primaryColumns.modalidad.computedValue"
+    },
+    {
+      "key": "primaryColumns.modalidad.textColor"
     }
   ],
   "dynamicPropertyPathList": [
@@ -153,6 +165,18 @@
     },
     {
       "key": "primaryColumns.estado_contacto.menuItems.menuItemd8jl21wme2.onClick"
+    },
+    {
+      "key": "primaryColumns.estado_contacto.menuItems.menuItemnew60uo7km.onClick"
+    },
+    {
+      "key": "primaryColumns.estado_contacto.menuItems.menuItem2xdw177xvz.onClick"
+    },
+    {
+      "key": "primaryColumns.modalidad.cellBackground"
+    },
+    {
+      "key": "primaryColumns.modalidad.textColor"
     }
   ],
   "dynamicTriggerPathList": [
@@ -170,6 +194,12 @@
     },
     {
       "key": "primaryColumns.estado_contacto.menuItems.menuItemd8jl21wme2.onClick"
+    },
+    {
+      "key": "primaryColumns.estado_contacto.menuItems.menuItemnew60uo7km.onClick"
+    },
+    {
+      "key": "primaryColumns.estado_contacto.menuItems.menuItem2xdw177xvz.onClick"
     }
   ],
   "enableClientSideSearch": true,
@@ -207,7 +237,7 @@
       "currencyCode": "USD",
       "decimals": 0,
       "discardActionLabel": "Discard",
-      "discardBorderRadius": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.borderRadius.appBorderRadius)))}}",
+      "discardBorderRadius": "{{tablaCursosNuevos.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.borderRadius.appBorderRadius)))}}",
       "discardButtonColor": "#F22B2B",
       "discardButtonVariant": "TERTIARY",
       "discardIconAlign": "left",
@@ -219,18 +249,18 @@
       "isCellVisible": true,
       "isDerived": true,
       "isDisabled": false,
-      "isDiscardDisabled": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( !Table1.updatedRowIndices.includes(currentIndex)))}}",
+      "isDiscardDisabled": "{{tablaCursosNuevos.processedTableData.map((currentRow, currentIndex) => ( !tablaCursosNuevos.updatedRowIndices.includes(currentIndex)))}}",
       "isDiscardVisible": true,
       "isEditable": false,
-      "isSaveDisabled": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( !Table1.updatedRowIndices.includes(currentIndex)))}}",
+      "isSaveDisabled": "{{tablaCursosNuevos.processedTableData.map((currentRow, currentIndex) => ( !tablaCursosNuevos.updatedRowIndices.includes(currentIndex)))}}",
       "isSaveVisible": true,
       "isVisible": false,
       "label": "Save / Discard",
       "notation": "standard",
       "originalId": "EditActions1",
       "saveActionLabel": "Save",
-      "saveBorderRadius": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.borderRadius.appBorderRadius)))}}",
-      "saveButtonColor": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.colors.primaryColor)))}}",
+      "saveBorderRadius": "{{tablaCursosNuevos.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.borderRadius.appBorderRadius)))}}",
+      "saveButtonColor": "{{tablaCursosNuevos.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.colors.primaryColor)))}}",
       "saveIconAlign": "left",
       "sticky": "right",
       "thousandSeparator": true,
@@ -242,7 +272,7 @@
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
       "columnType": "text",
-      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"IdCurso\"])) : IdCurso })()}}",
+      "computedValue": "{{(() => { const tableData = tablaCursosNuevos.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"IdCurso\"])) : IdCurso })()}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,
@@ -268,12 +298,46 @@
       "verticalAlignment": "CENTER",
       "width": 150
     },
+    "TvEducativa": {
+      "alias": "TvEducativa",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "checkbox",
+      "computedValue": "{{(() => { const tableData = tablaCursosNuevos.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"TvEducativa\"])) : TvEducativa })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "",
+      "horizontalAlignment": "LEFT",
+      "id": "TvEducativa",
+      "index": 2,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "TvEducativa",
+      "notation": "standard",
+      "originalId": "TvEducativa",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
     "curso": {
       "alias": "curso",
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
       "columnType": "text",
-      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"curso\"])) : curso })()}}",
+      "computedValue": "{{(() => { const tableData = tablaCursosNuevos.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"curso\"])) : curso })()}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,
@@ -303,9 +367,9 @@
       "alias": "historial",
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
-      "borderRadius": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.borderRadius.appBorderRadius)))}}",
-      "boxShadow": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( \"none\"))}}",
-      "buttonColor": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.colors.primaryColor)))}}",
+      "borderRadius": "{{tablaCursosNuevos.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.borderRadius.appBorderRadius)))}}",
+      "boxShadow": "{{tablaCursosNuevos.processedTableData.map((currentRow, currentIndex) => ( \"none\"))}}",
+      "buttonColor": "{{tablaCursosNuevos.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.colors.primaryColor)))}}",
       "buttonLabel": "Ver",
       "buttonStyle": "rgb(3, 179, 101)",
       "columnType": "button",
@@ -329,7 +393,7 @@
       "label": "historial",
       "labelColor": "#FFFFFF",
       "notation": "standard",
-      "onClick": "{{storeValue('cursoSeleccionado', currentRow.IdCurso);\nlistarApuntesCurso.run();\nshowModal(modalHistorial.name);}}",
+      "onClick": "{{storeValue('cursoSeleccionado', currentRow.IdCurso);\nlistarApuntesCurso.run();\nshowModal(modalHistorial.name);\nstoreValue('nombreCursoSeleccionado', currentRow.curso);\nstoreValue('nombreProfesor', currentRow.profe);}}",
       "originalId": "customColumn1",
       "sticky": "",
       "textSize": "0.875rem",
@@ -344,7 +408,7 @@
       "allowSameOptionsInNewRow": true,
       "cellBackground": "",
       "columnType": "text",
-      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"email\"])) : email })()}}",
+      "computedValue": "{{(() => { const tableData = tablaCursosNuevos.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"email\"])) : email })()}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,
@@ -376,11 +440,11 @@
       "alias": "estado_contacto",
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
-      "borderRadius": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.borderRadius.appBorderRadius)))}}",
+      "borderRadius": "{{tablaCursosNuevos.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.borderRadius.appBorderRadius)))}}",
       "boxShadow": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
       "cellBackground": "",
       "columnType": "menuButton",
-      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"estado_contacto\"])) : currentRow[\"estado_contacto\"] })()}}",
+      "computedValue": "{{(() => { const tableData = tablaCursosNuevos.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"estado_contacto\"])) : currentRow[\"estado_contacto\"] })()}}",
       "currencyCode": "USD",
       "customAlias": "",
       "decimals": 0,
@@ -400,9 +464,9 @@
       "isSaveVisible": true,
       "isVisible": true,
       "label": "estado_contacto",
-      "menuButtonLabel": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (\n  currentRow.estado_contacto === \"rojo\" ? \"🔴 No responde\"\n  : currentRow.estado_contacto === \"naranja\" ? \"🟠 No resuelve\"\n  : currentRow.estado_contacto === \"verde\" ? \"🟢 Confirma\"\n  : \"⚪ Sin contactar\"\n)) : \n  currentRow.estado_contacto === \"rojo\" ? \"🔴 No responde\"\n  : currentRow.estado_contacto === \"naranja\" ? \"🟠 No resuelve\"\n  : currentRow.estado_contacto === \"verde\" ? \"🟢 Confirma\"\n  : \"⚪ Sin contactar\"\n })()}}",
+      "menuButtonLabel": "{{(() => { const tableData = tablaCursosNuevos.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (\n  currentRow.estado_contacto === \"rojo\" ? \"🔴 No hay respuesta\"\n  : currentRow.estado_contacto === \"naranja\" ? \"🟠 No resuelve\"\n  : currentRow.estado_contacto === \"verde\" ? \"🟢 Confirma\"\n  : currentRow.estado_contacto === \"stand_by\" ? \"⚫ Stand By\"\n  : \"⚪ Sin contactar\"\n)) : \n  currentRow.estado_contacto === \"rojo\" ? \"🔴 No hay respuesta\"\n  : currentRow.estado_contacto === \"naranja\" ? \"🟠 No resuelve\"\n  : currentRow.estado_contacto === \"verde\" ? \"🟢 Confirma\"\n  : currentRow.estado_contacto === \"stand_by\" ? \"⚫ Stand By\"\n  : \"⚪ Sin contactar\"\n })()}}",
       "menuButtoniconName": "info-sign",
-      "menuColor": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (\n  currentRow.estado_contacto === \"rojo\" ? \"#ef4444\"\n  : currentRow.estado_contacto === \"naranja\" ? \"#f59e0b\"\n  : currentRow.estado_contacto === \"verde\" ? \"#22c55e\"\n  : \"#e5e7eb\"\n)) : \n  currentRow.estado_contacto === \"rojo\" ? \"#ef4444\"\n  : currentRow.estado_contacto === \"naranja\" ? \"#f59e0b\"\n  : currentRow.estado_contacto === \"verde\" ? \"#22c55e\"\n  : \"#e5e7eb\"\n })()}}",
+      "menuColor": "{{(() => { const tableData = tablaCursosNuevos.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (\n  currentRow.estado_contacto === \"rojo\" ? \"#ef4444\"\n  : currentRow.estado_contacto === \"naranja\" ? \"#f59e0b\"\n  : currentRow.estado_contacto === \"verde\" ? \"#22c55e\"\n  : currentRow.estado_contacto === \"stand_by\" ? \"#374151\"\n  : \"#e5e7eb\"\n)) : \n  currentRow.estado_contacto === \"rojo\" ? \"#ef4444\"\n  : currentRow.estado_contacto === \"naranja\" ? \"#f59e0b\"\n  : currentRow.estado_contacto === \"verde\" ? \"#22c55e\"\n  : currentRow.estado_contacto === \"stand_by\" ? \"#374151\"\n  : \"#e5e7eb\"\n })()}}",
       "menuItems": {
         "menuItem1eq8mt26k3": {
           "id": "menuItem1eq8mt26k3",
@@ -412,6 +476,15 @@
           "label": "🔴 No responde",
           "onClick": "{{\n  (async () => {\n    await storeValue(\"cursoEstadoSeleccionado\", currentRow.IdCurso);\n    await storeValue(\"colorSeleccionado\", \"rojo\");\n    await actualizarEstadoContacto.run();\n    await cursosNuevos.run();\n  })()\n}}",
           "widgetId": "9oitpbtv6k"
+        },
+        "menuItem2xdw177xvz": {
+          "id": "menuItem2xdw177xvz",
+          "index": 3,
+          "isDisabled": false,
+          "isVisible": true,
+          "label": "⚫ Stand By",
+          "onClick": "{{\n  (async () => {\n    await storeValue(\"cursoEstadoSeleccionado\", currentRow.IdCurso);\n    await storeValue(\"colorSeleccionado\", \"stand_by\");\n    await actualizarEstadoContacto.run();\n    await cursosNuevos.run();\n  })()\n}}",
+          "widgetId": "qn3x61v2eo"
         },
         "menuItemaq3bybjxcw": {
           "id": "menuItemaq3bybjxcw",
@@ -430,6 +503,15 @@
           "label": "🟢 Confirma",
           "onClick": "{{\n  (async () => {\n    await storeValue(\"cursoEstadoSeleccionado\", currentRow.IdCurso);\n    await storeValue(\"colorSeleccionado\", \"verde\");\n    await actualizarEstadoContacto.run();\n    await cursosNuevos.run();\n  })()\n}}",
           "widgetId": "ro4fu0j9w1"
+        },
+        "menuItemnew60uo7km": {
+          "id": "menuItemnew60uo7km",
+          "index": 4,
+          "isDisabled": false,
+          "isVisible": true,
+          "label": "⚪ Sin contactar",
+          "onClick": "{{\n  (async () => {\n    await storeValue(\"cursoEstadoSeleccionado\", currentRow.IdCurso);\n    await storeValue(\"colorSeleccionado\", \"sin_contactar\");\n    await actualizarEstadoContacto.run();\n    await cursosNuevos.run();\n  })()\n}}",
+          "widgetId": "rus83ylam7"
         }
       },
       "menuItemsSource": "STATIC",
@@ -451,7 +533,7 @@
       "allowSameOptionsInNewRow": true,
       "cellBackground": "",
       "columnType": "number",
-      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"interesados\"])) : interesados })()}}",
+      "computedValue": "{{(() => { const tableData = tablaCursosNuevos.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"interesados\"])) : interesados })()}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,
@@ -479,13 +561,47 @@
       "verticalAlignment": "CENTER",
       "width": 150
     },
+    "modalidad": {
+      "alias": "modalidad",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = tablaCursosNuevos.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"modalidad\"])) : modalidad })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "",
+      "horizontalAlignment": "LEFT",
+      "id": "modalidad",
+      "index": 3,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "modalidad",
+      "notation": "standard",
+      "originalId": "modalidad",
+      "sticky": "",
+      "textColor": "{{(() => { const tableData = tablaCursosNuevos.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (\n  currentRow.modalidad === \"Teleformación\" ? \"#1e3a8a\"\n  : currentRow.modalidad === \"Aula Virtual\" ? \"#11630d\"\n  : \"#212421\"\n)) : \n  currentRow.modalidad === \"Teleformación\" ? \"#1e3a8a\"\n  : currentRow.modalidad === \"Aula Virtual\" ? \"#11630d\"\n  : \"#212421\"\n })()}}",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
     "profe": {
       "alias": "profe",
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
       "cellBackground": "",
       "columnType": "text",
-      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"profe\"])) : profe })()}}",
+      "computedValue": "{{(() => { const tableData = tablaCursosNuevos.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"profe\"])) : profe })()}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,
@@ -519,7 +635,7 @@
       "allowSameOptionsInNewRow": true,
       "cellBackground": "",
       "columnType": "date",
-      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"ultima_actualizacion\"])) : ultima_actualizacion })()}}",
+      "computedValue": "{{(() => { const tableData = tablaCursosNuevos.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"ultima_actualizacion\"])) : ultima_actualizacion })()}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,
@@ -563,5 +679,5 @@
   "version": 2,
   "verticalAlignment": "CENTER",
   "widgetId": "iwzaald9y2",
-  "widgetName": "Table1"
+  "widgetName": "tablaCursosNuevos"
 }
