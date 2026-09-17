@@ -7,6 +7,7 @@ SELECT
   act.ultima_actualizacion,
   prof.profesores AS profe,
   prof.emails_profesores AS email,
+	prof.telefono_profesores AS telefono,
 	COALESCE(ec.estado, 'sin_contactar') AS estado_contacto
 FROM cogiti001.cursos cur
 JOIN (
@@ -29,7 +30,8 @@ LEFT JOIN (
               TRIM(CONCAT(u.Nombre, ' ', u.Apellido1, ' ', COALESCE(u.Apellido2, '')))
               ORDER BY u.Apellido1 SEPARATOR ', '
             ) AS profesores,
-            GROUP_CONCAT(u.Email ORDER BY u.Apellido1 SEPARATOR ', ') AS emails_profesores
+            GROUP_CONCAT(u.Email ORDER BY u.Apellido1 SEPARATOR ', ') AS emails_profesores,
+						GROUP_CONCAT(u.Telefono ORDER BY u.Apellido1 SEPARATOR ', ') AS telefono_profesores
      FROM cogiti001.convocatorias c
      JOIN cogiti001.profesoresconvocatoria pc
        ON pc.IdConvocatoria = c.IdConvocatoria

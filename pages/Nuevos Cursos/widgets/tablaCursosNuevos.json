@@ -40,11 +40,12 @@
     "ultima_actualizacion",
     "email",
     "profe",
+    "telefono",
     "customColumn1",
     "TvEducativa",
     "EditActions1"
   ],
-  "columnUpdatedAt": 1788176626519,
+  "columnUpdatedAt": 1789645058987,
   "columnWidthMap": {
     "IdCurso": 114,
     "curso": 418,
@@ -142,6 +143,9 @@
     },
     {
       "key": "primaryColumns.modalidad.textColor"
+    },
+    {
+      "key": "primaryColumns.telefono.computedValue"
     }
   ],
   "dynamicPropertyPathList": [
@@ -621,6 +625,40 @@
       "label": "profe",
       "notation": "standard",
       "originalId": "profe",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "telefono": {
+      "alias": "telefono",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = tablaCursosNuevos.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"telefono\"])) : telefono })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "",
+      "horizontalAlignment": "LEFT",
+      "id": "telefono",
+      "index": 8,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "telefono",
+      "notation": "standard",
+      "originalId": "telefono",
       "sticky": "",
       "textColor": "",
       "textSize": "0.875rem",
