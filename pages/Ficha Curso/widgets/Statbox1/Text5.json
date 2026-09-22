@@ -1,6 +1,6 @@
 {
   "animateLoading": true,
-  "backgroundColor": "#1e3a8a",
+  "backgroundColor": "{{ datosCurso.data[0]?.TVEducativa == 1 ? \"#568419\" : \"#1e3a8a\" }}",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
   "bottomRow": 7,
   "dynamicBindingPathList": [
@@ -15,10 +15,17 @@
     },
     {
       "key": "text"
+    },
+    {
+      "key": "backgroundColor"
     }
   ],
   "dynamicHeight": "AUTO_HEIGHT",
-  "dynamicPropertyPathList": [],
+  "dynamicPropertyPathList": [
+    {
+      "key": "backgroundColor"
+    }
+  ],
   "dynamicTriggerPathList": [],
   "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
   "fontSize": "1.875rem",
