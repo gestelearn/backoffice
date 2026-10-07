@@ -1,0 +1,12 @@
+SELECT
+  YEAR(m.FechaRegistro) AS ejercicio,
+  COUNT(*) AS total_matriculas,
+  SUM(CASE WHEN m.Tripartita = 1 THEN 1 ELSE 0 END) AS matriculas_tripartita,
+  ROUND(COALESCE(SUM(m.Precio), 0), 2) AS total_facturado,
+  ROUND(COALESCE(SUM(CASE WHEN m.Tripartita = 1 THEN m.Precio ELSE 0 END), 0), 2) AS facturado_tripartita
+FROM cogiti001.matriculas m
+WHERE m.Baja = 0
+  AND YEAR(m.FechaRegistro) IN (YEAR(CURDATE()), YEAR(CURDATE()) - 1)
+  AND DAYOFYEAR(m.FechaRegistro) <= DAYOFYEAR(CURDATE())
+GROUP BY YEAR(m.FechaRegistro)
+ORDER BY ejercicio DESC;

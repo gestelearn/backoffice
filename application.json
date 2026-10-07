@@ -42,6 +42,10 @@
     {
       "id": "Nuevos Cursos",
       "isDefault": false
+    },
+    {
+      "id": "Stats",
+      "isDefault": false
     }
   ],
   "unpublishedAppLayout": {

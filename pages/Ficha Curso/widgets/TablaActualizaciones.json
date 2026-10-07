@@ -42,7 +42,7 @@
   "columnUpdatedAt": 1785155618709,
   "columnWidthMap": {
     "customColumn1": 111,
-    "descripcion": 512,
+    "descripcion": 713,
     "fecha": 129,
     "id": 60
   },
@@ -98,9 +98,6 @@
     },
     {
       "key": "primaryColumns.descripcion.onClick"
-    },
-    {
-      "key": "primaryColumns.customColumn1.onClick"
     }
   ],
   "dynamicTriggerPathList": [
@@ -199,7 +196,7 @@
       "label": "ver",
       "labelColor": "#FFFFFF",
       "notation": "standard",
-      "onClick": "{{showModal(\"ModalDescripcion\")}}",
+      "onClick": "{{storeValue('descripcionSeleccionada', currentRow.descripcion);\nshowModal(ModalDescripcion.name);}}",
       "originalId": "customColumn1",
       "sticky": "",
       "textSize": "0.875rem",
