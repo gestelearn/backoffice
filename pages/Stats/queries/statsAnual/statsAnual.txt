@@ -8,5 +8,6 @@ FROM cogiti001.matriculas m
 WHERE m.Baja = 0
   AND YEAR(m.FechaRegistro) IN (YEAR(CURDATE()), YEAR(CURDATE()) - 1)
   AND DAYOFYEAR(m.FechaRegistro) <= DAYOFYEAR(CURDATE())
+	AND m.Precio > 0
 GROUP BY YEAR(m.FechaRegistro)
 ORDER BY ejercicio DESC;

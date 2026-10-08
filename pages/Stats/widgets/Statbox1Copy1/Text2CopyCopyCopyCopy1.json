@@ -44,18 +44,18 @@
   "originalBottomRow": 23,
   "originalTopRow": 18,
   "overflow": "NONE",
-  "parentId": "3cv9mx5tb3",
+  "parentId": "dhwtm5cby5",
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
   "rightColumn": 45,
   "shouldTruncate": false,
-  "text": "{{\n  (() => {\n    const act = Number(statsAnual.data[0]?.total_matriculas ?? 0);\n    const ant = Number(statsAnual.data[1]?.total_matriculas ?? 0);\n    if (!ant) return \"—\";\n    const delta = ((act - ant) / ant) * 100;\n    return (delta >= 0 ? \"▲ +\" : \"▼ \") + delta.toFixed(1) + \"%\";\n  })()\n}}",
+  "text": "{{\n  (() => {\n    const act = Number(statsAnual.data[0]?.total_facturado ?? 0);\n    const ant = Number(statsAnual.data[1]?.total_facturado ?? 0);\n    if (!ant) return \"—\";\n    const delta = ((act - ant) / ant) * 100;\n    return (delta >= 0 ? \"▲ +\" : \"▼ \") + delta.toFixed(1) + \"%\";\n  })()\n}}",
   "textAlign": "CENTER",
-  "textColor": "{{\n  Number(statsAnual.data[0]?.total_matriculas ?? 0) >= Number(statsAnual.data[1]?.total_matriculas ?? 0) ? \"#22c55e\" : \"#ef4444\"\n}}",
+  "textColor": "{{\n  Number(statsAnual.data[0]?.total_facturado ?? 0) >= Number(statsAnual.data[1]?.total_facturado ?? 0) ? \"#22c55e\" : \"#ef4444\"\n}}",
   "topRow": 18,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
   "version": 1,
-  "widgetId": "4ufwcjmwvo",
-  "widgetName": "Text2CopyCopyCopy"
+  "widgetId": "uforet12wb",
+  "widgetName": "Text2CopyCopyCopyCopy1"
 }
