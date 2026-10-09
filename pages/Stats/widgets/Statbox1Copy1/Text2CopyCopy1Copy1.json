@@ -41,7 +41,7 @@
   "responsiveBehavior": "fill",
   "rightColumn": 55,
   "shouldTruncate": false,
-  "text": "{{ \"vs \" + (statsAnual.data[1]?.total_facturado ?? 0) + \"€\" + \" (\" + (statsAnual.data[1]?.ejercicio ?? \"\") + \")\" }}",
+  "text": "{{ \"vs \" + Number(statsAnual.data[1]?.total_facturado ?? 0).toLocaleString(\"es-ES\",{minimumFractionDigits: 2}) + \" €\" + \" (\" + (statsAnual.data[1]?.ejercicio ?? \"\") + \")\" }}",
   "textAlign": "CENTER",
   "textColor": "#231F20",
   "topRow": 13,

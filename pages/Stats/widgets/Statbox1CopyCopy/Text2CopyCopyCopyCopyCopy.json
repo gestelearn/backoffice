@@ -1,7 +1,7 @@
 {
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 12,
+  "bottomRow": 23,
   "dynamicBindingPathList": [
     {
       "key": "truncateButtonColor"
@@ -14,9 +14,17 @@
     },
     {
       "key": "text"
+    },
+    {
+      "key": "textColor"
     }
   ],
   "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicPropertyPathList": [
+    {
+      "key": "textColor"
+    }
+  ],
   "dynamicTriggerPathList": [],
   "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
   "fontSize": "1.875rem",
@@ -24,7 +32,7 @@
   "isLoading": false,
   "isVisible": true,
   "key": "6go2vj30de",
-  "leftColumn": 7,
+  "leftColumn": 17,
   "maxDynamicHeight": 9000,
   "minDynamicHeight": 4,
   "minWidth": 450,
@@ -33,21 +41,21 @@
   "mobileRightColumn": 37,
   "mobileTopRow": 4,
   "needsErrorInfo": false,
-  "originalBottomRow": 12,
-  "originalTopRow": 7,
+  "originalBottomRow": 22,
+  "originalTopRow": 17,
   "overflow": "NONE",
-  "parentId": "qjxgukjj4t",
+  "parentId": "pybnfvote2",
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
-  "rightColumn": 55,
+  "rightColumn": 45,
   "shouldTruncate": false,
-  "text": "{{ Number(statsAnual.data[0]?.facturado_tripartita ?? 0).toLocaleString(\"es-ES\", {minimumFractionDigits: 2}) + \" €\" }}",
+  "text": "{{\n  (() => {\n    const act = Number(statsAnual.data[0]?.matriculas_ordinarias ?? 0);\n    const ant = Number(statsAnual.data[1]?.matriculas_ordinarias ?? 0);\n    if (!ant) return \"—\";\n    const delta = ((act - ant) / ant) * 100;\n    return (delta >= 0 ? \"▲ +\" : \"▼ \") + delta.toFixed(1) + \"%\";\n  })()\n}}",
   "textAlign": "CENTER",
-  "textColor": "#231F20",
-  "topRow": 7,
+  "textColor": "{{ Number(statsAnual.data[0]?.matriculas_ordinarias ?? 0) >= Number(statsAnual.data[1]?.matriculas_ordinarias?? 0) ? \"#22c55e\" : \"#ef4444\"\n}}",
+  "topRow": 18,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
   "version": 1,
-  "widgetId": "d0t7bflow3",
-  "widgetName": "Text2CopyCopy3Copy"
+  "widgetId": "p4wz8d3br4",
+  "widgetName": "Text2CopyCopyCopyCopyCopy"
 }

@@ -41,7 +41,7 @@
   "responsiveBehavior": "fill",
   "rightColumn": 55,
   "shouldTruncate": false,
-  "text": "{{ statsAnual.data[0]?.total_facturado ?? 0 }} €",
+  "text": "{{ Number(statsAnual.data[0]?.total_facturado ?? 0).toLocaleString(\"es-ES\", {minimumFractionDigits: 2}) + \" €\" }}",
   "textAlign": "CENTER",
   "textColor": "#231F20",
   "topRow": 7,

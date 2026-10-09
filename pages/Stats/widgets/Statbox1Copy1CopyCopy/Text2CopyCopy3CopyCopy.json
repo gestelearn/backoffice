@@ -36,18 +36,18 @@
   "originalBottomRow": 12,
   "originalTopRow": 7,
   "overflow": "NONE",
-  "parentId": "qjxgukjj4t",
+  "parentId": "qcb6oqty5e",
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
   "rightColumn": 55,
   "shouldTruncate": false,
-  "text": "{{ Number(statsAnual.data[0]?.facturado_tripartita ?? 0).toLocaleString(\"es-ES\", {minimumFractionDigits: 2}) + \" €\" }}",
+  "text": "{{ Number(statsAnual.data[0]?.facturado_ordinario ?? 0).toLocaleString(\"es-ES\", {minimumFractionDigits: 2}) + \" €\" }}",
   "textAlign": "CENTER",
   "textColor": "#231F20",
   "topRow": 7,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
   "version": 1,
-  "widgetId": "d0t7bflow3",
-  "widgetName": "Text2CopyCopy3Copy"
+  "widgetId": "n9yxfq51q8",
+  "widgetName": "Text2CopyCopy3CopyCopy"
 }

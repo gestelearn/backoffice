@@ -38,7 +38,7 @@
       "mobileTopRow": 0,
       "needsErrorInfo": false,
       "parentColumnSpace": 1,
-      "parentId": "fhm52qzmpn",
+      "parentId": "41jze90wmk",
       "parentRowSpace": 1,
       "renderMode": "CANVAS",
       "responsiveBehavior": "fill",
@@ -46,8 +46,8 @@
       "topRow": 0,
       "type": "CANVAS_WIDGET",
       "version": 1,
-      "widgetId": "qjxgukjj4t",
-      "widgetName": "Canvas1Copy1Copy"
+      "widgetId": "qcb6oqty5e",
+      "widgetName": "Canvas1Copy1CopyCopy"
     }
   ],
   "dynamicBindingPathList": [
@@ -65,7 +65,7 @@
   "isLoading": false,
   "isVisible": true,
   "key": "eqitz7mv7a",
-  "leftColumn": 24,
+  "leftColumn": 40,
   "maxDynamicHeight": 9000,
   "minDynamicHeight": 10,
   "mobileBottomRow": 42,
@@ -73,18 +73,18 @@
   "mobileRightColumn": 36,
   "mobileTopRow": 28,
   "needsErrorInfo": false,
-  "originalBottomRow": 68,
-  "originalTopRow": 43,
+  "originalBottomRow": 67,
+  "originalTopRow": 42,
   "parentColumnSpace": 30.140625,
   "parentId": "0",
   "parentRowSpace": 10,
   "positioning": "fixed",
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
-  "rightColumn": 38,
+  "rightColumn": 54,
   "shouldScrollContents": true,
   "topRow": 43,
   "type": "STATBOX_WIDGET",
-  "widgetId": "fhm52qzmpn",
-  "widgetName": "Statbox1Copy1Copy"
+  "widgetId": "41jze90wmk",
+  "widgetName": "Statbox1Copy1CopyCopy"
 }

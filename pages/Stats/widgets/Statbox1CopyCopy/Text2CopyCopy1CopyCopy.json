@@ -1,7 +1,7 @@
 {
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 12,
+  "bottomRow": 17,
   "dynamicBindingPathList": [
     {
       "key": "truncateButtonColor"
@@ -19,7 +19,7 @@
   "dynamicHeight": "AUTO_HEIGHT",
   "dynamicTriggerPathList": [],
   "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
-  "fontSize": "1.875rem",
+  "fontSize": "1.25rem",
   "fontStyle": "BOLD",
   "isLoading": false,
   "isVisible": true,
@@ -33,21 +33,21 @@
   "mobileRightColumn": 37,
   "mobileTopRow": 4,
   "needsErrorInfo": false,
-  "originalBottomRow": 12,
-  "originalTopRow": 7,
+  "originalBottomRow": 16,
+  "originalTopRow": 12,
   "overflow": "NONE",
-  "parentId": "qjxgukjj4t",
+  "parentId": "pybnfvote2",
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
   "rightColumn": 55,
   "shouldTruncate": false,
-  "text": "{{ Number(statsAnual.data[0]?.facturado_tripartita ?? 0).toLocaleString(\"es-ES\", {minimumFractionDigits: 2}) + \" €\" }}",
+  "text": "{{ \"vs \" + (statsAnual.data[1]?.matriculas_ordinarias ?? 0) + \" (\" + (statsAnual.data[1]?.ejercicio ?? \"\") + \")\" }}",
   "textAlign": "CENTER",
   "textColor": "#231F20",
-  "topRow": 7,
+  "topRow": 13,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
   "version": 1,
-  "widgetId": "d0t7bflow3",
-  "widgetName": "Text2CopyCopy3Copy"
+  "widgetId": "wpk124mp01",
+  "widgetName": "Text2CopyCopy1CopyCopy"
 }

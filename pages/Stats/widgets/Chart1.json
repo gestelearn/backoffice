@@ -1,0 +1,114 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "allowScroll": false,
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 106,
+  "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+  "chartData": {
+    "71k7q2srxi": {
+      "data": "{{\n(() => {\n  const d = statsAnual.data ?? [];\n  const anios = [...d].sort((a,b) => Number(a.ejercicio) - Number(b.ejercicio));\n  const pct = (parte, total) => total ? Number(((Number(parte) / Number(total)) * 100).toFixed(1)) : 0;\n  return {\n    \"tooltip\": { \"trigger\": \"axis\", \"axisPointer\": { \"type\": \"shadow\" },\n                 \"formatter\": function(p) {\n                   return p[0].name + \"<br/>\" + p.map(s => s.seriesName + \": \" + s.value + \"%\").join(\"<br/>\");\n                 } },\n    \"legend\": { \"bottom\": 0 },\n    \"grid\": { \"left\": 60, \"right\": 30, \"top\": 20, \"bottom\": 50, \"containLabel\": true },\n    \"xAxis\": { \"type\": \"value\", \"max\": 100, \"axisLabel\": { \"formatter\": \"{value}%\" } },\n    \"yAxis\": { \"type\": \"category\", \"data\": anios.map(r => String(r.ejercicio)) },\n    \"series\": [\n      {\n        \"name\": \"FUNDAE\",\n        \"type\": \"bar\",\n        \"stack\": \"total\",\n        \"itemStyle\": { \"color\": \"#eda100\" },\n        \"label\": { \"show\": true, \"formatter\": \"{c}%\" },\n        \"data\": anios.map(r => pct(r.facturado_tripartita, r.total_facturado))\n      },\n      {\n        \"name\": \"Ordinarias\",\n        \"type\": \"bar\",\n        \"stack\": \"total\",\n        \"itemStyle\": { \"color\": \"#2a78d6\" },\n        \"label\": { \"show\": true, \"formatter\": \"{c}%\" },\n        \"data\": anios.map(r => pct(r.facturado_ordinario, r.total_facturado))\n      }\n    ]\n  };\n})()\n}}",
+      "seriesName": "2023"
+    }
+  },
+  "chartName": "Sales Report",
+  "chartType": "CUSTOM_ECHART",
+  "customEChartConfig": "{{ ((chartType) => ( \n(() => {\n  const d = statsAnual.data ?? [];\n  const anios = [...d].sort((a,b) => Number(a.ejercicio) - Number(b.ejercicio));\n  const pct = (parte, total) => total ? Number(((Number(parte) / Number(total)) * 100).toFixed(1)) : 0;\n  return {\n    \"tooltip\": { \"trigger\": \"axis\", \"axisPointer\": { \"type\": \"shadow\" },\n                 \"formatter\": function(p) {\n                   return p[0].name + \"<br/>\" + p.map(s => s.seriesName + \": \" + s.value + \"%\").join(\"<br/>\");\n                 } },\n    \"legend\": { \"bottom\": 0 },\n    \"grid\": { \"left\": 60, \"right\": 30, \"top\": 20, \"bottom\": 50, \"containLabel\": true },\n    \"xAxis\": { \"type\": \"value\", \"max\": 100, \"axisLabel\": { \"formatter\": \"{value}%\" } },\n    \"yAxis\": { \"type\": \"category\", \"data\": anios.map(r => String(r.ejercicio)) },\n    \"series\": [\n      {\n        \"name\": \"FUNDAE\",\n        \"type\": \"bar\",\n        \"stack\": \"total\",\n        \"itemStyle\": { \"color\": \"#eda100\" },\n        \"label\": { \"show\": true, \"formatter\": \"{c}%\" },\n        \"data\": anios.map(r => pct(r.facturado_tripartita, r.total_facturado))\n      },\n      {\n        \"name\": \"Ordinarias\",\n        \"type\": \"bar\",\n        \"stack\": \"total\",\n        \"itemStyle\": { \"color\": \"#b91c1c\" },\n        \"label\": { \"show\": true, \"formatter\": \"{c}%\" },\n        \"data\": anios.map(r => pct(r.facturado_ordinario, r.total_facturado))\n      }\n    ]\n  };\n})()\n))(Chart1.chartType) }}",
+  "customFusionChartConfig": {
+    "dataSource": {
+      "chart": {
+        "alignCaptionWithCanvas": 1,
+        "canvasPadding": "0",
+        "caption": "Sales Report",
+        "captionAlignment": "center",
+        "captionFontColor": "#231F20",
+        "captionFontSize": "24",
+        "captionPadding": "20",
+        "chartBottomMargin": "10",
+        "chartLeftMargin": "20",
+        "chartRightMargin": "40",
+        "chartTopMargin": "10",
+        "labelFontColor": "#716e6e",
+        "labelFontSize": "12",
+        "legendIconAlpha": "100",
+        "legendIconBgAlpha": "100",
+        "legendIconSides": "4",
+        "legendPosition": "top",
+        "theme": "fusion",
+        "xAxisName": "Product Line",
+        "xAxisNameFontColor": "#716e6e",
+        "xAxisNameFontSize": "14",
+        "yAxisName": "Revenue($)",
+        "yAxisNameFontColor": "#716e6e",
+        "yAxisNameFontSize": "14",
+        "yAxisValueFontColor": "#716e6e",
+        "yAxisValueFontSize": "12"
+      },
+      "data": [
+        {
+          "label": "Product1",
+          "value": 20000
+        },
+        {
+          "label": "Product2",
+          "value": 22000
+        },
+        {
+          "label": "Product3",
+          "value": 32000
+        }
+      ]
+    },
+    "type": "column2d"
+  },
+  "dynamicBindingPathList": [
+    {
+      "key": "customEChartConfig"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "boxShadow"
+    },
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "fontFamily"
+    },
+    {
+      "key": "chartData.71k7q2srxi.data"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "flexVerticalAlignment": "start",
+  "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "armwda3act",
+  "labelOrientation": "auto",
+  "leftColumn": 8,
+  "minWidth": 450,
+  "mobileBottomRow": 106,
+  "mobileLeftColumn": 19,
+  "mobileRightColumn": 43,
+  "mobileTopRow": 74,
+  "needsErrorInfo": true,
+  "originalBottomRow": 106,
+  "originalTopRow": 74,
+  "parentColumnSpace": 30.140625,
+  "parentId": "0",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 54,
+  "showDataPointLabel": false,
+  "topRow": 74,
+  "type": "CHART_WIDGET",
+  "version": 1,
+  "widgetId": "2yurqbbkbi",
+  "widgetName": "Chart1",
+  "xAxisName": "Product Line",
+  "yAxisName": "Revenue($)"
+}

@@ -1,7 +1,7 @@
 {
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 12,
+  "bottomRow": 7,
   "dynamicBindingPathList": [
     {
       "key": "truncateButtonColor"
@@ -11,20 +11,17 @@
     },
     {
       "key": "borderRadius"
-    },
-    {
-      "key": "text"
     }
   ],
   "dynamicHeight": "AUTO_HEIGHT",
   "dynamicTriggerPathList": [],
   "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
-  "fontSize": "1.875rem",
+  "fontSize": "3rem",
   "fontStyle": "BOLD",
   "isLoading": false,
   "isVisible": true,
-  "key": "6go2vj30de",
-  "leftColumn": 7,
+  "key": "db8b2e269z",
+  "leftColumn": 12,
   "maxDynamicHeight": 9000,
   "minDynamicHeight": 4,
   "minWidth": 450,
@@ -33,21 +30,21 @@
   "mobileRightColumn": 37,
   "mobileTopRow": 4,
   "needsErrorInfo": false,
-  "originalBottomRow": 12,
-  "originalTopRow": 7,
+  "originalBottomRow": 7,
+  "originalTopRow": 0,
   "overflow": "NONE",
-  "parentId": "qjxgukjj4t",
+  "parentId": "dlp3g62t9c",
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
-  "rightColumn": 55,
+  "rightColumn": 50,
   "shouldTruncate": false,
-  "text": "{{ Number(statsAnual.data[0]?.facturado_tripartita ?? 0).toLocaleString(\"es-ES\", {minimumFractionDigits: 2}) + \" €\" }}",
+  "text": "Ordinarias",
   "textAlign": "CENTER",
-  "textColor": "#231F20",
-  "topRow": 7,
+  "textColor": "white",
+  "topRow": 0,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
   "version": 1,
-  "widgetId": "d0t7bflow3",
-  "widgetName": "Text2CopyCopy3Copy"
+  "widgetId": "w5q9hbvg2d",
+  "widgetName": "Text5CopyCopy"
 }

@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT\n  YEAR(m.FechaRegistro) AS ejercicio,\n  COUNT(*) AS total_matriculas,\n  SUM(CASE WHEN m.Tripartita = 1 THEN 1 ELSE 0 END) AS matriculas_tripartita,\n  ROUND(COALESCE(SUM(m.Precio), 0), 2) AS total_facturado,\n  ROUND(COALESCE(SUM(CASE WHEN m.Tripartita = 1 THEN m.Precio ELSE 0 END), 0), 2) AS facturado_tripartita\nFROM cogiti001.matriculas m\nWHERE m.Baja = 0\n  AND YEAR(m.FechaRegistro) IN (YEAR(CURDATE()), YEAR(CURDATE()) - 1)\n  AND DAYOFYEAR(m.FechaRegistro) <= DAYOFYEAR(CURDATE())\n\tAND m.Precio > 0\nGROUP BY YEAR(m.FechaRegistro)\nORDER BY ejercicio DESC;",
+      "body": "SELECT\n  YEAR(m.FechaRegistro) AS ejercicio,\n  COUNT(*) AS total_matriculas,\n  SUM(CASE WHEN m.Tripartita = 1 THEN 1 ELSE 0 END) AS matriculas_tripartita,\n  ROUND(COALESCE(SUM(m.Precio), 0), 2) AS total_facturado,\n  ROUND(COALESCE(SUM(CASE WHEN m.Tripartita = 1 THEN m.Precio ELSE 0 END), 0), 2) AS facturado_tripartita,\n\tSUM(CASE WHEN m.Tripartita = 1 THEN 0 ELSE 1 END) AS matriculas_ordinarias,\n  ROUND(COALESCE(SUM(CASE WHEN m.Tripartita = 1 THEN 0 ELSE m.Precio END), 0), 2) AS facturado_ordinario\nFROM cogiti001.matriculas m\nWHERE m.Baja = 0\n  AND YEAR(m.FechaRegistro) IN (YEAR(CURDATE()), YEAR(CURDATE()) - 1)\n  AND DAYOFYEAR(m.FechaRegistro) <= DAYOFYEAR(CURDATE())\n\tAND m.Precio > 0\nGROUP BY YEAR(m.FechaRegistro)\nORDER BY ejercicio DESC;",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [
