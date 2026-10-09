@@ -1,0 +1,124 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "allowScroll": false,
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 238,
+  "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+  "chartData": {
+    "vfptx598dk": {
+      "data": [
+        {
+          "x": "Product1",
+          "y": 20000
+        },
+        {
+          "x": "Product2",
+          "y": 22000
+        },
+        {
+          "x": "Product3",
+          "y": 32000
+        }
+      ],
+      "seriesName": "2023"
+    }
+  },
+  "chartName": "Sales Report",
+  "chartType": "CUSTOM_ECHART",
+  "customEChartConfig": "{{ ((chartType) => ( \n{\n  \"tooltip\": { \"trigger\": \"axis\", \"axisPointer\": { \"type\": \"shadow\" } },\n  \"legend\": { \"bottom\": 0 },\n  \"grid\": { \"left\": 50, \"right\": 20, \"bottom\": 50, \"top\": 40, \"containLabel\": true },\n  \"xAxis\": { \"type\": \"category\", \"data\": [\"Ene\",\"Feb\",\"Mar\",\"Abr\",\"May\",\"Jun\",\"Jul\",\"Ago\",\"Sep\",\"Oct\",\"Nov\",\"Dic\"] },\n  \"yAxis\": { \"type\": \"value\" },\n  \"series\": [\n    {\n      \"name\": String(new Date().getFullYear() - 1),\n      \"type\": \"bar\",\n      \"itemStyle\": { \"color\": \"#94a3b8\" },\n      \"data\": Array.from({length: 12}, (_, i) =>\n        (statsMensual.data ?? []).find(r => Number(r.ejercicio) === new Date().getFullYear() - 1 && Number(r.mes) === i + 1)?.total_matriculas ?? 0)\n    },\n    {\n      \"name\": String(new Date().getFullYear()),\n      \"type\": \"bar\",\n      \"itemStyle\": { \"color\": \"#3b82f6\" },\n      \"data\": Array.from({length: 12}, (_, i) =>\n        (statsMensual.data ?? []).find(r => Number(r.ejercicio) === new Date().getFullYear() && Number(r.mes) === i + 1)?.total_matriculas ?? 0)\n    }\n  ]\n}\n))(Chart3.chartType) }}",
+  "customFusionChartConfig": {
+    "dataSource": {
+      "chart": {
+        "alignCaptionWithCanvas": 1,
+        "canvasPadding": "0",
+        "caption": "Sales Report",
+        "captionAlignment": "center",
+        "captionFontColor": "#231F20",
+        "captionFontSize": "24",
+        "captionPadding": "20",
+        "chartBottomMargin": "10",
+        "chartLeftMargin": "20",
+        "chartRightMargin": "40",
+        "chartTopMargin": "10",
+        "labelFontColor": "#716e6e",
+        "labelFontSize": "12",
+        "legendIconAlpha": "100",
+        "legendIconBgAlpha": "100",
+        "legendIconSides": "4",
+        "legendPosition": "top",
+        "theme": "fusion",
+        "xAxisName": "Product Line",
+        "xAxisNameFontColor": "#716e6e",
+        "xAxisNameFontSize": "14",
+        "yAxisName": "Revenue($)",
+        "yAxisNameFontColor": "#716e6e",
+        "yAxisNameFontSize": "14",
+        "yAxisValueFontColor": "#716e6e",
+        "yAxisValueFontSize": "12"
+      },
+      "data": [
+        {
+          "label": "Product1",
+          "value": 20000
+        },
+        {
+          "label": "Product2",
+          "value": 22000
+        },
+        {
+          "label": "Product3",
+          "value": 32000
+        }
+      ]
+    },
+    "type": "column2d"
+  },
+  "dynamicBindingPathList": [
+    {
+      "key": "customEChartConfig"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "boxShadow"
+    },
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "fontFamily"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "flexVerticalAlignment": "start",
+  "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "r0pdlq0qzr",
+  "labelOrientation": "auto",
+  "leftColumn": 8,
+  "minWidth": 450,
+  "mobileBottomRow": 221,
+  "mobileLeftColumn": 24,
+  "mobileRightColumn": 48,
+  "mobileTopRow": 189,
+  "needsErrorInfo": true,
+  "originalBottomRow": 238,
+  "originalTopRow": 190,
+  "parentColumnSpace": 30.140625,
+  "parentId": "0",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 54,
+  "showDataPointLabel": false,
+  "topRow": 190,
+  "type": "CHART_WIDGET",
+  "version": 1,
+  "widgetId": "9lp7cady6f",
+  "widgetName": "Chart3",
+  "xAxisName": "Product Line",
+  "yAxisName": "Revenue($)"
+}

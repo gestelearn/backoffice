@@ -3,10 +3,14 @@ SELECT
   MONTH(m.FechaRegistro) AS mes,
   COUNT(*) AS total_matriculas,
   SUM(CASE WHEN m.Tripartita = 1 THEN 1 ELSE 0 END) AS matriculas_tripartita,
+  SUM(CASE WHEN m.Tripartita = 1 THEN 0 ELSE 1 END) AS matriculas_ordinarias,
   ROUND(COALESCE(SUM(m.Precio), 0), 2) AS total_facturado,
-  ROUND(COALESCE(SUM(CASE WHEN m.Tripartita = 1 THEN m.Precio ELSE 0 END), 0), 2) AS facturado_tripartita
+  ROUND(COALESCE(SUM(CASE WHEN m.Tripartita = 1 THEN m.Precio ELSE 0 END), 0), 2) AS facturado_tripartita,
+  ROUND(COALESCE(SUM(CASE WHEN m.Tripartita = 1 THEN 0 ELSE m.Precio END), 0), 2) AS facturado_ordinario,
+	ROUND(100 * SUM(CASE WHEN m.Tripartita = 1 THEN m.Precio ELSE 0 END) / NULLIF(SUM(m.Precio), 0), 1) AS pct_fundae
 FROM cogiti001.matriculas m
 WHERE m.Baja = 0
   AND YEAR(m.FechaRegistro) IN (YEAR(CURDATE()), YEAR(CURDATE()) - 1)
+  AND m.Precio > 0
 GROUP BY YEAR(m.FechaRegistro), MONTH(m.FechaRegistro)
 ORDER BY ejercicio, mes;

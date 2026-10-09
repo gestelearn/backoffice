@@ -1,7 +1,7 @@
 {
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 23,
+  "bottomRow": 12,
   "dynamicBindingPathList": [
     {
       "key": "truncateButtonColor"
@@ -14,17 +14,9 @@
     },
     {
       "key": "text"
-    },
-    {
-      "key": "textColor"
     }
   ],
   "dynamicHeight": "AUTO_HEIGHT",
-  "dynamicPropertyPathList": [
-    {
-      "key": "textColor"
-    }
-  ],
   "dynamicTriggerPathList": [],
   "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
   "fontSize": "1.875rem",
@@ -32,7 +24,7 @@
   "isLoading": false,
   "isVisible": true,
   "key": "6go2vj30de",
-  "leftColumn": 17,
+  "leftColumn": 7,
   "maxDynamicHeight": 9000,
   "minDynamicHeight": 4,
   "minWidth": 450,
@@ -41,21 +33,21 @@
   "mobileRightColumn": 37,
   "mobileTopRow": 4,
   "needsErrorInfo": false,
-  "originalBottomRow": 23,
-  "originalTopRow": 18,
+  "originalBottomRow": 12,
+  "originalTopRow": 7,
   "overflow": "NONE",
-  "parentId": "pybnfvote2",
+  "parentId": "6rcvfstx16",
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
-  "rightColumn": 45,
+  "rightColumn": 55,
   "shouldTruncate": false,
-  "text": "{{\n  (() => {\n    const act = Number(statsAnual.data[0]?.matriculas_ordinarias ?? 0);\n    const ant = Number(statsAnual.data[1]?.matriculas_ordinarias ?? 0);\n    if (!ant) return \"—\";\n    const delta = ((act - ant) / ant) * 100;\n    return (delta >= 0 ? \"▲ +\" : \"▼ \") + delta.toFixed(1) + \"%\";\n  })()\n}}",
+  "text": "{{\n  (statsMensual.data ?? []).find(r => \n    Number(r.ejercicio) === new Date().getFullYear() - 1 && \n    Number(r.mes) === Number(SelectMes.selectedOptionValue)\n  )?.matriculas_tripartita ?? 0\n}}",
   "textAlign": "CENTER",
-  "textColor": "{{ Number(statsAnual.data[0]?.matriculas_ordinarias ?? 0) >= Number(statsAnual.data[1]?.matriculas_ordinarias?? 0) ? \"#22c55e\" : \"#ef4444\"\n}}",
-  "topRow": 18,
+  "textColor": "#231F20",
+  "topRow": 7,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
   "version": 1,
-  "widgetId": "p4wz8d3br4",
-  "widgetName": "Text2CopyCopyCopyCopyCopy"
+  "widgetId": "o87g10f7vq",
+  "widgetName": "Text2CopyCopy3Copy1CopyCopy"
 }

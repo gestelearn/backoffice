@@ -7,16 +7,24 @@
   "closeOnSelection": true,
   "dateFormat": "DD/MM/YYYY",
   "datePickerType": "DATE_PICKER",
-  "defaultDate": "2026-08-12T16:19:11.1111+02:00",
+  "defaultDate": "{{Date.now()}}",
   "dynamicBindingPathList": [
     {
       "key": "accentColor"
     },
     {
       "key": "borderRadius"
+    },
+    {
+      "key": "defaultDate"
     }
   ],
   "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "defaultDate"
+    }
+  ],
   "dynamicTriggerPathList": [],
   "firstDayOfWeek": "1",
   "isDisabled": false,

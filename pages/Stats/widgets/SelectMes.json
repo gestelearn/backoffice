@@ -1,0 +1,69 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 122,
+  "boxShadow": "none",
+  "defaultOptionValue": "{{ ((options, serverSideFiltering) => (  moment().month() + 1 ))(SelectMes.options, SelectMes.serverSideFiltering) }}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "sourceData"
+    },
+    {
+      "key": "defaultOptionValue"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "sourceData"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "isDisabled": false,
+  "isFilterable": true,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "yqydgo0mb8",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelStyle": "",
+  "labelText": "Seleccionar mes",
+  "labelTextColor": "white",
+  "labelTextSize": "1.875rem",
+  "labelWidth": 5,
+  "leftColumn": 8,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 119,
+  "mobileLeftColumn": 12,
+  "mobileRightColumn": 32,
+  "mobileTopRow": 112,
+  "needsErrorInfo": false,
+  "optionLabel": "label",
+  "optionValue": "value",
+  "originalBottomRow": 124,
+  "originalTopRow": 117,
+  "parentColumnSpace": 30.140625,
+  "parentId": "0",
+  "parentRowSpace": 10,
+  "placeholderText": "Selecciona el mes",
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 28,
+  "serverSideFiltering": false,
+  "sourceData": "{{[\n  {\"label\": \"Enero\", \"value\": 1}, {\"label\": \"Febrero\", \"value\": 2},\n  {\"label\": \"Marzo\", \"value\": 3}, {\"label\": \"Abril\", \"value\": 4},\n  {\"label\": \"Mayo\", \"value\": 5}, {\"label\": \"Junio\", \"value\": 6},\n  {\"label\": \"Julio\", \"value\": 7}, {\"label\": \"Agosto\", \"value\": 8},\n  {\"label\": \"Septiembre\", \"value\": 9}, {\"label\": \"Octubre\", \"value\": 10},\n  {\"label\": \"Noviembre\", \"value\": 11}, {\"label\": \"Diciembre\", \"value\": 12}\n]}}",
+  "topRow": 115,
+  "type": "SELECT_WIDGET",
+  "version": 1,
+  "widgetId": "7wk1e1nqgq",
+  "widgetName": "SelectMes"
+}
