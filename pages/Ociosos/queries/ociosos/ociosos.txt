@@ -4,6 +4,8 @@ SELECT
 	cur.TVEducativa AS Modalidad,
   cur.RecusadoProfesor AS DPP,
 	COALESCE(mat.total_matriculados, 0) AS total_matriculados,
+	COALESCE(inte.suscripciones_globales, 0) AS suscripciones_globales,
+  COALESCE(inte.suscripciones_pendientes, 0) AS suscripciones_pendientes,
 	  (SELECT TRIM(CONCAT(u.Nombre, ' ', u.Apellido1, ' ', COALESCE(u.Apellido2, '')))
      FROM cogiti001.convocatorias c3
      JOIN cogiti001.profesoresconvocatoria pc ON pc.IdConvocatoria = c3.IdConvocatoria
@@ -49,6 +51,13 @@ LEFT JOIN (
        AND m.Precio > 0
      GROUP BY c.IdCurso
    ) mat ON mat.IdCurso = cur.IdCurso
+LEFT JOIN (
+     SELECT Interes AS IdCurso,
+            COUNT(*) AS suscripciones_globales,
+            SUM(CASE WHEN COALESCE(UltimoEnviado,'') = '' THEN 1 ELSE 0 END) AS suscripciones_pendientes
+     FROM cogiti001.interesados
+     GROUP BY Interes
+   ) inte ON inte.IdCurso = cur.IdCurso
 WHERE cur.Activo = 1
   AND COALESCE(fut.IdCurso, '') = ''
 	AND EsGratuito = 0
