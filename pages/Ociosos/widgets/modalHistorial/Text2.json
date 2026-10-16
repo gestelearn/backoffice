@@ -1,7 +1,7 @@
 {
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 44,
+  "bottomRow": 42,
   "dynamicBindingPathList": [
     {
       "key": "truncateButtonColor"
@@ -33,8 +33,8 @@
   "mobileRightColumn": 30,
   "mobileTopRow": 39,
   "needsErrorInfo": false,
-  "originalBottomRow": 42,
-  "originalTopRow": 38,
+  "originalBottomRow": 51,
+  "originalTopRow": 40,
   "overflow": "NONE",
   "parentColumnSpace": 17.53125,
   "parentId": "rj9clyv59o",
@@ -47,7 +47,7 @@
   "text": "{{ tablaApuntes.selectedRow.descripcion }}",
   "textAlign": "LEFT",
   "textColor": "#231F20",
-  "topRow": 40,
+  "topRow": 38,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
   "version": 1,

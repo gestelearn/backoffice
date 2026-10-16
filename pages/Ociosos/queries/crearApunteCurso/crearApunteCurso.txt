@@ -1,0 +1,10 @@
+INSERT INTO appsmith.obs_actualizaciones
+  (IdCurso, fecha, tipo, descripcion, creado_por, creado_en)
+VALUES (
+  {{appsmith.store.cursoSeleccionado}},
+  {{ moment(DatePickerApunte.selectedDate).format("YYYY-MM-DD") }},
+  {{SelectTipoApunte.selectedOptionValue}},
+  {{TextAreaApunte.text}},
+  {{appsmith.user.email}},
+  NOW()
+);

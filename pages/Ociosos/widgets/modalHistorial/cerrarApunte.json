@@ -1,9 +1,9 @@
 {
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 70,
+  "bottomRow": 69,
   "boxShadow": "none",
-  "buttonColor": "#1e3a8a",
+  "buttonColor": "#b91c1c",
   "buttonStyle": "PRIMARY",
   "buttonVariant": "PRIMARY",
   "disabledWhenInvalid": false,
@@ -22,7 +22,7 @@
   "isLoading": false,
   "isVisible": true,
   "key": "sa3d8a4sl8",
-  "leftColumn": 46,
+  "leftColumn": 49,
   "minWidth": 120,
   "mobileBottomRow": 22,
   "mobileLeftColumn": 31,
@@ -30,8 +30,8 @@
   "mobileTopRow": 18,
   "needsErrorInfo": false,
   "onClick": "{{closeModal(modalHistorial.name);}}",
-  "originalBottomRow": 72,
-  "originalTopRow": 68,
+  "originalBottomRow": 78,
+  "originalTopRow": 74,
   "parentId": "rj9clyv59o",
   "placement": "CENTER",
   "recaptchaType": "V3",
@@ -40,9 +40,9 @@
   "responsiveBehavior": "hug",
   "rightColumn": 62,
   "text": "Cerrar",
-  "topRow": 66,
+  "topRow": 65,
   "type": "BUTTON_WIDGET",
   "version": 1,
   "widgetId": "lv54imuhph",
-  "widgetName": "Button1"
+  "widgetName": "cerrarApunte"
 }
