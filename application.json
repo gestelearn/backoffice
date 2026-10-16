@@ -32,11 +32,11 @@
   "icon": "workflows",
   "pages": [
     {
-      "id": "Control Semanal",
+      "id": "Ficha Curso",
       "isDefault": true
     },
     {
-      "id": "Ficha Curso",
+      "id": "Control Semanal",
       "isDefault": false
     },
     {
@@ -44,11 +44,11 @@
       "isDefault": false
     },
     {
-      "id": "Stats",
+      "id": "Ociosos",
       "isDefault": false
     },
     {
-      "id": "Ociosos",
+      "id": "Stats",
       "isDefault": false
     }
   ],
