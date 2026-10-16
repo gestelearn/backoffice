@@ -3,13 +3,10 @@
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
   "bottomRow": 70,
   "boxShadow": "none",
-  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonColor": "#1e3a8a",
   "buttonVariant": "PRIMARY",
   "disabledWhenInvalid": false,
   "dynamicBindingPathList": [
-    {
-      "key": "buttonColor"
-    },
     {
       "key": "borderRadius"
     }
@@ -32,8 +29,8 @@
   "mobileTopRow": 62,
   "needsErrorInfo": false,
   "onClick": "{{crearApunteCurso.run();\nlistarApuntesCurso.run();\nJSObject1.Button3onClick();}}",
-  "originalBottomRow": 68,
-  "originalTopRow": 64,
+  "originalBottomRow": 70,
+  "originalTopRow": 66,
   "parentColumnSpace": 13.84375,
   "parentId": "y03ardspkm",
   "parentRowSpace": 10,
