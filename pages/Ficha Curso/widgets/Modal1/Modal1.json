@@ -1,14 +1,14 @@
 {
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 27,
+  "bottomRow": 400,
   "boxShadow": "none",
   "canEscapeKeyClose": true,
   "canOutsideClickClose": true,
   "children": [
     {
       "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-      "bottomRow": 270,
+      "bottomRow": 400,
       "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
       "canExtend": true,
       "detachFromLayout": true,
@@ -29,7 +29,7 @@
       "leftColumn": 0,
       "maxDynamicHeight": 9000,
       "minDynamicHeight": 4,
-      "minHeight": 0,
+      "minHeight": 270,
       "minWidth": 450,
       "mobileBottomRow": 0,
       "mobileLeftColumn": 0,
@@ -56,14 +56,15 @@
       "key": "borderRadius"
     }
   ],
-  "dynamicHeight": "AUTO_HEIGHT",
-  "height": 270,
+  "dynamicHeight": "FIXED",
+  "dynamicTriggerPathList": [],
+  "height": 400,
   "isCanvas": true,
   "isLoading": false,
   "key": "ut7ma3t9q9",
   "leftColumn": 0,
   "maxDynamicHeight": 9000,
-  "minDynamicHeight": 24,
+  "minDynamicHeight": 10,
   "minHeight": 270,
   "mobileBottomRow": 0,
   "mobileLeftColumn": 0,
@@ -81,5 +82,5 @@
   "version": 2,
   "widgetId": "yrathgaq2e",
   "widgetName": "Modal1",
-  "width": 456
+  "width": 988
 }

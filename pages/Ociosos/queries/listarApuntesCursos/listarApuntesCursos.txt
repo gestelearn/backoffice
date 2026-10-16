@@ -1,0 +1,4 @@
+SELECT id, fecha, tipo, descripcion, creado_por, creado_en
+FROM appsmith.obs_actualizaciones
+WHERE IdCurso = {{appsmith.store.cursoSeleccionado}}
+ORDER BY fecha DESC, creado_en DESC;

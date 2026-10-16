@@ -1,7 +1,7 @@
 {
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 25,
+  "bottomRow": 38,
   "boxShadow": "none",
   "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
   "buttonStyle": "PRIMARY_BUTTON",
@@ -41,7 +41,7 @@
   "responsiveBehavior": "hug",
   "rightColumn": 63,
   "text": "Guardar",
-  "topRow": 21,
+  "topRow": 34,
   "type": "BUTTON_WIDGET",
   "version": 1,
   "widgetId": "tdcio4db0q",

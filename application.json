@@ -46,6 +46,10 @@
     {
       "id": "Stats",
       "isDefault": false
+    },
+    {
+      "id": "Ociosos",
+      "isDefault": false
     }
   ],
   "unpublishedAppLayout": {

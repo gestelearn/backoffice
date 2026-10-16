@@ -1,0 +1,49 @@
+SELECT
+  cur.IdCurso,
+  cur.Nombre AS Curso,
+	cur.TVEducativa AS Modalidad,
+  cur.RecusadoProfesor AS DPP,
+	  (SELECT TRIM(CONCAT(u.Nombre, ' ', u.Apellido1, ' ', COALESCE(u.Apellido2, '')))
+     FROM cogiti001.convocatorias c3
+     JOIN cogiti001.profesoresconvocatoria pc ON pc.IdConvocatoria = c3.IdConvocatoria
+     JOIN cogiti001.usuarios u ON u.IdUsuario = pc.IdUsuario
+    WHERE c3.IdCurso = cur.IdCurso
+      AND c3.Activo = 1
+      AND pc.EsPrincipal = 1
+    ORDER BY c3.FechaInicioCurso DESC
+    LIMIT 1) AS profesor,
+  (SELECT c2.RequierePlanDeMejora
+     FROM cogiti001.convocatorias c2
+    WHERE c2.IdCurso = cur.IdCurso
+      AND c2.Activo = 1
+      AND c2.FechaInicioCurso <= CURDATE()
+    ORDER BY c2.FechaInicioCurso DESC
+    LIMIT 1) AS RPM,
+  ult.ultima_fecha_inicio,
+  TIMESTAMPDIFF(MONTH, ult.ultima_fecha_inicio, CURDATE()) AS meses_sin_impartir,
+  act.ultima_actualizacion
+FROM cogiti001.cursos cur
+JOIN (
+     SELECT IdCurso, MAX(FechaInicioCurso) AS ultima_fecha_inicio
+     FROM cogiti001.convocatorias
+     WHERE FechaInicioCurso BETWEEN '2015-01-01' AND CURDATE()
+     GROUP BY IdCurso
+   ) ult ON ult.IdCurso = cur.IdCurso
+LEFT JOIN (
+     SELECT DISTINCT IdCurso
+     FROM cogiti001.convocatorias
+     WHERE Activo = 1
+       AND FechaInicioCurso > CURDATE()
+   ) fut ON fut.IdCurso = cur.IdCurso
+LEFT JOIN (
+     SELECT IdCurso, MAX(fecha) AS ultima_actualizacion
+     FROM appsmith.obs_actualizaciones
+     GROUP BY IdCurso
+   ) act ON act.IdCurso COLLATE utf8_unicode_ci = cur.IdCurso
+WHERE cur.Activo = 1
+  AND COALESCE(fut.IdCurso, '') = ''
+	AND EsGratuito = 0
+HAVING DPP = 1
+    OR rpm = 1
+    OR ult.ultima_fecha_inicio < DATE_SUB(CURDATE(), INTERVAL 1 YEAR)
+ORDER BY meses_sin_impartir DESC;
