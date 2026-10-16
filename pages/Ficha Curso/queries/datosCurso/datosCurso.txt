@@ -19,6 +19,8 @@ SELECT
   ROUND(AVG(e._MediaRecomendaciones), 2) AS nota_recomendaciones,
   ROUND(AVG(e._ValoracionMedia), 2) AS valoracion_media,
   COALESCE(SUM(e._NumRespondidas), 0) AS total_encuestados,
+	COALESCE(inte.suscripciones_globales, 0) AS suscripciones_globales,
+  COALESCE(inte.suscripciones_pendientes, 0) AS suscripciones_pendientes,
   COUNT(DISTINCT e.IdEncuesta) AS convocatorias_valoradas,
   SUM(CASE WHEN c.Activo = 1 THEN 1 ELSE 0 END) AS convocatorias_impartidas,
   SUM(CASE WHEN c.Activo = 0 THEN 1 ELSE 0 END) AS convocatorias_canceladas,
@@ -59,5 +61,12 @@ LEFT JOIN (
             ROUND(COALESCE(CAST(NULLIF(REPLACE(c2.CargaLectiva, ',', '.'), '') AS DECIMAL(10,2)),0) * COALESCE(c2.PrecioHora,0), 2) AS precio_base
      FROM cogiti001.cursos c2
    ) precios ON precios.IdCurso = cur.IdCurso
+LEFT JOIN (
+     SELECT Interes AS IdCurso,
+            COUNT(*) AS suscripciones_globales,
+            SUM(CASE WHEN COALESCE(UltimoEnviado,'') = '' THEN 1 ELSE 0 END) AS suscripciones_pendientes
+     FROM cogiti001.interesados
+     GROUP BY Interes
+   ) inte ON inte.IdCurso = cur.IdCurso
 WHERE cur.IdCurso = {{ SelectCurso.selectedOptionValue }}
 GROUP BY cur.IdCurso, cur.Nombre;

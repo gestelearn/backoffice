@@ -30,7 +30,7 @@
   "mobileRightColumn": 37,
   "mobileTopRow": 0,
   "needsErrorInfo": false,
-  "originalBottomRow": 5,
+  "originalBottomRow": 4,
   "originalTopRow": 0,
   "overflow": "NONE",
   "parentId": "69hs4pq6cc",
@@ -38,13 +38,13 @@
   "responsiveBehavior": "fill",
   "rightColumn": 62,
   "shouldTruncate": false,
-  "text": "Peso Becados",
+  "text": "Suscripciones",
   "textAlign": "CENTER",
-  "textColor": "#999999",
+  "textColor": "#b91c1c",
   "topRow": 0,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
   "version": 1,
   "widgetId": "xuyzr9csk7",
-  "widgetName": "Text3CopyCopy2"
+  "widgetName": "suscripciones"
 }
