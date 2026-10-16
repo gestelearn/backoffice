@@ -13,7 +13,7 @@
   },
   "chartName": "Sales Report",
   "chartType": "CUSTOM_ECHART",
-  "customEChartConfig": "{{ ((chartType) => ( \n(() => {\n  const d = statsAnual.data ?? [];\n  const anios = [...d].sort((a,b) => Number(a.ejercicio) - Number(b.ejercicio));\n  const pct = (parte, total) => total ? Number(((Number(parte) / Number(total)) * 100).toFixed(1)) : 0;\n  return {\n    \"tooltip\": { \"trigger\": \"axis\", \"axisPointer\": { \"type\": \"shadow\" },\n                 \"formatter\": function(p) {\n                   return p[0].name + \"<br/>\" + p.map(s => s.seriesName + \": \" + s.value + \"%\").join(\"<br/>\");\n                 } },\n    \"legend\": { \"bottom\": 0 },\n    \"grid\": { \"left\": 60, \"right\": 30, \"top\": 20, \"bottom\": 50, \"containLabel\": true },\n    \"xAxis\": { \"type\": \"value\", \"max\": 100, \"axisLabel\": { \"formatter\": \"{value}%\" } },\n    \"yAxis\": { \"type\": \"category\", \"data\": anios.map(r => String(r.ejercicio)) },\n    \"series\": [\n      {\n        \"name\": \"FUNDAE\",\n        \"type\": \"bar\",\n        \"stack\": \"total\",\n        \"itemStyle\": { \"color\": \"#eda100\" },\n        \"label\": { \"show\": true, \"formatter\": \"{c}%\" },\n        \"data\": anios.map(r => pct(r.facturado_tripartita, r.total_facturado))\n      },\n      {\n        \"name\": \"Ordinarias\",\n        \"type\": \"bar\",\n        \"stack\": \"total\",\n        \"itemStyle\": { \"color\": \"#b91c1c\" },\n        \"label\": { \"show\": true, \"formatter\": \"{c}%\" },\n        \"data\": anios.map(r => pct(r.facturado_ordinario, r.total_facturado))\n      }\n    ]\n  };\n})()\n))(Chart1.chartType) }}",
+  "customEChartConfig": "{{ ((chartType) => ( \n(() => {\n  const d = statsAnual.data ?? [];\n  const anios = [...d].sort((a,b) => Number(a.ejercicio) - Number(b.ejercicio));\n  const pct = (parte, total) => total ? Number(((Number(parte) / Number(total)) * 100).toFixed(1)) : 0;\n  return {\n    \"tooltip\": { \"trigger\": \"axis\", \"axisPointer\": { \"type\": \"shadow\" },\n                 \"formatter\": function(p) {\n                   return p[0].name + \"<br/>\" + p.map(s => s.seriesName + \": \" + s.value + \"%\").join(\"<br/>\");\n                 } },\n    \"legend\": { \"bottom\": 0 },\n    \"grid\": { \"left\": 60, \"right\": 30, \"top\": 20, \"bottom\": 50, \"containLabel\": true },\n    \"xAxis\": { \"type\": \"value\", \"max\": 100, \"axisLabel\": { \"formatter\": \"{value}%\" } },\n    \"yAxis\": { \"type\": \"category\", \"data\": anios.map(r => String(r.ejercicio)) },\n    \"series\": [\n      {\n        \"name\": \"FUNDAE\",\n        \"type\": \"bar\",\n        \"stack\": \"total\",\n        \"itemStyle\": { \"color\": \"#eda100\" },\n        \"label\": { \"show\": true, \"formatter\": \"{c}%\" },\n        \"data\": anios.map(r => pct(r.facturado_tripartita, r.total_facturado))\n      },\n      {\n        \"name\": \"Ordinarias\",\n        \"type\": \"bar\",\n        \"stack\": \"total\",\n        \"itemStyle\": { \"color\": \"#b91c1c\" },\n        \"label\": { \"show\": true, \"formatter\": \"{c}%\" },\n        \"data\": anios.map(r => pct(r.facturado_ordinario, r.total_facturado))\n      }\n    ]\n  };\n})()\n))(pesoGlobalFundae.chartType) }}",
   "customFusionChartConfig": {
     "dataSource": {
       "chart": {
@@ -108,7 +108,7 @@
   "type": "CHART_WIDGET",
   "version": 1,
   "widgetId": "2yurqbbkbi",
-  "widgetName": "Chart1",
+  "widgetName": "pesoGlobalFundae",
   "xAxisName": "Product Line",
   "yAxisName": "Revenue($)"
 }

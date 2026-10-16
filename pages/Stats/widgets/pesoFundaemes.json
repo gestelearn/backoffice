@@ -3,7 +3,7 @@
   "allowScroll": false,
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 238,
+  "bottomRow": 183,
   "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
   "chartData": {
     "vfptx598dk": {
@@ -26,7 +26,7 @@
   },
   "chartName": "Sales Report",
   "chartType": "CUSTOM_ECHART",
-  "customEChartConfig": "{{ ((chartType) => ( \n{\n  \"tooltip\": { \"trigger\": \"axis\", \"axisPointer\": { \"type\": \"shadow\" } },\n  \"legend\": { \"bottom\": 0 },\n  \"grid\": { \"left\": 50, \"right\": 20, \"bottom\": 50, \"top\": 40, \"containLabel\": true },\n  \"xAxis\": { \"type\": \"category\", \"data\": [\"Ene\",\"Feb\",\"Mar\",\"Abr\",\"May\",\"Jun\",\"Jul\",\"Ago\",\"Sep\",\"Oct\",\"Nov\",\"Dic\"] },\n  \"yAxis\": { \"type\": \"value\" },\n  \"series\": [\n    {\n      \"name\": String(new Date().getFullYear() - 1),\n      \"type\": \"bar\",\n      \"itemStyle\": { \"color\": \"#94a3b8\" },\n      \"data\": Array.from({length: 12}, (_, i) =>\n        (statsMensual.data ?? []).find(r => Number(r.ejercicio) === new Date().getFullYear() - 1 && Number(r.mes) === i + 1)?.total_matriculas ?? 0)\n    },\n    {\n      \"name\": String(new Date().getFullYear()),\n      \"type\": \"bar\",\n      \"itemStyle\": { \"color\": \"#3b82f6\" },\n      \"data\": Array.from({length: 12}, (_, i) =>\n        (statsMensual.data ?? []).find(r => Number(r.ejercicio) === new Date().getFullYear() && Number(r.mes) === i + 1)?.total_matriculas ?? 0)\n    }\n  ]\n}\n))(Chart3.chartType) }}",
+  "customEChartConfig": "{{ ((chartType) => ( \n{\n  \"tooltip\": { \"trigger\": \"axis\" },\n  \"legend\": { \"bottom\": 0 },\n  \"grid\": { \"left\": 50, \"right\": 30, \"top\": 30, \"bottom\": 50, \"containLabel\": true },\n  \"xAxis\": { \"type\": \"category\", \"data\": [\"Ene\",\"Feb\",\"Mar\",\"Abr\",\"May\",\"Jun\",\"Jul\",\"Ago\",\"Sep\",\"Oct\",\"Nov\",\"Dic\"] },\n  \"yAxis\": { \"type\": \"value\", \"axisLabel\": { \"formatter\": \"{value}%\" } },\n  \"series\": [\n    {\n      \"name\": \"2025\",\n      \"type\": \"line\",\n      \"connectNulls\": true,\n      \"lineStyle\": { \"color\": \"#898781\", \"width\": 2 },\n      \"itemStyle\": { \"color\": \"#898781\" },\n      \"data\": (statsMensual.data ?? []).filter(r => r.ejercicio == 2025).map(r => r.pct_fundae)\n    },\n    {\n      \"name\": \"2026\",\n      \"type\": \"line\",\n      \"connectNulls\": true,\n      \"lineStyle\": { \"color\": \"#eda100\", \"width\": 2 },\n      \"itemStyle\": { \"color\": \"#eda100\" },\n      \"data\": (statsMensual.data ?? []).filter(r => r.ejercicio == 2026).map(r => r.pct_fundae)\n    }\n  ]\n}\n))(pesoFundaemes.chartType) }}",
   "customFusionChartConfig": {
     "dataSource": {
       "chart": {
@@ -76,9 +76,6 @@
   },
   "dynamicBindingPathList": [
     {
-      "key": "customEChartConfig"
-    },
-    {
       "key": "borderRadius"
     },
     {
@@ -89,6 +86,9 @@
     },
     {
       "key": "fontFamily"
+    },
+    {
+      "key": "customEChartConfig"
     }
   ],
   "dynamicTriggerPathList": [],
@@ -100,13 +100,13 @@
   "labelOrientation": "auto",
   "leftColumn": 8,
   "minWidth": 450,
-  "mobileBottomRow": 221,
-  "mobileLeftColumn": 24,
-  "mobileRightColumn": 48,
-  "mobileTopRow": 189,
+  "mobileBottomRow": 182,
+  "mobileLeftColumn": 20,
+  "mobileRightColumn": 44,
+  "mobileTopRow": 150,
   "needsErrorInfo": true,
-  "originalBottomRow": 238,
-  "originalTopRow": 190,
+  "originalBottomRow": 183,
+  "originalTopRow": 151,
   "parentColumnSpace": 30.140625,
   "parentId": "0",
   "parentRowSpace": 10,
@@ -114,11 +114,11 @@
   "responsiveBehavior": "fill",
   "rightColumn": 54,
   "showDataPointLabel": false,
-  "topRow": 190,
+  "topRow": 151,
   "type": "CHART_WIDGET",
   "version": 1,
-  "widgetId": "9lp7cady6f",
-  "widgetName": "Chart3",
+  "widgetId": "sz8cyq176q",
+  "widgetName": "pesoFundaemes",
   "xAxisName": "Product Line",
   "yAxisName": "Revenue($)"
 }
