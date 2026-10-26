@@ -26,7 +26,7 @@
   },
   "chartName": "Sales Report",
   "chartType": "CUSTOM_ECHART",
-  "customEChartConfig": "{{ ((chartType) => ( \n{\n  \"tooltip\": { \"trigger\": \"axis\", \"axisPointer\": { \"type\": \"shadow\" } },\n  \"legend\": { \"bottom\": 0 },\n  \"grid\": { \"left\": 50, \"right\": 20, \"bottom\": 50, \"top\": 40, \"containLabel\": true },\n  \"xAxis\": { \"type\": \"category\", \"data\": [\"Ene\",\"Feb\",\"Mar\",\"Abr\",\"May\",\"Jun\",\"Jul\",\"Ago\",\"Sep\",\"Oct\",\"Nov\",\"Dic\"] },\n  \"yAxis\": { \"type\": \"value\" },\n  \"series\": [\n    {\n      \"name\": String(new Date().getFullYear() - 1),\n      \"type\": \"bar\",\n      \"itemStyle\": { \"color\": \"#94a3b8\" },\n      \"data\": Array.from({length: 12}, (_, i) =>\n        (statsMensual.data ?? []).find(r => Number(r.ejercicio) === new Date().getFullYear() - 1 && Number(r.mes) === i + 1)?.total_matriculas ?? 0)\n    },\n    {\n      \"name\": String(new Date().getFullYear()),\n      \"type\": \"bar\",\n      \"itemStyle\": { \"color\": \"#3b82f6\" },\n      \"data\": Array.from({length: 12}, (_, i) =>\n        (statsMensual.data ?? []).find(r => Number(r.ejercicio) === new Date().getFullYear() && Number(r.mes) === i + 1)?.total_matriculas ?? 0)\n    }\n  ]\n}\n))(totalesMeses.chartType) }}",
+  "customEChartConfig": "{{ ((chartType) => ( \n{  \"title\": {\n    \"text\": \"\",\n    \"subtext\": \"Octubre recortado al día \" + new Date().getDate() + \" en los tres años\",\n    \"left\": \"center\",\n    \"top\": 0\n  },\n  \"tooltip\": { \"trigger\": \"axis\", \"axisPointer\": { \"type\": \"shadow\" } },\n  \"legend\": { \"bottom\": 0 },\n  \"grid\": { \"left\": 50, \"right\": 20, \"bottom\": 50, \"top\": 40, \"containLabel\": true },\n  \"xAxis\": { \"type\": \"category\", \"data\": [\"Ene\",\"Feb\",\"Mar\",\"Abr\",\"May\",\"Jun\",\"Jul\",\"Ago\",\"Sep\",\"Oct\",\"Nov\",\"Dic\"] },\n  \"yAxis\": { \"type\": \"value\" },\n  \"series\": [\n    {\n      \"name\": \"2024\",\n      \"type\": \"bar\",\n      \"itemStyle\": { \"color\": \"#c3c2b7\" },\n      \"data\": (statsMensual.data ?? []).filter(r => r.ejercicio == 2024).map(r => r.total_matriculas)\n    },\n    {\n      \"name\": \"2025\",\n      \"type\": \"bar\",\n      \"itemStyle\": { \"color\": \"#94a3b8\" },\n      \"data\": (statsMensual.data ?? []).filter(r => r.ejercicio == 2025).map(r => r.total_matriculas)\n    },\n    {\n      \"name\": \"2026\",\n      \"type\": \"bar\",\n      \"itemStyle\": { \"color\": \"#3b82f6\" },\n      \"data\": (statsMensual.data ?? []).filter(r => r.ejercicio == 2026).map(r => r.total_matriculas)\n    }\n  ]\n}\n))(totalesMeses.chartType) }}",
   "customFusionChartConfig": {
     "dataSource": {
       "chart": {
@@ -76,9 +76,6 @@
   },
   "dynamicBindingPathList": [
     {
-      "key": "customEChartConfig"
-    },
-    {
       "key": "borderRadius"
     },
     {
@@ -89,6 +86,9 @@
     },
     {
       "key": "fontFamily"
+    },
+    {
+      "key": "customEChartConfig"
     }
   ],
   "dynamicTriggerPathList": [],
@@ -105,8 +105,8 @@
   "mobileRightColumn": 48,
   "mobileTopRow": 189,
   "needsErrorInfo": true,
-  "originalBottomRow": 238,
-  "originalTopRow": 190,
+  "originalBottomRow": 240,
+  "originalTopRow": 192,
   "parentColumnSpace": 30.140625,
   "parentId": "0",
   "parentRowSpace": 10,

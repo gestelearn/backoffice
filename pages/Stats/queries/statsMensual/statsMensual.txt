@@ -10,7 +10,11 @@ SELECT
 	ROUND(100 * SUM(CASE WHEN m.Tripartita = 1 THEN m.Precio ELSE 0 END) / NULLIF(SUM(m.Precio), 0), 1) AS pct_fundae
 FROM cogiti001.matriculas m
 WHERE m.Baja = 0
-  AND YEAR(m.FechaRegistro) IN (YEAR(CURDATE()), YEAR(CURDATE()) - 1)
+  AND YEAR(m.FechaRegistro) IN (YEAR(CURDATE()), YEAR(CURDATE()) - 1, YEAR(CURDATE()) - 2)
   AND m.Precio > 0
+	  AND (
+    MONTH(m.FechaRegistro) <> MONTH(CURDATE())
+    OR DAY(m.FechaRegistro) <= DAY(CURDATE())
+  )
 GROUP BY YEAR(m.FechaRegistro), MONTH(m.FechaRegistro)
 ORDER BY ejercicio, mes;

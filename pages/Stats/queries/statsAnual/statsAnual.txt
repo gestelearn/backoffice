@@ -8,7 +8,7 @@ SELECT
   ROUND(COALESCE(SUM(CASE WHEN m.Tripartita = 1 THEN 0 ELSE m.Precio END), 0), 2) AS facturado_ordinario
 FROM cogiti001.matriculas m
 WHERE m.Baja = 0
-  AND YEAR(m.FechaRegistro) IN (YEAR(CURDATE()), YEAR(CURDATE()) - 1)
+  AND YEAR(m.FechaRegistro) IN (YEAR(CURDATE()), YEAR(CURDATE()) - 1, YEAR(CURDATE()) - 2)
   AND DAYOFYEAR(m.FechaRegistro) <= DAYOFYEAR(CURDATE())
 	AND m.Precio > 0
 GROUP BY YEAR(m.FechaRegistro)
