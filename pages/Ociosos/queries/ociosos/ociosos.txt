@@ -6,15 +6,9 @@ SELECT
 	COALESCE(mat.total_matriculados, 0) AS total_matriculados,
 	COALESCE(inte.suscripciones_globales, 0) AS suscripciones_globales,
   COALESCE(inte.suscripciones_pendientes, 0) AS suscripciones_pendientes,
-	  (SELECT TRIM(CONCAT(u.Nombre, ' ', u.Apellido1, ' ', COALESCE(u.Apellido2, '')))
-     FROM cogiti001.convocatorias c3
-     JOIN cogiti001.profesoresconvocatoria pc ON pc.IdConvocatoria = c3.IdConvocatoria
-     JOIN cogiti001.usuarios u ON u.IdUsuario = pc.IdUsuario
-    WHERE c3.IdCurso = cur.IdCurso
-      AND c3.Activo = 1
-      AND pc.EsPrincipal = 1
-    ORDER BY c3.FechaInicioCurso DESC
-    LIMIT 1) AS profesor,
+	prof.profesor,
+  prof.profesor_email,
+  prof.profesor_telefono,
   (SELECT c2.RequierePlanDeMejora
      FROM cogiti001.convocatorias c2
     WHERE c2.IdCurso = cur.IdCurso
@@ -24,7 +18,8 @@ SELECT
     LIMIT 1) AS RPM,
   ult.ultima_fecha_inicio,
   TIMESTAMPDIFF(MONTH, ult.ultima_fecha_inicio, CURDATE()) AS meses_sin_impartir,
-  act.ultima_actualizacion
+  act.ultima_actualizacion,
+	act.ultimo_contacto_por
 FROM cogiti001.cursos cur
 JOIN (
      SELECT IdCurso, MAX(FechaInicioCurso) AS ultima_fecha_inicio
@@ -39,9 +34,13 @@ LEFT JOIN (
        AND FechaInicioCurso > CURDATE()
    ) fut ON fut.IdCurso = cur.IdCurso
 LEFT JOIN (
-     SELECT IdCurso, MAX(fecha) AS ultima_actualizacion
-     FROM appsmith.obs_actualizaciones
-     GROUP BY IdCurso
+     SELECT oa.IdCurso, oa.fecha AS ultima_actualizacion, oa.creado_por AS ultimo_contacto_por
+     FROM appsmith.obs_actualizaciones oa
+     JOIN (
+          SELECT IdCurso, MAX(creado_en) AS ultimo
+          FROM appsmith.obs_actualizaciones
+          GROUP BY IdCurso
+        ) u ON u.IdCurso = oa.IdCurso AND u.ultimo = oa.creado_en
    ) act ON act.IdCurso COLLATE utf8_unicode_ci = cur.IdCurso
 LEFT JOIN (
      SELECT c.IdCurso, COUNT(*) AS total_matriculados
@@ -58,6 +57,23 @@ LEFT JOIN (
      FROM cogiti001.interesados
      GROUP BY Interes
    ) inte ON inte.IdCurso = cur.IdCurso
+LEFT JOIN (
+     SELECT c4.IdCurso,
+            TRIM(CONCAT(u.Nombre, ' ', u.Apellido1, ' ', COALESCE(u.Apellido2, ''))) AS profesor,
+            u.Email AS profesor_email,
+            u.Telefono AS profesor_telefono
+     FROM cogiti001.convocatorias c4
+     JOIN cogiti001.profesoresconvocatoria pc ON pc.IdConvocatoria = c4.IdConvocatoria
+     JOIN cogiti001.usuarios u ON u.IdUsuario = pc.IdUsuario
+     JOIN (
+          SELECT IdCurso, MAX(FechaInicioCurso) AS ultima
+          FROM cogiti001.convocatorias
+          WHERE Activo = 1 AND FechaInicioCurso <= CURDATE()
+          GROUP BY IdCurso
+        ) uc ON uc.IdCurso = c4.IdCurso AND uc.ultima = c4.FechaInicioCurso
+     WHERE pc.EsPrincipal = 1
+       AND c4.Activo = 1
+   ) prof ON prof.IdCurso = cur.IdCurso
 WHERE cur.Activo = 1
   AND COALESCE(fut.IdCurso, '') = ''
 	AND EsGratuito = 0
