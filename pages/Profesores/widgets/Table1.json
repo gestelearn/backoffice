@@ -4,7 +4,7 @@
   "borderColor": "#E0DEDE",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
   "borderWidth": "1",
-  "bottomRow": 87,
+  "bottomRow": 107,
   "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
   "cachedTableData": {},
   "canFreezeColumn": true,
@@ -43,16 +43,18 @@
     "ultima_fecha",
     "fecha_alta",
     "total_convocatorias",
-    "facturacion"
+    "facturacion",
+    "alumnos",
+    "finalizados"
   ],
-  "columnUpdatedAt": 1793205909879,
+  "columnUpdatedAt": 1793358049843,
   "columnWidthMap": {
     "IdCurso": 95,
-    "curso": 610,
+    "curso": 470,
     "customColumn1": 118,
     "customColumn2": 126,
     "customColumn3": 111,
-    "estado": 177,
+    "estado": 183,
     "total_convocatorias": 91,
     "ultima_fecha": 179
   },
@@ -117,15 +119,6 @@
       "key": "primaryColumns.customColumn3.isDisabled"
     },
     {
-      "key": "primaryColumns.estado.computedValue"
-    },
-    {
-      "key": "primaryColumns.estado.cellBackground"
-    },
-    {
-      "key": "primaryColumns.estado.textColor"
-    },
-    {
       "key": "primaryColumns.customColumn4.borderRadius"
     },
     {
@@ -133,6 +126,15 @@
     },
     {
       "key": "primaryColumns.fecha_alta.computedValue"
+    },
+    {
+      "key": "primaryColumns.estado.computedValue"
+    },
+    {
+      "key": "primaryColumns.alumnos.computedValue"
+    },
+    {
+      "key": "primaryColumns.finalizados.computedValue"
     }
   ],
   "dynamicPropertyPathList": [
@@ -141,12 +143,6 @@
     },
     {
       "key": "primaryColumns.customColumn3.isDisabled"
-    },
-    {
-      "key": "primaryColumns.estado.cellBackground"
-    },
-    {
-      "key": "primaryColumns.estado.textColor"
     }
   ],
   "dynamicTriggerPathList": [
@@ -177,15 +173,15 @@
   "isVisibleSearch": true,
   "key": "2x96la8f5i",
   "label": "Data",
-  "leftColumn": 5,
+  "leftColumn": 8,
   "minWidth": 450,
   "mobileBottomRow": 33,
   "mobileLeftColumn": 22,
   "mobileRightColumn": 56,
   "mobileTopRow": 5,
   "needsErrorInfo": false,
-  "originalBottomRow": 86,
-  "originalTopRow": 49,
+  "originalBottomRow": 107,
+  "originalTopRow": 70,
   "parentColumnSpace": 30.140625,
   "parentId": "0",
   "parentRowSpace": 10,
@@ -246,6 +242,40 @@
       "notation": "standard",
       "originalId": "IdMoodle",
       "sticky": "",
+      "textSize": "1.25rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "alumnos": {
+      "alias": "alumnos",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "number",
+      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"alumnos\"])) : alumnos })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "",
+      "horizontalAlignment": "LEFT",
+      "id": "alumnos",
+      "index": 6,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "alumnos",
+      "notation": "standard",
+      "originalId": "alumnos",
+      "sticky": "",
+      "textColor": "",
       "textSize": "1.25rem",
       "thousandSeparator": true,
       "validation": {},
@@ -446,9 +476,9 @@
       "alias": "estado",
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
-      "cellBackground": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (\n  currentRow.estado === \"Activo\" ? \"#22c55e\"\n  : currentRow.estado === \"Abierto\" ? \"#3b82f6\"\n  : currentRow.estado === \"Programado\" ? \"#f59e0b\"\n  : \"#e5e7eb\"\n)) : \n  currentRow.estado === \"Activo\" ? \"#22c55e\"\n  : currentRow.estado === \"Abierto\" ? \"#3b82f6\"\n  : currentRow.estado === \"Programado\" ? \"#f59e0b\"\n  : \"#e5e7eb\"\n })()}}",
+      "cellBackground": "",
       "columnType": "text",
-      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (\n  currentRow.estado === \"Activo\" ? \"🟢 Activo\"\n  : currentRow.estado === \"Abierto\" ? \"🔵 Matrícula\"\n  : currentRow.estado === \"Programado\" ? \"🟠 Programado\"\n  : \"⚪ Stand by\"\n)) : \n  currentRow.estado === \"Activo\" ? \"🟢 Activo\"\n  : currentRow.estado === \"Abierto\" ? \"🔵 Matrícula\"\n  : currentRow.estado === \"Programado\" ? \"🟠 Programado\"\n  : \"⚪ Stand by\"\n })()}}",
+      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (\n  currentRow.estado === \"Nuevo\" ? \"🟣 Nuevo\"\n : currentRow.estado === \"Activo\" ? \"🟢 Activo\"\n  : currentRow.estado === \"Matrícula\" ? \"🔵 Matrícula\"\n  : currentRow.estado === \"Programado\" ? \"🟠 Programado\"\n  : \"⚪ Stand by\"\n)) : \n  currentRow.estado === \"Nuevo\" ? \"🟣 Nuevo\"\n : currentRow.estado === \"Activo\" ? \"🟢 Activo\"\n  : currentRow.estado === \"Matrícula\" ? \"🔵 Matrícula\"\n  : currentRow.estado === \"Programado\" ? \"🟠 Programado\"\n  : \"⚪ Stand by\"\n })()}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,
@@ -456,7 +486,7 @@
       "fontStyle": "",
       "horizontalAlignment": "LEFT",
       "id": "estado",
-      "index": 6,
+      "index": 7,
       "isCellEditable": false,
       "isCellVisible": true,
       "isDerived": false,
@@ -469,7 +499,7 @@
       "notation": "standard",
       "originalId": "estado",
       "sticky": "",
-      "textColor": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.estado === \"Stand by\" ? \"#0b0b0b\" : \"#ffffff\" )) :  currentRow.estado === \"Stand by\" ? \"#0b0b0b\" : \"#ffffff\"  })()}}",
+      "textColor": "",
       "textSize": "1.25rem",
       "thousandSeparator": true,
       "validation": {},
@@ -542,12 +572,46 @@
       "verticalAlignment": "CENTER",
       "width": 150
     },
+    "finalizados": {
+      "alias": "finalizados",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "number",
+      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"finalizados\"])) : finalizados })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "",
+      "horizontalAlignment": "LEFT",
+      "id": "finalizados",
+      "index": 7,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "finalizados",
+      "notation": "standard",
+      "originalId": "finalizados",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "1.25rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
     "total_convocatorias": {
       "alias": "total_convocatorias",
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
       "columnType": "number",
-      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"total_convocatorias\"])) : total_convocatorias })()}}",
+      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"total_convocatorias\"])) : currentRow[\"total_convocatorias\"] })()}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,
@@ -609,11 +673,11 @@
   },
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
-  "rightColumn": 60,
+  "rightColumn": 56,
   "searchKey": "",
   "tableData": "{{cursosProfesor.data}}",
   "textSize": "1.25rem",
-  "topRow": 50,
+  "topRow": 70,
   "totalRecordsCount": 0,
   "type": "TABLE_WIDGET_V2",
   "version": 2,

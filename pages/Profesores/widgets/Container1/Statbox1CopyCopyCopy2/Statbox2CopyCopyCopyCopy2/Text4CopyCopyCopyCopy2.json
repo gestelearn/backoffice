@@ -1,7 +1,7 @@
 {
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 4,
+  "bottomRow": 6,
   "dynamicBindingPathList": [
     {
       "key": "truncateButtonColor"
@@ -11,17 +11,20 @@
     },
     {
       "key": "borderRadius"
+    },
+    {
+      "key": "text"
     }
   ],
   "dynamicHeight": "AUTO_HEIGHT",
   "dynamicTriggerPathList": [],
   "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
-  "fontSize": "1.25rem",
+  "fontSize": "1.875rem",
   "fontStyle": "BOLD",
   "isLoading": false,
   "isVisible": true,
   "key": "xaryj2945b",
-  "leftColumn": 11,
+  "leftColumn": 3,
   "maxDynamicHeight": 9000,
   "minDynamicHeight": 4,
   "minWidth": 450,
@@ -30,21 +33,21 @@
   "mobileRightColumn": 37,
   "mobileTopRow": 4,
   "needsErrorInfo": false,
-  "originalBottomRow": 5,
-  "originalTopRow": 0,
+  "originalBottomRow": 6,
+  "originalTopRow": 1,
   "overflow": "NONE",
-  "parentId": "ix2j83sn4q",
+  "parentId": "48n7re54in",
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
-  "rightColumn": 50,
+  "rightColumn": 58,
   "shouldTruncate": false,
-  "text": "Stand by",
+  "text": "{{ (cursosProfesor.data ?? []).filter(r => r.estado === \"Programado\").length }}",
   "textAlign": "CENTER",
   "textColor": "#231F20",
-  "topRow": 0,
+  "topRow": 1,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
   "version": 1,
-  "widgetId": "3ihefwzuxf",
-  "widgetName": "ActivosCopyCopy1"
+  "widgetId": "8wvbefs9nr",
+  "widgetName": "Text4CopyCopyCopyCopy2"
 }

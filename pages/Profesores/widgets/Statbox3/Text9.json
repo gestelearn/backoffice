@@ -1,7 +1,7 @@
 {
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 6,
+  "bottomRow": 10,
   "dynamicBindingPathList": [
     {
       "key": "truncateButtonColor"
@@ -11,43 +11,40 @@
     },
     {
       "key": "borderRadius"
-    },
-    {
-      "key": "text"
     }
   ],
   "dynamicHeight": "AUTO_HEIGHT",
   "dynamicTriggerPathList": [],
   "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
-  "fontSize": "1.875rem",
+  "fontSize": "0.875rem",
   "fontStyle": "BOLD",
   "isLoading": false,
   "isVisible": true,
-  "key": "xaryj2945b",
-  "leftColumn": 3,
+  "key": "vmj9y52ed0",
+  "leftColumn": 1,
   "maxDynamicHeight": 9000,
   "minDynamicHeight": 4,
   "minWidth": 450,
-  "mobileBottomRow": 8,
+  "mobileBottomRow": 12,
   "mobileLeftColumn": 1,
   "mobileRightColumn": 37,
-  "mobileTopRow": 4,
+  "mobileTopRow": 8,
   "needsErrorInfo": false,
-  "originalBottomRow": 6,
-  "originalTopRow": 1,
+  "originalBottomRow": 10,
+  "originalTopRow": 6,
   "overflow": "NONE",
-  "parentId": "kgvnmj2qmu",
+  "parentId": "fdfasot3yq",
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
-  "rightColumn": 58,
+  "rightColumn": 21,
   "shouldTruncate": false,
-  "text": "{{ (cursosProfesor.data ?? []).filter(r => r.estado === \"Activo\").length }}",
+  "text": "Total alumnos formados",
   "textAlign": "CENTER",
-  "textColor": "#231F20",
-  "topRow": 1,
+  "textColor": "#03B365",
+  "topRow": 6,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
   "version": 1,
-  "widgetId": "nucseks2pb",
-  "widgetName": "Text4CopyCopy"
+  "widgetId": "dd9zox6e7r",
+  "widgetName": "Text9"
 }

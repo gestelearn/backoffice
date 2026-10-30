@@ -12,5 +12,4 @@ LEFT JOIN cogiti001.encuestas e ON e.IdConvocatoria = c.IdConvocatoria
 WHERE u.IdUsuario = {{ SelectProfesor.selectedOptionValue }}
   AND pc.EsPrincipal = 1
   AND c.Activo = 1
-  AND c.FechaInicioCurso > '2013-12-31'
 GROUP BY u.IdUsuario, u.Nombre, u.Apellido1, u.Apellido2, u.Email, u.Telefono;

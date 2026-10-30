@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT u.IdUsuario,\n       TRIM(CONCAT(u.Nombre, ' ', u.Apellido1, ' ', COALESCE(u.Apellido2, ''))) AS nombre_profesor\nFROM cogiti001.usuarios u\nWHERE u.IdUsuario IN (\n       SELECT DISTINCT pc.IdUsuario\n       FROM cogiti001.profesoresconvocatoria pc\n       WHERE pc.EsPrincipal = 1\n     )\n  AND (\n       CONCAT(u.Nombre, ' ', u.Apellido1, ' ', COALESCE(u.Apellido2, '')) LIKE {{ \"%\" + SelectProfesor.filterText + \"%\" }}\n       OR u.NIF LIKE {{ \"%\" + SelectProfesor.filterText + \"%\" }}\n     )\nORDER BY u.Apellido1\nLIMIT 25;",
+      "body": "SELECT u.IdUsuario,\n       TRIM(CONCAT(u.Nombre, ' ', u.Apellido1, ' ', COALESCE(u.Apellido2, ''))) AS nombre_profesor\nFROM cogiti001.usuarios u\nWHERE u.IdUsuario IN (\n       SELECT DISTINCT pc.IdUsuario\n       FROM cogiti001.profesoresconvocatoria pc\n       WHERE pc.EsPrincipal = 1\n     )\n  AND (\n       CONCAT(u.Nombre, ' ', u.Apellido1, ' ', COALESCE(u.Apellido2, '')) LIKE {{ \"%\" + SelectProfesor.filterText + \"%\" }}\n       OR u.NIF LIKE {{ \"%\" + SelectProfesor.filterText + \"%\" }}\n\t\t\tOR u.Email LIKE {{ \"%\" + SelectProfesor.filterText + \"%\" }}\n       OR u.Telefono LIKE {{ \"%\" + SelectProfesor.filterText + \"%\" }}\n     )\nORDER BY u.Apellido1\nLIMIT 25;",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [

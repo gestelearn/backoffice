@@ -1,7 +1,7 @@
 {
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 6,
+  "bottomRow": 4,
   "dynamicBindingPathList": [
     {
       "key": "truncateButtonColor"
@@ -11,20 +11,17 @@
     },
     {
       "key": "borderRadius"
-    },
-    {
-      "key": "text"
     }
   ],
   "dynamicHeight": "AUTO_HEIGHT",
   "dynamicTriggerPathList": [],
   "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
-  "fontSize": "1.875rem",
+  "fontSize": "1.25rem",
   "fontStyle": "BOLD",
   "isLoading": false,
   "isVisible": true,
   "key": "xaryj2945b",
-  "leftColumn": 3,
+  "leftColumn": 11,
   "maxDynamicHeight": 9000,
   "minDynamicHeight": 4,
   "minWidth": 450,
@@ -33,21 +30,21 @@
   "mobileRightColumn": 37,
   "mobileTopRow": 4,
   "needsErrorInfo": false,
-  "originalBottomRow": 6,
-  "originalTopRow": 1,
+  "originalBottomRow": 4,
+  "originalTopRow": 0,
   "overflow": "NONE",
-  "parentId": "llnw123z8k",
+  "parentId": "5wh5vi17ne",
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
-  "rightColumn": 58,
+  "rightColumn": 50,
   "shouldTruncate": false,
-  "text": "{{ (cursosProfesor.data ?? []).filter(r => r.estado === \"Abierto\").length }}",
+  "text": "En Activo",
   "textAlign": "CENTER",
   "textColor": "#231F20",
-  "topRow": 1,
+  "topRow": 0,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
   "version": 1,
-  "widgetId": "78dyddougp",
-  "widgetName": "Text4CopyCopyCopyCopy"
+  "widgetId": "51ke4sgbgn",
+  "widgetName": "ActivosCopy1"
 }

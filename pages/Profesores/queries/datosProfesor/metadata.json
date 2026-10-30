@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT\n  u.IdUsuario,\n  TRIM(CONCAT(u.Nombre, ' ', u.Apellido1, ' ', COALESCE(u.Apellido2, ''))) AS nombre_profesor,\n  u.Email,\n  u.Telefono,\n  COUNT(DISTINCT c.IdCurso) AS total_cursos,\n  ROUND(AVG(CASE WHEN e._NumRespondidas > 0 THEN e._MediaProfesores END), 2) AS nota_media\nFROM cogiti001.usuarios u\nJOIN cogiti001.profesoresconvocatoria pc ON pc.IdUsuario = u.IdUsuario\nJOIN cogiti001.convocatorias c ON c.IdConvocatoria = pc.IdConvocatoria\nLEFT JOIN cogiti001.encuestas e ON e.IdConvocatoria = c.IdConvocatoria\nWHERE u.IdUsuario = {{ SelectProfesor.selectedOptionValue }}\n  AND pc.EsPrincipal = 1\n  AND c.Activo = 1\n  AND c.FechaInicioCurso > '2013-12-31'\nGROUP BY u.IdUsuario, u.Nombre, u.Apellido1, u.Apellido2, u.Email, u.Telefono;",
+      "body": "SELECT\n  u.IdUsuario,\n  TRIM(CONCAT(u.Nombre, ' ', u.Apellido1, ' ', COALESCE(u.Apellido2, ''))) AS nombre_profesor,\n  u.Email,\n  u.Telefono,\n  COUNT(DISTINCT c.IdCurso) AS total_cursos,\n  ROUND(AVG(CASE WHEN e._NumRespondidas > 0 THEN e._MediaProfesores END), 2) AS nota_media\nFROM cogiti001.usuarios u\nJOIN cogiti001.profesoresconvocatoria pc ON pc.IdUsuario = u.IdUsuario\nJOIN cogiti001.convocatorias c ON c.IdConvocatoria = pc.IdConvocatoria\nLEFT JOIN cogiti001.encuestas e ON e.IdConvocatoria = c.IdConvocatoria\nWHERE u.IdUsuario = {{ SelectProfesor.selectedOptionValue }}\n  AND pc.EsPrincipal = 1\n  AND c.Activo = 1\nGROUP BY u.IdUsuario, u.Nombre, u.Apellido1, u.Apellido2, u.Email, u.Telefono;",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [

@@ -9,6 +9,8 @@ WHERE u.IdUsuario IN (
   AND (
        CONCAT(u.Nombre, ' ', u.Apellido1, ' ', COALESCE(u.Apellido2, '')) LIKE {{ "%" + SelectProfesor.filterText + "%" }}
        OR u.NIF LIKE {{ "%" + SelectProfesor.filterText + "%" }}
+			OR u.Email LIKE {{ "%" + SelectProfesor.filterText + "%" }}
+       OR u.Telefono LIKE {{ "%" + SelectProfesor.filterText + "%" }}
      )
 ORDER BY u.Apellido1
 LIMIT 25;

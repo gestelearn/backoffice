@@ -2,14 +2,17 @@ SELECT
   cur.IdCurso,
   cur.Nombre AS curso,
   cur.IdMoodle,
-  COUNT(DISTINCT c.IdConvocatoria) AS total_convocatorias,
-  DATE_FORMAT(MAX(c.FechaInicioCurso), '%d/%m/%Y') AS ultima_fecha,
+  COUNT(DISTINCT CASE WHEN c.FechaInicioCurso > '2013-12-31' THEN c.IdConvocatoria END) AS total_convocatorias,
+  DATE_FORMAT(MAX(CASE WHEN c.FechaInicioCurso > '2013-12-31' THEN c.FechaInicioCurso END), '%d/%m/%Y') AS ultima_fecha,
   ROUND(COALESCE(SUM(f.facturacion), 0), 2) AS facturacion,
+	COALESCE(SUM(f.alumnos), 0) AS alumnos,
+	  COALESCE(SUM(f.finalizados), 0) AS finalizados,
 	DATE(FROM_UNIXTIME(NULLIF(mc.timecreated, 0))) AS fecha_alta,
 	  (SELECT CASE
+		 				WHEN c5.FechaInicioCurso <= '2013-12-31' THEN 'Nuevo'
             WHEN CURDATE() BETWEEN c5.FechaInicioCurso AND c5.FechaFinCurso THEN 'Activo'
             WHEN CURDATE() > c5.FechaFinCurso THEN 'Stand by'
-            WHEN CURDATE() BETWEEN c5.FechaInicioMatricula AND c5.FechaFinMatricula THEN 'Abierto'
+            WHEN CURDATE() BETWEEN c5.FechaInicioMatricula AND c5.FechaFinMatricula THEN 'Matrícula'
             ELSE 'Programado'
           END
      FROM cogiti001.convocatorias c5
@@ -28,15 +31,19 @@ JOIN cogiti001.convocatorias c ON c.IdConvocatoria = pc.IdConvocatoria
 JOIN cogiti001.cursos cur ON cur.IdCurso = c.IdCurso
 LEFT JOIN cogiti001.mdl_course mc ON mc.id = cur.IdMoodle
 LEFT JOIN (
-     SELECT IdConvocatoria, SUM(Precio) AS facturacion
-     FROM cogiti001.matriculas
-     WHERE Baja = 0
-       AND Precio > 0
-     GROUP BY IdConvocatoria
+     SELECT m.IdConvocatoria,
+            SUM(m.Precio) AS facturacion,
+            COUNT(*) AS alumnos,
+            SUM(CASE WHEN d.Calificacion = 'APTO' THEN 1 ELSE 0 END) AS finalizados
+     FROM cogiti001.matriculas m
+     LEFT JOIN cogiti001.diplomas d ON d.IdMatricula = m.IdMatricula
+     WHERE m.Baja = 0
+       AND m.Precio > 0
+     GROUP BY m.IdConvocatoria
    ) f ON f.IdConvocatoria = c.IdConvocatoria
+
 WHERE pc.IdUsuario = {{ SelectProfesor.selectedOptionValue }}
   AND pc.EsPrincipal = 1
   AND c.Activo = 1
-  AND c.FechaInicioCurso > '2013-12-31'
 GROUP BY cur.IdCurso, cur.Nombre, cur.IdMoodle
 ORDER BY MAX(c.FechaInicioCurso) DESC;

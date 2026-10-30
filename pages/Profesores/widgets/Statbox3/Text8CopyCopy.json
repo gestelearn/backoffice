@@ -1,7 +1,7 @@
 {
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 4,
+  "bottomRow": 6,
   "dynamicBindingPathList": [
     {
       "key": "truncateButtonColor"
@@ -11,17 +11,20 @@
     },
     {
       "key": "borderRadius"
+    },
+    {
+      "key": "text"
     }
   ],
   "dynamicHeight": "AUTO_HEIGHT",
   "dynamicTriggerPathList": [],
   "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
-  "fontSize": "1.25rem",
+  "fontSize": "1.875rem",
   "fontStyle": "BOLD",
   "isLoading": false,
   "isVisible": true,
-  "key": "xaryj2945b",
-  "leftColumn": 11,
+  "key": "vmj9y52ed0",
+  "leftColumn": 51,
   "maxDynamicHeight": 9000,
   "minDynamicHeight": 4,
   "minWidth": 450,
@@ -31,20 +34,20 @@
   "mobileTopRow": 4,
   "needsErrorInfo": false,
   "originalBottomRow": 6,
-  "originalTopRow": 0,
+  "originalTopRow": 1,
   "overflow": "NONE",
-  "parentId": "ygim4bymjk",
+  "parentId": "fdfasot3yq",
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
-  "rightColumn": 53,
+  "rightColumn": 58,
   "shouldTruncate": false,
-  "text": "Programados",
+  "text": "{{\n  (() => {\n    const d = cursosProfesor.data ?? [];\n    const al = d.reduce((a, r) => a + Number(r.alumnos ?? 0), 0);\n    const fi = d.reduce((a, r) => a + Number(r.finalizados ?? 0), 0);\n    return al > 0 ? Math.round(fi / al * 100) + \"%\" : \"—\";\n  })()\n}}",
   "textAlign": "CENTER",
   "textColor": "#231F20",
-  "topRow": 0,
+  "topRow": 1,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
   "version": 1,
-  "widgetId": "rjjo6464mk",
-  "widgetName": "ActivosCopy"
+  "widgetId": "byc7gmrkkf",
+  "widgetName": "Text8CopyCopy"
 }
