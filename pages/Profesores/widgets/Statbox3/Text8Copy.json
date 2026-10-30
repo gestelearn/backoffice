@@ -41,7 +41,7 @@
   "responsiveBehavior": "fill",
   "rightColumn": 36,
   "shouldTruncate": false,
-  "text": "{{ (cursosProfesor.data ?? []).reduce((acc, r) => acc + Number(r.finalizados ?? 0), 0) }}",
+  "text": "{{\n  (() => {\n    const d = cursosProfesor.data ?? [];\n    const al = d.reduce((a, r) => a + Number(r.alumnos ?? 0), 0);\n    const fi = d.reduce((a, r) => a + Number(r.finalizados ?? 0), 0);\n    return al > 0 ? Math.round(fi / al * 100) + \"%\" : \"—\";\n  })()\n}}",
   "textAlign": "CENTER",
   "textColor": "#231F20",
   "topRow": 1,

@@ -6,8 +6,10 @@ SELECT
   DATE_FORMAT(MAX(CASE WHEN c.FechaInicioCurso > '2013-12-31' THEN c.FechaInicioCurso END), '%d/%m/%Y') AS ultima_fecha,
   ROUND(COALESCE(SUM(f.facturacion), 0), 2) AS facturacion,
 	COALESCE(SUM(f.alumnos), 0) AS alumnos,
-	  COALESCE(SUM(f.finalizados), 0) AS finalizados,
+	COALESCE(SUM(f.finalizados), 0) AS finalizados,
 	DATE(FROM_UNIXTIME(NULLIF(mc.timecreated, 0))) AS fecha_alta,
+	ROUND(COALESCE(SUM(f.facturacion), 0) /
+        NULLIF(COUNT(DISTINCT CASE WHEN c.FechaInicioCurso > '2013-12-31' THEN c.IdConvocatoria END), 0), 2) AS media_por_convocatoria,
 	  (SELECT CASE
 		 				WHEN c5.FechaInicioCurso <= '2013-12-31' THEN 'Nuevo'
             WHEN CURDATE() BETWEEN c5.FechaInicioCurso AND c5.FechaFinCurso THEN 'Activo'
