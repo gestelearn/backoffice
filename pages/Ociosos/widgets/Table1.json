@@ -54,7 +54,7 @@
   ],
   "columnUpdatedAt": 1793010241090,
   "columnWidthMap": {
-    "Curso": 389,
+    "Curso": 369,
     "DPP": 95,
     "IdCurso": 89,
     "Modalidad": 120,
@@ -66,9 +66,9 @@
     "suscripciones_globales": 79,
     "suscripciones_pendientes": 72,
     "total_matriculados": 111,
-    "ultima_actualizacion": 166,
+    "ultima_actualizacion": 151,
     "ultima_fecha_inicio": 178,
-    "ultimo_contacto_por": 139
+    "ultimo_contacto_por": 129
   },
   "customIsLoading": false,
   "customIsLoadingValue": "",

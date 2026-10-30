@@ -39,7 +39,7 @@
     "creado_por",
     "creado_en"
   ],
-  "columnUpdatedAt": 1792064182388,
+  "columnUpdatedAt": 1793352490966,
   "columnWidthMap": {
     "creado_por": 241,
     "descripcion": 164
@@ -200,7 +200,7 @@
       "isDiscardVisible": true,
       "isEditable": false,
       "isSaveVisible": true,
-      "isVisible": true,
+      "isVisible": false,
       "label": "descripcion",
       "notation": "standard",
       "originalId": "descripcion",

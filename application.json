@@ -32,11 +32,19 @@
   "icon": "workflows",
   "pages": [
     {
-      "id": "Ficha Curso",
+      "id": "Stats",
       "isDefault": true
     },
     {
+      "id": "Ficha Curso",
+      "isDefault": false
+    },
+    {
       "id": "Control Semanal",
+      "isDefault": false
+    },
+    {
+      "id": "Profesores",
       "isDefault": false
     },
     {
@@ -45,10 +53,6 @@
     },
     {
       "id": "Ociosos",
-      "isDefault": false
-    },
-    {
-      "id": "Stats",
       "isDefault": false
     }
   ],

@@ -1,0 +1,11 @@
+INSERT INTO appsmith.obs_estado_contacto (IdCurso, estado, actualizado_por, actualizado_en)
+VALUES (
+  {{ appsmith.store.cursoEstadoSeleccionado }},
+  {{ appsmith.store.colorSeleccionado }},
+  {{ appsmith.user.email }},
+  NOW()
+)
+ON DUPLICATE KEY UPDATE
+  estado = VALUES(estado),
+  actualizado_por = VALUES(actualizado_por),
+  actualizado_en = VALUES(actualizado_en);

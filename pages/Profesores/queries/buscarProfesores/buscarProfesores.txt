@@ -1,0 +1,14 @@
+SELECT u.IdUsuario,
+       TRIM(CONCAT(u.Nombre, ' ', u.Apellido1, ' ', COALESCE(u.Apellido2, ''))) AS nombre_profesor
+FROM cogiti001.usuarios u
+WHERE u.IdUsuario IN (
+       SELECT DISTINCT pc.IdUsuario
+       FROM cogiti001.profesoresconvocatoria pc
+       WHERE pc.EsPrincipal = 1
+     )
+  AND (
+       CONCAT(u.Nombre, ' ', u.Apellido1, ' ', COALESCE(u.Apellido2, '')) LIKE {{ "%" + SelectProfesor.filterText + "%" }}
+       OR u.NIF LIKE {{ "%" + SelectProfesor.filterText + "%" }}
+     )
+ORDER BY u.Apellido1
+LIMIT 25;

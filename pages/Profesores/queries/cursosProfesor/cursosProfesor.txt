@@ -1,0 +1,42 @@
+SELECT
+  cur.IdCurso,
+  cur.Nombre AS curso,
+  cur.IdMoodle,
+  COUNT(DISTINCT c.IdConvocatoria) AS total_convocatorias,
+  DATE_FORMAT(MAX(c.FechaInicioCurso), '%d/%m/%Y') AS ultima_fecha,
+  ROUND(COALESCE(SUM(f.facturacion), 0), 2) AS facturacion,
+	DATE(FROM_UNIXTIME(NULLIF(mc.timecreated, 0))) AS fecha_alta,
+	  (SELECT CASE
+            WHEN CURDATE() BETWEEN c5.FechaInicioCurso AND c5.FechaFinCurso THEN 'Activo'
+            WHEN CURDATE() > c5.FechaFinCurso THEN 'Stand by'
+            WHEN CURDATE() BETWEEN c5.FechaInicioMatricula AND c5.FechaFinMatricula THEN 'Abierto'
+            ELSE 'Programado'
+          END
+     FROM cogiti001.convocatorias c5
+    WHERE c5.IdCurso = cur.IdCurso
+      AND c5.Activo = 1
+      AND c5.IdConvocatoria IN (
+            SELECT pc5.IdConvocatoria
+            FROM cogiti001.profesoresconvocatoria pc5
+            WHERE pc5.IdUsuario = {{ SelectProfesor.selectedOptionValue }}
+              AND pc5.EsPrincipal = 1
+          )
+    ORDER BY c5.FechaInicioCurso DESC
+    LIMIT 1) AS estado
+FROM cogiti001.profesoresconvocatoria pc
+JOIN cogiti001.convocatorias c ON c.IdConvocatoria = pc.IdConvocatoria
+JOIN cogiti001.cursos cur ON cur.IdCurso = c.IdCurso
+LEFT JOIN cogiti001.mdl_course mc ON mc.id = cur.IdMoodle
+LEFT JOIN (
+     SELECT IdConvocatoria, SUM(Precio) AS facturacion
+     FROM cogiti001.matriculas
+     WHERE Baja = 0
+       AND Precio > 0
+     GROUP BY IdConvocatoria
+   ) f ON f.IdConvocatoria = c.IdConvocatoria
+WHERE pc.IdUsuario = {{ SelectProfesor.selectedOptionValue }}
+  AND pc.EsPrincipal = 1
+  AND c.Activo = 1
+  AND c.FechaInicioCurso > '2013-12-31'
+GROUP BY cur.IdCurso, cur.Nombre, cur.IdMoodle
+ORDER BY MAX(c.FechaInicioCurso) DESC;
