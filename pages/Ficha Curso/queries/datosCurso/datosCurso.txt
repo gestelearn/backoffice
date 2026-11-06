@@ -10,7 +10,6 @@ SELECT
        ELSE ROUND(precios.precio_base + COALESCE(precios.horas_num,0), 2) 
   END AS precio_fundae,
   precios.precio_base AS precio_no_colegiado,
-  ROUND(precios.precio_base * 0.75, 2) AS precio_convenio,
   ROUND(precios.precio_base * 0.50, 2) AS precio_colegiado,
   ROUND(precios.precio_base * 0.25, 2) AS precio_becado,
   COUNT(DISTINCT c.IdConvocatoria) AS total_convocatorias,
