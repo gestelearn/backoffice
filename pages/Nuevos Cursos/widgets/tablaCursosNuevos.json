@@ -43,14 +43,16 @@
     "profe",
     "telefono",
     "customColumn1",
+    "customColumn2",
     "TvEducativa",
+    "idMoodle",
     "EditActions1"
   ],
-  "columnUpdatedAt": 1789721864541,
+  "columnUpdatedAt": 1794390243695,
   "columnWidthMap": {
     "IdCurso": 98,
     "curso": 530,
-    "customColumn1": 104,
+    "customColumn1": 123,
     "customColumn2": 121,
     "email": 229,
     "estado_contacto": 171,
@@ -102,9 +104,6 @@
       "key": "primaryColumns.email.computedValue"
     },
     {
-      "key": "primaryColumns.customColumn1.buttonColor"
-    },
-    {
       "key": "primaryColumns.customColumn1.borderRadius"
     },
     {
@@ -151,6 +150,15 @@
     },
     {
       "key": "primaryColumns.fecha_alta.computedValue"
+    },
+    {
+      "key": "primaryColumns.customColumn2.borderRadius"
+    },
+    {
+      "key": "primaryColumns.customColumn2.boxShadow"
+    },
+    {
+      "key": "primaryColumns.idMoodle.computedValue"
     }
   ],
   "dynamicPropertyPathList": [
@@ -209,6 +217,9 @@
     },
     {
       "key": "primaryColumns.estado_contacto.menuItems.menuItem2xdw177xvz.onClick"
+    },
+    {
+      "key": "primaryColumns.customColumn2.onClick"
     }
   ],
   "enableClientSideSearch": true,
@@ -225,7 +236,7 @@
   "isVisibleSearch": true,
   "key": "99dj34yime",
   "label": "Data",
-  "leftColumn": 6,
+  "leftColumn": 3,
   "minWidth": 450,
   "mobileBottomRow": 34,
   "mobileLeftColumn": 13,
@@ -379,7 +390,7 @@
       "allowSameOptionsInNewRow": true,
       "borderRadius": "{{tablaCursosNuevos.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.borderRadius.appBorderRadius)))}}",
       "boxShadow": "{{tablaCursosNuevos.processedTableData.map((currentRow, currentIndex) => ( \"none\"))}}",
-      "buttonColor": "{{tablaCursosNuevos.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.colors.primaryColor)))}}",
+      "buttonColor": "#b91c1c",
       "buttonLabel": "Ver",
       "buttonStyle": "rgb(3, 179, 101)",
       "columnType": "button",
@@ -405,6 +416,45 @@
       "notation": "standard",
       "onClick": "{{storeValue('cursoSeleccionado', currentRow.IdCurso);\nlistarApuntesCurso.run();\nshowModal(modalHistorial.name);\nstoreValue('nombreCursoSeleccionado', currentRow.curso);\nstoreValue('nombreProfesor', currentRow.profe);}}",
       "originalId": "customColumn1",
+      "sticky": "",
+      "textSize": "1rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "customColumn2": {
+      "alias": "Moodle",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "borderRadius": "{{tablaCursosNuevos.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.borderRadius.appBorderRadius)))}}",
+      "boxShadow": "{{tablaCursosNuevos.processedTableData.map((currentRow, currentIndex) => ( \"none\"))}}",
+      "buttonColor": "#1e3a8a",
+      "buttonLabel": "Ir",
+      "buttonStyle": "rgb(3, 179, 101)",
+      "columnType": "button",
+      "computedValue": "",
+      "currencyCode": "USD",
+      "customAlias": "",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "horizontalAlignment": "LEFT",
+      "id": "customColumn2",
+      "index": 9,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": true,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Moodle",
+      "labelColor": "#FFFFFF",
+      "notation": "standard",
+      "onClick": "{{navigateTo(\"https://www.ingenierosformacion.com/campus/course/view.php?id=\" + currentRow.idMoodle, {}, 'NEW_WINDOW');}}",
+      "originalId": "customColumn2",
       "sticky": "",
       "textSize": "1rem",
       "thousandSeparator": true,
@@ -564,6 +614,40 @@
       "notation": "standard",
       "originalId": "fecha_alta",
       "outputFormat": "DD/MM/YYYY",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "1rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "idMoodle": {
+      "alias": "idMoodle",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "number",
+      "computedValue": "{{(() => { const tableData = tablaCursosNuevos.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"idMoodle\"])) : idMoodle })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "",
+      "horizontalAlignment": "LEFT",
+      "id": "idMoodle",
+      "index": 11,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "idMoodle",
+      "notation": "standard",
+      "originalId": "idMoodle",
       "sticky": "",
       "textColor": "",
       "textSize": "1rem",
@@ -747,7 +831,7 @@
   },
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
-  "rightColumn": 60,
+  "rightColumn": 64,
   "searchKey": "",
   "showInlineEditingOptionDropdown": true,
   "tableData": "{{cursosNuevos.data}}",

@@ -9,7 +9,8 @@ SELECT
   prof.emails_profesores AS email,
 	prof.telefono_profesores AS telefono,
 	COALESCE(ec.estado, 'sin_contactar') AS estado_contacto,
-	DATE(FROM_UNIXTIME(NULLIF(mc.timecreated, 0))) AS fecha_alta
+	DATE(FROM_UNIXTIME(NULLIF(mc.timecreated, 0))) AS fecha_alta,
+	cur.idMoodle
 FROM cogiti001.cursos cur
 JOIN (
      SELECT IdCurso, COUNT(*) AS n_convocatorias

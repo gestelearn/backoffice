@@ -1,7 +1,7 @@
 {
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 26,
+  "bottomRow": 28,
   "dynamicBindingPathList": [
     {
       "key": "truncateButtonColor"
@@ -41,8 +41,8 @@
   "mobileRightColumn": 37,
   "mobileTopRow": 4,
   "needsErrorInfo": false,
-  "originalBottomRow": 26,
-  "originalTopRow": 21,
+  "originalBottomRow": 28,
+  "originalTopRow": 23,
   "overflow": "NONE",
   "parentId": "qcb6oqty5e",
   "renderMode": "CANVAS",
@@ -52,7 +52,7 @@
   "text": "{{\n  (() => {\n    const act = Number(statsAnual.data[0]?.facturado_ordinario ?? 0);\n    const ant = Number(statsAnual.data[1]?.facturado_ordinario ?? 0);\n    if (!ant) return \"—\";\n    const delta = ((act - ant) / ant) * 100;\n    return (delta >= 0 ? \"▲ +\" : \"▼ \") + delta.toFixed(1) + \"%\";\n  })()\n}}",
   "textAlign": "CENTER",
   "textColor": "{{\n  Number(statsAnual.data[0]?.facturado_ordinario ?? 0) >= Number(statsAnual.data[1]?.facturado_ordinario ?? 0) ? \"#22c55e\" : \"#ef4444\"\n}}",
-  "topRow": 21,
+  "topRow": 23,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
   "version": 1,
